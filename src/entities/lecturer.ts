@@ -9,7 +9,10 @@ export class Lecturer
 	isPremium: boolean;
 	telephone: string;
 	email: string;
-	modules: List<Module>;
+	modules: Module[];
+	timeEntries: TimeEntry[];
+	announcements: Announcement[];
+	
 		
 	constructor()
 	{

@@ -10,6 +10,8 @@ export class Student
 	telephone: string;
 	email: string;
 	modules: Module[];
+	announcements: Announcement[];
+	timeEntries: TimeEntry[];
 		
 	constructor()
 	{
