@@ -16,3 +16,36 @@
 <ion-content padding>
 
 </ion-content>
+
+<ion-content padding class="page-login">
+  <ion-card-content>
+	  <ion-list>
+
+	    <ion-item>
+	      <ion-label floating>Username</ion-label>
+	      <ion-input type="email" [(ngModel)]="user.username"></ion-input>
+	    </ion-item>
+
+	    <ion-item>
+	      <ion-label floating>Password</ion-label>
+	      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+	    </ion-item>
+
+	  </ion-list>
+
+	  <div padding style="text-align: center;">
+	  
+	    <button ion-button color="primary" block (click)="login(user)">LOG IN</button> 
+
+	    <button ion-button  color="light" outline block  (click)="loginWithFacebook()">
+			    <ion-icon name="logo-facebook"></ion-icon>　 FACEBOOK LOG IN
+		</button>
+	    <hr>
+	    <span>
+			<h6 style="color:#696969;">Not a member yet? 
+				<a style="color:white;text-decoration: none;" [navPush]="register">Sign up</a>
+			</h6>
+		</span>
+	  </div>
+  </ion-card-content>
+</ion-content>
