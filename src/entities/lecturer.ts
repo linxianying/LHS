@@ -1,3 +1,8 @@
+import { Module } from './module';
+import { Announcement } from './announcement';
+import { TimeEntry } from './timeEntry';
+
+
 export class Lecturer
 {
 	id: number;

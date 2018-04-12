@@ -1,3 +1,7 @@
+
+import { Module } from './module';
+import { Lecturer } from './lecturer';
+
 export class Announcement
 {
 	id: number;

@@ -1,3 +1,5 @@
+import { Module } from './module';
+
 export class TeachingAssistant
 {
 	id: number;

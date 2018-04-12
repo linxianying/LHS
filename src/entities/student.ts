@@ -1,3 +1,7 @@
+import { Module } from './module';
+import { Announcement } from './announcement';
+import { TimeEntry } from './timeEntry';
+
 export class Student
 {
 	id: number;

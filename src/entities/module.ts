@@ -1,3 +1,9 @@
+import { Lecturer } from './lecturer';
+import { Announcement } from './announcement';
+import { TeachingAssistant } from './teachingAssistant';
+import { FileEntity } from './fileEntity';
+import { Student } from './student';
+
 export class Module
 {
 	id: number;
@@ -7,7 +13,7 @@ export class Module
 	modularCredit: number;
 	moduleCode: string;
 	moduleName: string;
-	lecturers: Lectuer[];
+	lecturers: Lecturer[];
 	TAs: TeachingAssistant[];
 	students: Student[];
 	announcements: Announcement[];
