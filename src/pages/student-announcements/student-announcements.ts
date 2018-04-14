@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the StudentAnnouncementsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ModuleProvider } from '../../providers/module/module';
+
+import { Module } from '../../entities/module';
+import { Announcement } from '../../entities/announcement';
 
 @Component({
   selector: 'page-student-announcements',
@@ -14,11 +12,25 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class StudentAnnouncementsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	errorMessage: string;
+	announcements: Announcement[];
+	moduleId: number;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider) {
+  	this.moduleId = navParams.get('moduleId');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentAnnouncementsPage');
+
+    this.moduleProvider.getAnnouncements(this.moduleId).subscribe(
+			response => {
+				this.announcements = response.announcements;
+			},
+			error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);
   }
 
 }
