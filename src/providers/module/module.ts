@@ -27,9 +27,9 @@ export class ModuleProvider {
 	password = "";
 	loginCredential = "";
 
-  constructor(public platform: Platform, private httpClient: HttpClient) {
-    console.log('Hello ModuleProvider Provider');
-  }
+  	constructor(public platform: Platform, private httpClient: HttpClient) {
+    	console.log('Hello ModuleProvider Provider');
+  	}
 
     getEnrolledModules(username: string): Observable<any>
 	{

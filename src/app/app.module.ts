@@ -11,6 +11,13 @@ import { LecturerSchedulePage } from '../pages/lecturer-schedule/lecturer-schedu
 import { StudentDashboardPage } from '../pages/student-dashboard/student-dashboard';
 import { StudentModulePage } from '../pages/student-module/student-module';
 import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
+import { StudentFacilitatorPage } from '../pages/student-facilitators/student-facilitators';
+import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
+import { StudentFilePage } from '../pages/student-file/student-file';
+import { LecturerFacilitatorPage } from '../pages/Lecturer-facilitators/Lecturer-facilitators';
+import { LecturerModuleDetailsPage } from '../pages/Lecturer-module-details/Lecturer-module-details';
+import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,6 +30,7 @@ import { TimeEntryProvider } from '../providers/time-entry/time-entry';
 import { AdministratorProvider } from '../providers/administrator/administrator';
 import { ModuleProvider } from '../providers/module/module';
 import { FileEntityProvider } from '../providers/file-entity/file-entity';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,11 +42,19 @@ import { FileEntityProvider } from '../providers/file-entity/file-entity';
     LecturerSchedulePage,
     StudentDashboardPage,
     StudentModulePage,
-    StudentSchedulePage
+    StudentSchedulePage,
+    StudentFacilitatorPage,
+    StudentModuleDetailsPage,
+    StudentFilePage,
+    LecturerFacilitatorPage,
+    LecturerModuleDetailsPage,
+    LecturerFilePage
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +66,14 @@ import { FileEntityProvider } from '../providers/file-entity/file-entity';
     LecturerSchedulePage,
     StudentDashboardPage,
     StudentModulePage,
-    StudentSchedulePage
+    StudentSchedulePage,
+    StudentFacilitatorPage,
+    StudentModuleDetailsPage,
+    StudentFilePage,
+    LecturerFacilitatorPage,
+    LecturerModuleDetailsPage,
+    LecturerFilePage
+
   ],
   providers: [
     StatusBar,
