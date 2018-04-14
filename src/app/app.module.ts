@@ -6,6 +6,11 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { LecturerModulePage } from '../pages/lecturer-module/lecturer-module';
+import { LecturerSchedulePage } from '../pages/lecturer-schedule/lecturer-schedule';
+import { StudentDashboardPage } from '../pages/student-dashboard/student-dashboard';
+import { StudentModulePage } from '../pages/student-module/student-module';
+import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +29,12 @@ import { FileEntityProvider } from '../providers/file-entity/file-entity';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    LecturerModulePage,
+    LecturerSchedulePage,
+    StudentDashboardPage,
+    StudentModulePage,
+    StudentSchedulePage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +45,12 @@ import { FileEntityProvider } from '../providers/file-entity/file-entity';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    LecturerModulePage,
+    LecturerSchedulePage,
+    StudentDashboardPage,
+    StudentModulePage,
+    StudentSchedulePage
   ],
   providers: [
     StatusBar,
