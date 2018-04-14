@@ -14,11 +14,11 @@ const httpOptions = {
 @Injectable()
 export class StudentProvider {
 
-    ipAddress = '192.168.0.100';
+    ipAddress = '192.168.0.101';
 	portNo = '8080';
-	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-war/Resources/Login_logout';
+	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/login_logout';
 	
-	baseUrl = "/api/student";
+	baseUrl = "/api/login_logout";
 	
 	username = "";
 	password = "";
@@ -78,6 +78,26 @@ export class StudentProvider {
 			catchError(this.handleError)
 		);
 	 }
+
+	updateStudent(student: Student): Observable<any>
+	{
+		let updateStudentReq = {"student": student};
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.post<any>(path, updateStudentReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
 
 	private handleError(error: HttpErrorResponse)
 	{
