@@ -1,20 +1,33 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the StudentModuleDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ModuleProvider } from '../../providers/module/module';
+
+import { Module } from '../../entities/module';
+
 
 @Component({
   selector: 'page-student-module-details',
   templateUrl: 'student-module-details.html',
 })
+
 export class StudentModuleDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	errorMessage: string;
+	module: Module;
+  moduleId: number;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider) {
+  	this.moduleId = JSON.parse(sessionStorage.getItem('moduleId'));
+
+    this.moduleProvider.getSpecificModule(this.moduleId).subscribe(
+      response => {
+        this.module = response.module;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
   }
 
   ionViewDidLoad() {
