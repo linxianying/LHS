@@ -4,5 +4,11 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://172.31.69.217:8080/LearningHubSystem-rest/webresources"
+    }
+  ]
 }

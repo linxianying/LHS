@@ -52,6 +52,7 @@ export class StudentModulePage {
 	viewModuleDetails(event, module) 
 	{
 		this.navCtrl.push(StudentModuleDetailsPage, {'moduleToViewId': module.id});
+		sessionStorage.setItem('moduleId', module.id);
 	}
 
 
