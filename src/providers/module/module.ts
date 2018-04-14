@@ -21,15 +21,15 @@ export class ModuleProvider {
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/module';
 	
-	baseUrl = "/api/Product";
+	baseUrl = "/api/module";
 	
 	username = "";
 	password = "";
 	loginCredential = "";
 
-  constructor(public platform: Platform, private httpClient: HttpClient) {
-    console.log('Hello ModuleProvider Provider');
-  }
+  	constructor(public platform: Platform, private httpClient: HttpClient) {
+    	console.log('Hello ModuleProvider Provider');
+  	}
 
     getEnrolledModules(username: string): Observable<any>
 	{
