@@ -18,7 +18,7 @@ export class StudentProvider {
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-war/Resources/Login_logout';
 	
-	baseUrl = "/api/Student";
+	baseUrl = "/api/student";
 	
 	username = "";
 	password = "";
@@ -58,6 +58,26 @@ export class StudentProvider {
 			catchError(this.handleError)
 		);
 	}
+
+	createStudent(student: Student): Observable<any>
+	 {
+	  let createStudentReq = {"student": student};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path, createStudentReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
 
 	private handleError(error: HttpErrorResponse)
 	{

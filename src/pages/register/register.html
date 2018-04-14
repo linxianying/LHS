@@ -7,6 +7,7 @@
 <ion-header>
 
   <ion-navbar>
+    <ion-title>Register</ion-title>
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -17,5 +18,52 @@
 
 
 <ion-content padding>
-
+	
+	<div *ngIf="infoMessage" class="infoText">
+		{{infoMessage}}
+	</div>
+	<div *ngIf="errorMessage" class="errorText">
+		{{errorMessage}}
+	</div>
+	
+	<ion-list>
+		<ion-list-header>
+			Register As A New Student
+		</ion-list-header>
+		<ion-item>
+			<ion-label fixed>Username</ion-label>
+			<ion-input type="text" [(ngModel)]="student.username"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed>Email</ion-label>
+			<ion-input type="text" [(ngModel)]="student.email"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed>Password</ion-label>
+			<ion-input type="password" [(ngModel)]="student.password"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed>Faculty</ion-label>
+			<ion-input type="text" [(ngModel)]="student.faculty"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed>Department</ion-label>
+			<ion-input type="text" [(ngModel)]="student.department"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed>Telephone</ion-label>
+			<ion-input type="text" [(ngModel)]="student.telephone"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed>Name</ion-label>
+			<ion-input type="text" [(ngModel)]="student.name"></ion-input>
+		</ion-item>
+		<ion-item>
+			<button ion-button block (click)="createStudent()">
+				Create
+			</button>
+		</ion-item>
+	</ion-list>		
+	
 </ion-content>
+
