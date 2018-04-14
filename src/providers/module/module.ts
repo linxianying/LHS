@@ -89,6 +89,7 @@ export class ModuleProvider {
 		);
 	}
 
+
 	getClassAndGroups(moduleId: number): Observable<any>
 	{
 		let path: string = '';
@@ -102,7 +103,64 @@ export class ModuleProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "/retrieveClassAndGroups/" + moduleId).pipe
+		return this.httpClient.get<any>(path + "retrieveClassAndGroups/" + moduleId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	getLecturers(moduleId: number): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "retrieveLecturers/" + moduleId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	getStudents(moduleId: number): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "retrieveStudents/" + moduleId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	getTAs(moduleId: number): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "retrieveTAs/" + moduleId).pipe
 		(
 			catchError(this.handleError)
 		);

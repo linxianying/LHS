@@ -6,6 +6,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { StudentModulePage } from '../pages/student-module/student-module';
+import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
+import { ClassAndGroupsPage } from '../pages/class-and-groups/class-and-groups';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +27,10 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Login', component: LoginPage },
-      { title: 'Register', component: RegisterPage }
+      { title: 'Register', component: RegisterPage },
+      { title: 'Module Overview', component: StudentModulePage },
+      { title: 'Annoucement', component: StudentAnnouncementsPage },
+      { title: 'Class and Groups', component: ClassAndGroupsPage }
     ];
 
   }

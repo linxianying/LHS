@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>student-module-details</ion-title>
   </ion-navbar>
 
@@ -14,5 +17,10 @@
 
 
 <ion-content padding>
-
+	<ion-list>
+    	<button ion-item *ngFor="let module of modules" (click)="viewModuleDetails(module)">
+      		{{ module.moduleCode }}
+      		{{ module.moduleName }}
+    	</button>
+  	</ion-list>
 </ion-content>
