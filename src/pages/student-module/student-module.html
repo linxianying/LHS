@@ -14,5 +14,11 @@
 
 
 <ion-content padding>
+	<ion-list>
+    	<button ion-item *ngFor="let module of modules" (click)="viewModuleDetails(module)">
+      		{{ module.moduleCode }}
+      		{{ module.moduleName }}
+    	</button>
+  	</ion-list>
 
 </ion-content>
