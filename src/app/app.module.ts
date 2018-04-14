@@ -11,10 +11,10 @@ import { LecturerSchedulePage } from '../pages/lecturer-schedule/lecturer-schedu
 import { StudentDashboardPage } from '../pages/student-dashboard/student-dashboard';
 import { StudentModulePage } from '../pages/student-module/student-module';
 import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
-import { StudentFacilitatorPage } from '../pages/student-facilitators/student-facilitators';
+import { StudentFacilitatorsPage } from '../pages/student-facilitators/student-facilitators';
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFilePage } from '../pages/student-file/student-file';
-import { LecturerFacilitatorPage } from '../pages/Lecturer-facilitators/Lecturer-facilitators';
+import { LecturerFacilitatorsPage } from '../pages/Lecturer-facilitators/Lecturer-facilitators';
 import { LecturerModuleDetailsPage } from '../pages/Lecturer-module-details/Lecturer-module-details';
 import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
 
@@ -43,10 +43,10 @@ import { HttpClientModule } from '@angular/common/http';
     StudentDashboardPage,
     StudentModulePage,
     StudentSchedulePage,
-    StudentFacilitatorPage,
+    StudentFacilitatorsPage,
     StudentModuleDetailsPage,
     StudentFilePage,
-    LecturerFacilitatorPage,
+    LecturerFacilitatorsPage,
     LecturerModuleDetailsPage,
     LecturerFilePage
 
@@ -67,10 +67,10 @@ import { HttpClientModule } from '@angular/common/http';
     StudentDashboardPage,
     StudentModulePage,
     StudentSchedulePage,
-    StudentFacilitatorPage,
+    StudentFacilitatorsPage,
     StudentModuleDetailsPage,
     StudentFilePage,
-    LecturerFacilitatorPage,
+    LecturerFacilitatorsPage,
     LecturerModuleDetailsPage,
     LecturerFilePage
 

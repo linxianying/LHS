@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { Platform } from 'ionic-angular';
 
-import { lecturer} from '../../entities/lecturer';
+import { Lecturer} from '../../entities/lecturer';
 
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,7 +21,7 @@ export class LecturerProvider {
 	baseUrl = "/api/lecturer";
 
 
-  	constructor(public http: HttpClient) {
+  	constructor(public platform: Platform, private httpClient: HttpClient) {
     	console.log('Hello LecturerProvider Provider');
   	}
 
