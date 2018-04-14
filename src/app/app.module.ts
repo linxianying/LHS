@@ -23,6 +23,7 @@ import { TimeEntryProvider } from '../providers/time-entry/time-entry';
 import { AdministratorProvider } from '../providers/administrator/administrator';
 import { ModuleProvider } from '../providers/module/module';
 import { FileEntityProvider } from '../providers/file-entity/file-entity';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FileEntityProvider } from '../providers/file-entity/file-entity';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

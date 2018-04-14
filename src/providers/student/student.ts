@@ -16,7 +16,7 @@ export class StudentProvider {
 
     ipAddress = '192.168.0.100';
 	portNo = '8080';
-	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-war/Resources/Student';
+	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-war/Resources/Login_logout';
 	
 	baseUrl = "/api/Student";
 	
@@ -36,6 +36,27 @@ export class StudentProvider {
 		this.username = username;
 		this.password = password;
 		this.loginCredential = "?username=" + username + "&password=" + password;
+	}
+
+	getStudent(username: string, password: string): Student
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/studentLogin" + "/" + username + "/"
+		+ password
+		+ this.loginCredential).pipe
+		(
+			catchError(this.handleError)
+		);
 	}
 
 	private handleError(error: HttpErrorResponse)
