@@ -13,29 +13,76 @@
 </ion-header>
 
 <ion-content padding class="page-login">
-  <ion-card-content>
-  	<ion-list>
-	  	<ion-item>
-	      <ion-label floating>Username</ion-label>
-	      <ion-input type="email" [(ngModel)]="student.username"></ion-input>
-	    </ion-item>
+<div *ngIf="!isLogin">
+	
+		<h3>Login</h3>
+		
+		<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
+		
+			<div>
+			
+				<div *ngIf="inusername.invalid && (inusername.dirty || inusername.touched || submitted)" class="errorText">
+					<div *ngIf="inusername.errors.required">
+						Username is required.
+					</div>
+					<div *ngIf="inusername.errors.minlength">
+						Username must be at least 4 characters long.
+					</div>
+					<div *ngIf="inusername.errors.maxlength">
+						Username cannot exceed 32 characters.
+					</div>
+				</div>
+				
+				<div *ngIf="inpassword.invalid && (inpassword.dirty || inpassword.touched || submitted)" class="errorText">
+					<div *ngIf="inpassword.errors.required">
+						Password is required.
+					</div>
+					<div *ngIf="inpassword.errors.minlength">
+						Password must be at least 4 characters long.
+					</div>
+					<div *ngIf="inpassword.errors.maxlength">
+						Password cannot exceed 32 characters.
+					</div>
+				</div>
+				
+				<div *ngIf="loginErrorMessage" class="errorText">
+					{{loginErrorMessage}}
+				</div>
+				
+			</div>
 
-	    <ion-item>
-	      <ion-label floating>Password</ion-label>
-	      <ion-input type="password" [(ngModel)]="student.password"></ion-input>
-	    </ion-item>
-	</ion-list>
-	<div padding style="text-align: center;">
-  
-      <button ion-button color="primary" block >LOG IN</button> 
+			<ion-list>
 
+				<ion-item>
+					<ion-label fixed>Username</ion-label>
+					<ion-input type="text" id="username" name="username" [(ngModel)]="username" minlength="4" maxlength="32" required="true" #inusername="ngModel"></ion-input>
+				</ion-item>
 
-	<hr>
-    <span>
-		<h6 style="color:#696969;">Not a member yet? 
-			<a style="color:black;text-decoration: none;" [navPush]="RegisterPage">Sign up</a>
-		</h6>
-	</span>
-	  </div>
-  </ion-card-content>
+				<ion-item>
+					<ion-label fixed>Password</ion-label>
+					<ion-input type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
+				</ion-item>
+				
+				<ion-item>
+					<button ion-button block (click)="clear()">
+						Clear
+					</button>					
+					<button type="submit" ion-button block>
+						Login
+					</button>
+				</ion-item>
+
+			</ion-list>
+			
+		</form>
+		
+	</div>
+	
+	<div *ngIf="isLogin">
+	
+		<h3>Welcome Back!</h3>
+	
+		You are login as {{username}}
+	
+	</div>
 </ion-content>
