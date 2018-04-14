@@ -1,0 +1,25 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Class and Groups</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div *ngIf="errorMessage" class="errorText">
+		{{errorMessage}}
+	</div>
+
+	<ion-list>
+		<ion-list-header>
+      		Class and Groups
+    	</ion-list-header>
+		<a ion-item *ngFor="let student of students" (click)="openModal($event, student)">
+			<ion-icon name='arrow-forward'></ion-icon> <b>{{student.faculty}}: {{student.name}}</b>
+		</a>
+	</ion-list>
+
+</ion-content>

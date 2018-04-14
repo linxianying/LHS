@@ -21,7 +21,7 @@ export class ModuleProvider {
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/module';
 	
-	baseUrl = "/api/Product";
+	baseUrl = "/api/module";
 	
 	username = "";
 	password = "";
@@ -65,6 +65,44 @@ export class ModuleProvider {
 		}
 		
 		return this.httpClient.get<any>(path + "/retrieveSpecificModule/" + moduleId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	getAnnouncements(moduleId: number): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveAnnoucements/" + moduleId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	getClassAndGroups(moduleId: number): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveClassAndGroups/" + moduleId).pipe
 		(
 			catchError(this.handleError)
 		);
