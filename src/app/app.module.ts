@@ -11,6 +11,13 @@ import { LecturerSchedulePage } from '../pages/lecturer-schedule/lecturer-schedu
 import { StudentDashboardPage } from '../pages/student-dashboard/student-dashboard';
 import { StudentModulePage } from '../pages/student-module/student-module';
 import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
+import { StudentFacilitatorPage } from '../pages/student-schedule/student-facilitators';
+import { StudentModuleDetailsPage } from '../pages/student-module/student-module-details';
+import { StudentFilePage } from '../pages/student-schedule/student-file';
+import { LecturerFacilitatorPage } from '../pages/student-schedule/Lecturer-facilitators';
+import { LecturerModuleDetailsPage } from '../pages/student-module/Lecturer-module-details';
+import { LecturerFilePage } from '../pages/student-schedule/Lecturer-file';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -35,7 +42,14 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerSchedulePage,
     StudentDashboardPage,
     StudentModulePage,
-    StudentSchedulePage
+    StudentSchedulePage,
+    StudentFacilitatorPage,
+    StudentModuleDetailsPage,
+    StudentFilePage,
+    LecturerFacilitatorPage,
+    LecturerModuleDetailsPage,
+    LecturerFilePage
+
   ],
   imports: [
     BrowserModule,
@@ -52,7 +66,14 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerSchedulePage,
     StudentDashboardPage,
     StudentModulePage,
-    StudentSchedulePage
+    StudentSchedulePage,
+    StudentFacilitatorPage,
+    StudentModuleDetailsPage,
+    StudentFilePage,
+    LecturerFacilitatorPage,
+    LecturerModuleDetailsPage,
+    LecturerFilePage
+
   ],
   providers: [
     StatusBar,
