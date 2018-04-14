@@ -1,5 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { catchError } from 'rxjs/operators';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { Platform } from 'ionic-angular';
 
 /*
   Generated class for the AdministratorProvider provider.
@@ -33,6 +37,26 @@ export class AdministratorProvider {
 		}
 		
 		return this.httpClient.get<any>(path + "/retrieveAdmin/" + adminId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	updateAdmin(admin:Admin): Observable<any>
+	{
+		let updateAdminReq = {"module": module};
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.post<any>(path, updateAdminReq, httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);
@@ -78,24 +102,5 @@ export class AdministratorProvider {
 		);
 	}
 
-	updateAdmin(admin:Admin): Observable<any>
-	{
-		let updateAdminReq = {"module": module};
-		let path: string = '';
-		
-		if(this.platform.is('core') || this.platform.is('mobileweb')) 
-		{
-			path = this.baseUrl;
-		}
-		else
-		{
-			path = this.fullBaseUrl;
-		}
-		
-		return this.httpClient.post<any>(path, updateAdminReq, httpOptions).pipe
-		(
-			catchError(this.handleError)
-		);
-	}
 
 }
