@@ -38,7 +38,7 @@ export class StudentProvider {
 		this.loginCredential = "?username=" + username + "&password=" + password;
 	}
 
-	getStudent(username: string, password: string): Student
+	getStudent(username: string, password: string): Observable<any>
 	{
 		let path: string = '';
 		
