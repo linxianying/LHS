@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
+import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+
+import { Student } from '../../entities/student';
+
+import { StudentProvider } from '../../providers/student/student';
 
 
 @Component({
@@ -8,10 +15,30 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
   fromPage: string;
+  infoMessage: string;
+  errorMessage: string;
+  student: Student;
 
   constructor(public navCtrl: NavController, 
-  			  public navParams: NavParams) {
+  			  public navParams: NavParams,
+          public studentProvider: StudentProvider) {
     this.fromPage = navParams.get('fromPage');
+    this.student = new Student();
+  }
+
+
+  createStudent()
+  {
+    this.studentProvider.createStudent(this.student).subscribe(
+      response => {           
+        this.infoMessage = "New student " + response.id + " created successfully";
+        this.errorMessage = null;
+      },
+      error => {        
+        this.infoMessage = null;
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
   }
 
   ionViewDidLoad() {
