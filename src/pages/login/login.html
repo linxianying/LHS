@@ -12,13 +12,30 @@
 
 </ion-header>
 
-
-<ion-content padding>
-
-</ion-content>
-
 <ion-content padding class="page-login">
   <ion-card-content>
-	  
+  	<ion-list>
+	  	<ion-item>
+	      <ion-label floating>Username</ion-label>
+	      <ion-input type="email" [(ngModel)]="student.username"></ion-input>
+	    </ion-item>
+
+	    <ion-item>
+	      <ion-label floating>Password</ion-label>
+	      <ion-input type="password" [(ngModel)]="student.password"></ion-input>
+	    </ion-item>
+	</ion-list>
+	<div padding style="text-align: center;">
+  
+      <button ion-button color="primary" block >LOG IN</button> 
+
+
+	<hr>
+    <span>
+		<h6 style="color:#696969;">Not a member yet? 
+			<a style="color:black;text-decoration: none;" [navPush]="RegisterPage">Sign up</a>
+		</h6>
+	</span>
+	  </div>
   </ion-card-content>
 </ion-content>
