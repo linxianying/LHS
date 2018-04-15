@@ -5,6 +5,8 @@ import { ModuleProvider } from '../../providers/module/module';
 
 import { Lecturer } from '../../entities/lecturer';
 
+import { TeachingAssistant } from '../../entities/teachingAssistant';
+
 import { Module } from '../../entities/module';
 
 @Component({
@@ -15,6 +17,7 @@ export class StudentFacilitatorsPage {
 
 	errorMessage: string;
 	lecturers: Lecturer[];
+  tas: TeachingAssistant[];
 	moduleId: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
@@ -31,13 +34,26 @@ export class StudentFacilitatorsPage {
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 			}
 		);
+
+    this.moduleProvider.getTAs(this.moduleId).subscribe(
+      response => {
+        this.tas = response.tas;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
   }
 
-  openModal(lecturer) {
+  openModalLecturer(lecturer) {
     let modal = this.modalCtrl.create(LecturerDetailsPage, lecturer);
     modal.present();
   }
 
+  openModalTA(ta) {
+    let modal = this.modalCtrl.create(TaDetailsPage, ta);
+    modal.present();
+  }
 }
 
 
@@ -51,6 +67,23 @@ export class LecturerDetailsPage {
   ) {
     
     this.lecturer = this.params.get('lecturer');
+  }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
+}
+
+export class TaDetailsPage {
+  ta;
+
+  constructor(
+    public platform: Platform,
+    public params: NavParams,
+    public viewCtrl: ViewController
+  ) {
+    
+    this.ta = this.params.get('ta');
   }
 
   dismiss() {

@@ -15,10 +15,19 @@
 
 	<ion-list>
 		<ion-list-header>
-      		Facilitators
+      		Lecturers
     	</ion-list-header>
-		<a ion-item *ngFor="let lecturer of lecturers" (click)="openModal($event, lecturer)">
+		<a ion-item *ngFor="let lecturer of lecturers" (click)="openModalLecturer($event, lecturer)">
 			<ion-icon name='arrow-forward'></ion-icon> <b>{{lecturer.name}}</b>
+		</a>
+	</ion-list>
+
+	<ion-list>
+		<ion-list-header>
+      		Teaching Assistants
+    	</ion-list-header>
+		<a ion-item *ngFor="let ta of tas" (click)="openModalTA($event, ta)">
+			<ion-icon name='arrow-forward'></ion-icon> <b>{{ta.name}}</b>
 		</a>
 	</ion-list>
 
