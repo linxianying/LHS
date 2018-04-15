@@ -18,7 +18,7 @@ export class ClassAndGroupsPage {
 	moduleId: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
-    this.moduleId = navParams.get('moduleId');
+    this.moduleId = JSON.parse(sessionStorage.getItem('moduleId'));
   }
 
   openModal(student) {

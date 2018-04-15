@@ -17,7 +17,8 @@ export class StudentAnnouncementsPage {
 	moduleId: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider) {
-  	this.moduleId = navParams.get('moduleId');
+  	
+  	this.moduleId = JSON.parse(sessionStorage.getItem('moduleId'));
   }
 
   ionViewDidLoad() {
