@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the StudentDashboardPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NgForm } from '@angular/forms';
+import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
+import { Student } from '../../entities/student';
+
+import { StudentProvider } from '../../providers/student/student';
 @Component({
   selector: 'page-student-dashboard',
   templateUrl: 'student-dashboard.html',
