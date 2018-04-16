@@ -22,7 +22,6 @@ export class ClassAndGroupsPage {
   }
 
   openModal(student) {
-
     let modal = this.modalCtrl.create(StudentDetailsPage, student);
     modal.present();
   }
