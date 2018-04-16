@@ -17,7 +17,7 @@ const httpOptions = {
 export class ModuleProvider {
 
 
-	ipAddress = '172.31.69.217';
+	ipAddress = '172.25.107.223';
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/module';
 	

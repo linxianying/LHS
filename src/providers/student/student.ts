@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable()
 export class StudentProvider {
 
-    ipAddress = '172.25.103.191';
+    ipAddress = '172.25.107.223';
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/login_logout';
 	
