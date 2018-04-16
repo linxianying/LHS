@@ -34,7 +34,5 @@ export class StudentModuleDetailsPage {
     console.log('ionViewDidLoad StudentModuleDetailsPage');
   }
 
-  openPage(page) {
-    this.nav.setRoot(page.component);
-  }
+
 }
