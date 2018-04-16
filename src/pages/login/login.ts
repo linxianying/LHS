@@ -23,6 +23,8 @@ export class LoginPage {
   isLogin: boolean;
   username: string;
   password: string;
+  errorMessage: string;
+  infoMessage: string;
 	
 	
 	constructor(public navCtrl: NavController,
@@ -59,7 +61,9 @@ export class LoginPage {
     
     if (loginForm.valid) 
     {
-      if(this.studentProvider.getStudent(this.username, this.password)){
+      this.studentProvider.getStudent(this.username, this.password).subscribe(
+        response => {         
+          this.infoMessage = "Student login successfully";
           this.isLogin = true;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
@@ -71,18 +75,13 @@ export class LoginPage {
           });
         
           toast.present();
-      }
-      else 
-      {
-        let alert = this.alertCtrl.create(
-        {
-          title: 'Login',
-          subTitle: 'Invalid login credential',
-          buttons: ['OK']
-        });
-        
-        alert.present();      
-      }
+        },
+        error => {
+          this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+        }
+      );
+      
+      
     }
     else
     {
