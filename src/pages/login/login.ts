@@ -59,25 +59,7 @@ export class LoginPage {
     
     if (loginForm.valid) 
     {
-      if((this.username == "student") && (this.password == "password"))
-      {       
-        
-        this.isLogin = true;
-        
-        sessionStorage.setItem("username", this.username);   
-        sessionStorage.setItem("isLogin", "true");
-        
-        this.studentProvider.setLoginCredential(this.username, this.password);
-        
-        let toast = this.toastCtrl.create(
-        {
-          message: 'Welcome back ' + this.username,
-          duration: 3000
-        });
-        
-        toast.present();
-      }
-      else if(this.studentProvider.getStudent(this.username, this.password)){
+      if(this.studentProvider.getStudent(this.username, this.password)){
           this.isLogin = true;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
