@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { TimeEntryProvider } from '../../providers/time-entry/time-entry';
-
 import { TimeEntry } from '../../entities/timeEntry';
-
+import { ScheduleDetailsPage } from '../schedule-details/schedule-details';
 
 @Component({
   selector: 'page-student-schedule',
@@ -20,7 +19,7 @@ export class StudentSchedulePage {
 	public timeEntryProvider: TimeEntryProvider) {
   }
 
-  ionViewWillEnter()
+    ionViewWillEnter()
 	{
 		this.timeEntryProvider.getEnrolledTimeEntry(this.studentUsername).subscribe(
 			response => {
@@ -30,6 +29,12 @@ export class StudentSchedulePage {
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 			}
 		);
+	}
+
+	viewTimeEntryDetails(event, timeEntry) 
+	{
+		this.navCtrl.push(ScheduleDetailsPage, {'timeEntryToViewId': timeEntry.id});
+		sessionStorage.setItem('timeEntryId', timeEntry.id);
 	}
 
 

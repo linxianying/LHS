@@ -18,11 +18,8 @@
 
 <ion-content padding>
 	<ion-list>
-    	<button ion-item *ngFor="let timeEntry of timeEntries" >
+    	<button ion-item *ngFor="let timeEntry of timeEntries" (click)="viewTimeEntryDetails($event, timeEntry)">
       		{{ timeEntry.title }}
-      		{{ timeEntry.fromDate }}
-      		{{ timeEntry.toDate }}
-      		{{ timeEntry.details }}
     	</button>
   </ion-list>
 
