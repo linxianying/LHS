@@ -18,7 +18,7 @@
 
 <ion-content padding>
 	<ion-list>
-    	<button ion-item *ngFor="let module of modules" (click)="viewModuleDetails(module)">
+    	<button ion-item *ngFor="let module of modules" (click)="viewModuleDetails($event, module)">
       		{{ module.moduleCode }}
       		{{ module.moduleName }}
     	</button>
