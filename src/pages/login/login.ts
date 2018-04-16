@@ -78,8 +78,15 @@ export class LoginPage {
         },
         error => {
           this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
-        }
-      );
+          let alert = this.alertCtrl.create(
+          {
+            title: 'Login',
+            subTitle: 'Invalid login credential',
+            buttons: ['OK']
+          });
+          
+          alert.present(); 
+          });
       
       
     }
