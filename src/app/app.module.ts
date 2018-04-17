@@ -11,12 +11,15 @@ import { LecturerSchedulePage } from '../pages/lecturer-schedule/lecturer-schedu
 import { StudentDashboardPage } from '../pages/student-dashboard/student-dashboard';
 import { StudentModulePage } from '../pages/student-module/student-module';
 import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
+import { ScheduleDetailsPage } from '../pages/schedule-details/schedule-details';
 import { StudentFacilitatorsPage } from '../pages/student-facilitators/student-facilitators';
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFilePage } from '../pages/student-file/student-file';
 import { LecturerFacilitatorsPage } from '../pages/Lecturer-facilitators/Lecturer-facilitators';
 import { LecturerModuleDetailsPage } from '../pages/Lecturer-module-details/Lecturer-module-details';
 import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
+import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
+import { ClassAndGroupsPage } from '../pages/class-and-groups/class-and-groups';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -43,12 +46,15 @@ import { HttpClientModule } from '@angular/common/http';
     StudentDashboardPage,
     StudentModulePage,
     StudentSchedulePage,
+    ScheduleDetailsPage,
     StudentFacilitatorsPage,
     StudentModuleDetailsPage,
     StudentFilePage,
     LecturerFacilitatorsPage,
     LecturerModuleDetailsPage,
-    LecturerFilePage
+    LecturerFilePage,
+    StudentAnnouncementsPage,
+    ClassAndGroupsPage
 
   ],
   imports: [
@@ -67,12 +73,15 @@ import { HttpClientModule } from '@angular/common/http';
     StudentDashboardPage,
     StudentModulePage,
     StudentSchedulePage,
+    ScheduleDetailsPage,
     StudentFacilitatorsPage,
     StudentModuleDetailsPage,
     StudentFilePage,
     LecturerFacilitatorsPage,
     LecturerModuleDetailsPage,
-    LecturerFilePage
+    LecturerFilePage,
+    StudentAnnouncementsPage,
+    ClassAndGroupsPage
 
   ],
   providers: [

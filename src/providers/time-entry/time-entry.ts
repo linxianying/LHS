@@ -16,16 +16,43 @@ const httpOptions = {
 @Injectable()
 export class TimeEntryProvider {
 
-    ipAddress = '192.168.31.181';
+    ipAddress = 'localhost';
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/schedule';
 	
 	baseUrl = "/api/schedule";
 
+
+	username = "";
+	password = "";
+	loginCredential = "";
+
 	constructor(public platform: Platform,
 				private httpClient: HttpClient)
 	{
 	}
+
+	getEnrolledTimeEntry(username: string): Observable<any>
+	{
+
+		console.error('******** getEnrolledTimeEntry: ' + username);
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveTimeEntryByName/" + username).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 
 	retrieveTimeEntry(id: number): Observable<any> 
 	{

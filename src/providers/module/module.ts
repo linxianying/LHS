@@ -34,6 +34,8 @@ export class ModuleProvider {
 
     getEnrolledModules(username: string): Observable<any>
 	{
+
+		console.error('******** getEnrolledModules: ' + username);
 		let path: string = '';
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 

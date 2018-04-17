@@ -7,12 +7,20 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>studentSchedule</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Student Schedule</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+	<ion-list>
+    	<button ion-item *ngFor="let timeEntry of timeEntries" (click)="viewTimeEntryDetails($event, timeEntry)">
+      		{{ timeEntry.title }}
+    	</button>
+  </ion-list>
 
 </ion-content>

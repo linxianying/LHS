@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { StudentModulePage } from '../pages/student-module/student-module';
+import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
 import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
 import { ClassAndGroupsPage } from '../pages/class-and-groups/class-and-groups';
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
@@ -34,7 +35,8 @@ export class MyApp {
       { title: 'Annoucement', component: StudentAnnouncementsPage },
       { title: 'Class and Groups', component: ClassAndGroupsPage },
       { title: 'Facilitators', component: StudentFacilitatorsPage },
-      { title: 'ModuleDetails', component: StudentModuleDetailsPage }
+      { title: 'ModuleDetails', component: StudentModuleDetailsPage },
+      { title: 'Schedule', component: StudentSchedulePage }
     ];
 
   }
