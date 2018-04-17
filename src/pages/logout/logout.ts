@@ -32,7 +32,7 @@ export class LogoutPage {
     this.password = "";
     this.isLogin = false;
     sessionStorage.setItem('username', this.username);
-    sessionStorage.setItem('isLogin', this.isLogin);
+    sessionStorage.setItem('isLogin', "false");
   }
 
 }

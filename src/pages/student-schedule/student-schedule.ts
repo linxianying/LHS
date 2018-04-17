@@ -15,11 +15,17 @@ export class StudentSchedulePage {
 	timeEntries: TimeEntry[];
 	studentUsername: string;
 	studentAddTimeEntryPage:any;
+	isLogin:boolean;
+
 
   constructor(public navCtrl: NavController, 
 	public navParams: NavParams, 
 	public timeEntryProvider: TimeEntryProvider) {
 	this.studentAddTimeEntryPage=StudentAddTimeEntryPage;
+	if(sessionStorage.getItem("isLogin")==="false")
+		this.isLogin=false;
+	else
+		this.isLogin=true;
   }
 
     ionViewWillEnter()
