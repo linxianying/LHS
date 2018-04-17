@@ -20,6 +20,8 @@ import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
 import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
+import { StudentAddTimeEntryPage } from '../pages/student-add-time-entry/student-add-time-entry';
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -54,7 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerFilePage,
     StudentDetailsPage,
     LecturerDetailsPage,
-    TaDetailsPage
+    TaDetailsPage,
+    StudentAddTimeEntryPage
 
   ],
   imports: [
@@ -81,7 +84,8 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerFilePage,
     StudentDetailsPage,
     LecturerDetailsPage,
-    TaDetailsPage
+    TaDetailsPage,
+    StudentAddTimeEntryPage
 
   ],
   providers: [
