@@ -38,7 +38,6 @@ export class StudentModuleDetailsPage {
   	this.moduleId = JSON.parse(sessionStorage.getItem('moduleId'));
   }
 
-  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentModuleDetailsPage');

@@ -1,20 +1,14 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>student-module-details</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-<ion-header>
   <ion-navbar no-border-bottom>
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>
-      Module Details
-    </ion-title>
   </ion-navbar>
+
+
+</ion-header>
+
+  <ion-title> Student Module Details</ion-title>
 
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="moduleDetails">
@@ -37,7 +31,6 @@
 <ion-content *ngIf="module!==null && students !== null && lecturers !== null && tas !== null">
   <div [ngSwitch]="moduleDetails">
     <ion-list *ngSwitchCase="'BasicInfo'">
-    	<br/><br/><br/><br/>
       	<ion-grid>
 		  <ion-row>
 			<ion-col>
@@ -57,14 +50,6 @@
 		  </ion-row>
 		  <ion-row>
 			<ion-col>
-				<div>Module Description:</div>
-			</ion-col>
-			<ion-col>
-				<div>{{module.description}}</div>
-			</ion-col>
-		  </ion-row>
-		  <ion-row>
-			<ion-col>
 				<div>Class size:</div>
 			</ion-col>
 			<ion-col>
@@ -79,11 +64,18 @@
 				<div>{{module.examDate}}</div>
 			</ion-col>
 		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Module Description:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.description}}</div>
+			</ion-col>
+		  </ion-row>
 		</ion-grid>
     </ion-list>
 
     <ion-list *ngSwitchCase="'Facilitators'">
-    	<br/><br/><br/><br/>
 	    <div *ngIf="errorMessage" class="errorText">
 			{{errorMessage}}
 		</div>
@@ -93,7 +85,12 @@
 	      		Lecturers
 	    	</ion-list-header>
 			<a ion-item *ngFor="let lecturer of lecturers">
-				<ion-icon name='arrow-forward'></ion-icon> <b>{{lecturer.name}}</b>
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{lecturer.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{lecturer.username}}</h2>
+			    </ion-item>
 			</a>
 		</ion-list>
 
@@ -102,19 +99,32 @@
 	      		Teaching Assistants
 	    	</ion-list-header>
 			<a ion-item *ngFor="let ta of tas">
-				<ion-icon name='arrow-forward'></ion-icon> <b>{{ta.name}}</b>
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{ta.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{ta.username}}</h2>
+			    </ion-item>
 			</a>
 		</ion-list>
     </ion-list>
 
     <ion-list *ngSwitchCase="'ClassAndGroups'">
 		<ion-list>
+
 			<br/><br/><br/><br/>
 			<ion-list-header>
       			Class and Groups
     		</ion-list-header>
 			<a ion-item *ngFor="let student of students" (click)="viewStudentDetails(student)">
 				<ion-icon name='arrow-forward' ></ion-icon> <b>{{student.faculty}}: {{student.name}}</b>
+
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{student.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{student.username}}</h2>
+			    </ion-item>
 			</a>
 		</ion-list>
     </ion-list>
