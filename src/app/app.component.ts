@@ -32,10 +32,6 @@ export class MyApp {
       { title: 'Login', component: LoginPage },
       { title: 'Register', component: RegisterPage },
       { title: 'Module Overview', component: StudentModulePage },
-      { title: 'Annoucement', component: StudentAnnouncementsPage },
-      { title: 'Class and Groups', component: ClassAndGroupsPage },
-      { title: 'Facilitators', component: StudentFacilitatorsPage },
-      { title: 'ModuleDetails', component: StudentModuleDetailsPage },
       { title: 'Schedule', component: StudentSchedulePage }
     ];
 
