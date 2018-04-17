@@ -4,8 +4,6 @@
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
-
-
 </ion-header>
 
   <ion-title> Student Module Details</ion-title>
@@ -112,7 +110,7 @@
     <ion-list *ngSwitchCase="'ClassAndGroups'">
 		<ion-list>
 
-			<br/><br/><br/><br/>
+			<br/><br/>
 			<ion-list-header>
       			Class and Groups
     		</ion-list-header>
@@ -131,6 +129,7 @@
 
 	<ion-list *ngSwitchCase="'Announcements'">
 	    <ion-list *ngFor="let a of announcements">
+	    	<br/><br/><br/><br/>
 		  <ion-item>
 	         {{a.name}}
 	        <ion-note item-end>
