@@ -22,6 +22,8 @@ import { AdminModuleManagementPage } from '../pages/admin-module-management/admi
 import { AdminUserManagementPage } from '../pages/admin-user-management/admin-user-management';
 import { ModuleDetailPage } from '../pages/module-detail/module-detail';
 import { CreateModulePage } from '../pages/create-module/create-module';
+import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
+import { ClassAndGroupsPage } from '../pages/class-and-groups/class-and-groups';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -58,6 +60,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModuleManagementPage,
     AdminUserManagementPage,
     ModuleDetailPage
+    StudentAnnouncementsPage,
+    ClassAndGroupsPage
 
   ],
   imports: [
@@ -86,6 +90,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModuleManagementPage,
     AdminUserManagementPage,
     ModuleDetailPage
+    StudentAnnouncementsPage,
+    ClassAndGroupsPage
 
   ],
   providers: [
