@@ -8,6 +8,9 @@
 
 <ion-header>
   <ion-navbar no-border-bottom>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Module Details
     </ion-title>
@@ -110,8 +113,8 @@
 			<ion-list-header>
       			Class and Groups
     		</ion-list-header>
-			<a ion-item *ngFor="let student of students">
-				<ion-icon name='arrow-forward'></ion-icon> <b>{{student.faculty}}: {{student.name}}</b>
+			<a ion-item *ngFor="let student of students" (click)="viewStudentDetails(student)">
+				<ion-icon name='arrow-forward' ></ion-icon> <b>{{student.faculty}}: {{student.name}}</b>
 			</a>
 		</ion-list>
     </ion-list>

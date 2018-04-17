@@ -5,6 +5,8 @@ import { ModuleProvider } from '../../providers/module/module';
 
 import { Student } from '../../entities/student';
 
+import { AlertController } from 'ionic-angular';
+
 import { Module } from '../../entities/module';
 
 import { Lecturer } from '../../entities/lecturer';
@@ -12,6 +14,8 @@ import { Lecturer } from '../../entities/lecturer';
 import { TeachingAssistant } from '../../entities/teachingAssistant';
 
 import { Announcement } from '../../entities/announcement';
+
+import { StudentDetailsPage } from '../student-details/student-details';
 
 
 
@@ -30,14 +34,11 @@ export class StudentModuleDetailsPage {
   tas: TeachingAssistant[];
   announcements: Announcement[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
   	this.moduleId = JSON.parse(sessionStorage.getItem('moduleId'));
   }
 
-  openModal(student) {
-    let modal = this.modalCtrl.create(StudentDetailsPage, student);
-    modal.present();
-  }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentModuleDetailsPage');
@@ -87,6 +88,13 @@ export class StudentModuleDetailsPage {
       }
     );
 
+  }
+
+
+  viewStudentDetails(student) 
+  {
+    this.navCtrl.push(StudentDetailsPage, {student: student});
+    
   }
 
 }
