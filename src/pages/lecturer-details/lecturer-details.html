@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Student Details
+      Lecturer Details
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -15,40 +15,38 @@
 <ion-content>
   <ion-list>
       <ion-item>
-        Student Name
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/{{lecturer.name}}.jpg">
+        </ion-thumbnail>
+        <h2>{{lecturer.username}}</h2>
+      </ion-item>
+
+      <ion-item>
+        Lecturer Department
         <ion-note item-end>
-          {{student.name}}
+          {{lecturer.department}}
         </ion-note>
       </ion-item>
 
       <ion-item>
-        Student Department
+        Lecturer Faculty
         <ion-note item-end>
-          {{student.department}}
+          {{lecturer.faculty}}
         </ion-note>
       </ion-item>
 
       <ion-item>
-        Student Faculty
+        Lecturer Telephone
         <ion-note item-end>
-          {{student.faculty}}
+          {{lecturer.telephone}}
         </ion-note>
       </ion-item>
 
       <ion-item>
-        Student Telephone
+        Lecturer Email
         <ion-note item-end>
-          {{student.telephone}}
+          {{lecturer.telephone}}
         </ion-note>
       </ion-item>
-
-      <ion-item>
-        Student Email
-        <ion-note item-end>
-          {{student.telephone}}
-        </ion-note>
-      </ion-item>
-
-     
   </ion-list>
 </ion-content>

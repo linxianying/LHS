@@ -5,27 +5,26 @@
     </button>
   </ion-navbar>
 
-
-</ion-header>
-
   <ion-title> Student Module Details</ion-title>
 
-  <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="moduleDetails">
-      <ion-segment-button value="BasicInfo">
-        Basic Info
-      </ion-segment-button>
-      <ion-segment-button value="Facilitators">
-        Facilitators
-      </ion-segment-button>
-      <ion-segment-button value="ClassAndGroups">
-        Class And Groups
-      </ion-segment-button>
-      <ion-segment-button value="Announcements">
-        Announcements
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+	<ion-toolbar no-border-top>
+	    <ion-segment [(ngModel)]="moduleDetails">
+	      <ion-segment-button value="BasicInfo">
+	        Basic Info
+	      </ion-segment-button>
+	      <ion-segment-button value="Facilitators">
+	        Facilitators
+	      </ion-segment-button>
+	      <ion-segment-button value="ClassAndGroups">
+	        Class And Groups
+	      </ion-segment-button>
+	      <ion-segment-button value="Announcements">
+	        Announcements
+	      </ion-segment-button>
+	    </ion-segment>
+	</ion-toolbar>
+
+ </ion-header>
 
 
 <ion-content *ngIf="module!==null && students !== null && lecturers !== null && tas !== null">
@@ -84,7 +83,7 @@
 			<ion-list-header>
 	      		Lecturers
 	    	</ion-list-header>
-			<a ion-item *ngFor="let lecturer of lecturers">
+			<a ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturerDetails(lecturer)">
 				<ion-item>
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{lecturer.name}}.jpg">
@@ -98,7 +97,7 @@
 			<ion-list-header>
 	      		Teaching Assistants
 	    	</ion-list-header>
-			<a ion-item *ngFor="let ta of tas">
+			<a ion-item *ngFor="let ta of tas" (click)="viewTaDetails(ta)">
 				<ion-item>
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{ta.name}}.jpg">
@@ -110,15 +109,9 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'ClassAndGroups'">
+    	<br/><br/><br/>
 		<ion-list>
-
-			<br/><br/><br/><br/>
-			<ion-list-header>
-      			Class and Groups
-    		</ion-list-header>
 			<a ion-item *ngFor="let student of students" (click)="viewStudentDetails(student)">
-				<ion-icon name='arrow-forward' ></ion-icon> <b>{{student.faculty}}: {{student.name}}</b>
-
 				<ion-item>
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{student.name}}.jpg">
