@@ -1,60 +1,54 @@
 import { Component } from '@angular/core';
 import { ModalController, Platform, NavParams, ViewController, NavController } from 'ionic-angular';
-
 import { ModuleProvider } from '../../providers/module/module';
 import { Module } from '../../entities/module';
 
-import {ModuleDetailPage} from '../module-detail/module-detail'
-
-
 /**
- * Generated class for the AdminModuleManagementPage page.
+ * Generated class for the CreateModulePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
+
 @Component({
-  selector: 'page-admin-module-management',
-  templateUrl: 'admin-module-management.html',
+  selector: 'page-create-module',
+  templateUrl: 'create-module.html',
 })
-export class AdminModuleManagementPage {
+export class CreateModulePage {
 
 	errorMessage: string;
 	infoMessage: string;
-
 	submitted: boolean;
-	public modules = [];
+	newModule: Module;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
-  
-  	this.submitted = false;
+
+  	this.newModule = new Module();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminModuleManagementPage');
+    console.log('ionViewDidLoad CreateModulePage');
   }
 
-  clear()
-  {
-  		this.infoMessage = null;
+   create(createModuleForm: NgForm)
+	{		
+		this.submitted = true;
+		
+		this.infoMessage = null;
 		this.errorMessage = null;
-		this.submitted = false;
-  }
-
- 	create(){
-
- 	}
-
- 	viewModule(module:Module){
- 		this.navCtrl.push(ModuleDetailPage,{
- 			module:module
- 		});
- 	}
-
-	delete(){
-	
+		
+		if (createModuleForm.valid) 
+		{		
+			this.moduleProvider.createModule(this.newModule).subscribe(
+				response => {					
+					this.infoMessage = "New module " + response.Id + " created successfully";
+				},
+				error => {
+					this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+				}
+			);
+		}
 	}
 
-	
 }

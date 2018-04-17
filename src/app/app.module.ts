@@ -18,6 +18,10 @@ import { StudentFilePage } from '../pages/student-file/student-file';
 import { LecturerFacilitatorsPage } from '../pages/Lecturer-facilitators/Lecturer-facilitators';
 import { LecturerModuleDetailsPage } from '../pages/Lecturer-module-details/Lecturer-module-details';
 import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
+import { AdminModuleManagementPage } from '../pages/admin-module-management/admin-module-management';
+import { AdminUserManagementPage } from '../pages/admin-user-management/admin-user-management';
+import { ModuleDetailPage } from '../pages/module-detail/module-detail';
+import { CreateModulePage } from '../pages/create-module/create-module';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -50,7 +54,10 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerFacilitatorsPage,
     LecturerModuleDetailsPage,
-    LecturerFilePage
+    LecturerFilePage,
+    AdminModuleManagementPage,
+    AdminUserManagementPage,
+    ModuleDetailPage
 
   ],
   imports: [
@@ -75,7 +82,10 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerFacilitatorsPage,
     LecturerModuleDetailsPage,
-    LecturerFilePage
+    LecturerFilePage,
+    AdminModuleManagementPage,
+    AdminUserManagementPage,
+    ModuleDetailPage
 
   ],
   providers: [
