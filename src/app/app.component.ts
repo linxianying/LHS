@@ -12,6 +12,8 @@ import { StudentAnnouncementsPage } from '../pages/student-announcements/student
 import { ClassAndGroupsPage } from '../pages/class-and-groups/class-and-groups';
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFacilitatorsPage } from '../pages/student-facilitators/student-facilitators';
+import { StudentDetailsPage } from '../pages/student-details/student-details';
+
 
 @Component({
   templateUrl: 'app.html'
