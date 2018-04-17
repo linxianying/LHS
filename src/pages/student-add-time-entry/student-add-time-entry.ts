@@ -8,12 +8,6 @@ import { TimeEntryProvider } from '../../providers/time-entry/time-entry';
 
 import { TimeEntry } from '../../entities/timeEntry';
 
-/**
- * Generated class for the StudentAddTimeEntryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
