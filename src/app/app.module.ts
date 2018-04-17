@@ -18,6 +18,8 @@ import { StudentFilePage } from '../pages/student-file/student-file';
 import { LecturerFacilitatorsPage } from '../pages/Lecturer-facilitators/Lecturer-facilitators';
 import { LecturerModuleDetailsPage } from '../pages/Lecturer-module-details/Lecturer-module-details';
 import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
+import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
+import { ClassAndGroupsPage } from '../pages/class-and-groups/class-and-groups';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -50,7 +52,9 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerFacilitatorsPage,
     LecturerModuleDetailsPage,
-    LecturerFilePage
+    LecturerFilePage,
+    StudentAnnouncementsPage,
+    ClassAndGroupsPage
 
   ],
   imports: [
@@ -75,7 +79,9 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerFacilitatorsPage,
     LecturerModuleDetailsPage,
-    LecturerFilePage
+    LecturerFilePage,
+    StudentAnnouncementsPage,
+    ClassAndGroupsPage
 
   ],
   providers: [

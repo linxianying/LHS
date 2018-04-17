@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 import { ModuleProvider } from '../../providers/module/module';
 
@@ -17,7 +18,7 @@ export class StudentModulePage {
 	modules: Module[];
 	studentUsername: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public toastCtrl: ToastController,) {
   }
 
   ionViewDidLoad() {
@@ -33,6 +34,12 @@ export class StudentModulePage {
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 			}
 		);
+
+		let toast = this.toastCtrl.create(
+          {
+            message: 'Welcome back ' + this.studentUsername,
+            duration: 3000
+          });
   }
 
 
@@ -51,8 +58,10 @@ export class StudentModulePage {
 
 	viewModuleDetails(event, module) 
 	{
-		this.navCtrl.push(StudentModuleDetailsPage, {'moduleToViewId': module.id});
+		console.error('*********** module: ' + module);
 		sessionStorage.setItem('moduleId', module.id);
+		this.navCtrl.push(StudentModuleDetailsPage);
+		
 	}
 
 
