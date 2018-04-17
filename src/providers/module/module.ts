@@ -106,7 +106,7 @@ export class ModuleProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "retrieveClassAndGroups/" + moduleId).pipe
+		return this.httpClient.get<any>(path + "/retrieveClassAndGroups/" + moduleId).pipe
 		(
 			catchError(this.handleError)
 		);
