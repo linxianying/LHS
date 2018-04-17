@@ -7,6 +7,7 @@
 <ion-header>
 
   <ion-navbar>
+    
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -16,17 +17,17 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding >
 	<ion-list *ngFor="let a of announcements">
-	  <ion-item>
+	  <ion-item style="color:black;">
          {{a.name}}
-        <ion-note item-end>
+        <ion-note item-end style="color:black;">
           {{a.date}}
         </ion-note>
       </ion-item>
-      <ion-item>
+      <ion-item style="color:black;">
          Description
-        <ion-note item-end>
+        <ion-note item-end style="color:black;">
           {{a.description}}
         </ion-note>
       </ion-item>

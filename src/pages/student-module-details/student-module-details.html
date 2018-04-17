@@ -1,5 +1,6 @@
 <ion-header>
   <ion-navbar no-border-bottom>
+
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -130,7 +131,7 @@
 		</ion-list>
     </ion-list>
 
-	<ion-list *ngSwitchCase="'Announcements'">
+	<ion-list *ngSwitchCase="'Announcements'" style="color:black;"> 
 	    <ion-list *ngFor="let a of announcements">
 	    	<br/><br/><br/><br/>
 		  <ion-item>
