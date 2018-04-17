@@ -125,7 +125,7 @@ export class ModuleProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "retrieveLecturers/" + moduleId).pipe
+		return this.httpClient.get<any>(path + "/retrieveLecturers/" + moduleId).pipe
 		(
 			catchError(this.handleError)
 		);
@@ -144,7 +144,7 @@ export class ModuleProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "retrieveStudents/" + moduleId).pipe
+		return this.httpClient.get<any>(path + "/retrieveStudents/" + moduleId).pipe
 		(
 			catchError(this.handleError)
 		);
@@ -163,7 +163,7 @@ export class ModuleProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "retrieveTAs/" + moduleId).pipe
+		return this.httpClient.get<any>(path + "/retrieveTAs/" + moduleId).pipe
 		(
 			catchError(this.handleError)
 		);
