@@ -17,6 +17,10 @@ import { Announcement } from '../../entities/announcement';
 
 import { StudentDetailsPage } from '../student-details/student-details';
 
+import { LecturerDetailsPage } from '../lecturer-details/lecturer-details';
+
+import { TaDetailsPage } from '../ta-details/ta-details';
+
 
 
 @Component({
@@ -96,6 +100,16 @@ export class StudentModuleDetailsPage {
     
   }
 
+  viewLecturerDetails(lecturer) 
+  {
+    this.navCtrl.push(LecturerDetailsPage, {lecturer: lecturer});
+    
+  }
+    viewTaDetails(ta) 
+  {
+    this.navCtrl.push(TaDetailsPage, {ta: ta});
+    
+  }
 }
 
 

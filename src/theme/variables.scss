@@ -15,89 +15,46 @@ $app-direction: ltr;
 @import "ionic.globals";
 
 
-// Shared Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass variables found in Ionic's source scss files.
-// To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
-
-
-
-// Named Color Variables
-// --------------------------------------------------
-// Named colors makes it easy to reuse colors on various components.
-// It's highly recommended to change the default colors
-// to match your app's branding. Ionic uses a Sass map of
-// colors so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
-
-
 
 $colors: (
-  primary:    #E51D91,
-  secondary:  #32db64,
+  primary:    #89b295,
+  secondary:  #89b295,
   danger:     #d91e18,
   light:      #f4f4f4,
   dark:       #222,
 
 ) !default;
 
-$text-color:                 #fff !default;
+
+$text-color:                 #ffffff !default;
 $link-color:                 color($colors, primary) !default;
-$background-color:           #0A0410 !default;//#001415 !default; //(dark black)
-$subdued-text-color:         #666 !default;
+$background-color:           #ffffff !default;
+$subdued-text-color:         #e3e8de !default;
 
 $font-family-base:           -apple-system, "Helvetica Neue", "Roboto", sans-serif !default;
 $font-size-base:             1.4rem !default; // 1.4rem == 14px
 
-$content-padding:            16px !default;
-$content-margin:             16px !default;
+$content-padding:            20px !default;
+$content-margin:             20px !default;
 
-$toolbar-background:         #110E2C !default;  //#18243C (initial)//#392E50 !default;
-$toolbar-border-color:       #222 !default;
+$toolbar-background:         #809555 !default;  //#18243C (initial)//#392E50 !default;
+$toolbar-border-color:       #2c4434 !default;
 $toolbar-text-color:         $text-color !default;
 $toolbar-active-color:       $link-color !default;
-$toolbar-inactive-color:     #614563 !default;//#8c8c8c !default;
+$toolbar-inactive-color:     #598e6d !default;//#8c8c8c !default;
 
-$tabs-background:            #171717 !default; //272727 !default;
+$tabs-background:            #809555 !default; //272727 !default;
 $tabs-border-color:          #222 !default;
 $tabs-tab-color-inactive:    #A78BA9 !default; //#E0E0E0 !default;
 $tabs-tab-color-active:      white !default;
 $tabs-md-tab-color-inactive: #D1D1D1 !default;
 
 $list-text-color:            $text-color !default;
-$list-background-color:      #242424 !default;
+$list-background-color:      #87a078 !default;
 $list-border-color:          #000 !default;
 
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
 
 
-
-
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
-
-
-
-
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
-
-
-
-
-// App Theme
-// --------------------------------------------------
-// Ionic apps can have different themes applied, which can
-// then be future customized. This import comes last
-// so that the above variables are used and Ionic's
-// default are overridden.
 
 @import "ionic.theme.default";
 

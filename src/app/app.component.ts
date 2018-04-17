@@ -8,12 +8,10 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { StudentModulePage } from '../pages/student-module/student-module';
 import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
-import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
-import { ClassAndGroupsPage } from '../pages/class-and-groups/class-and-groups';
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
-import { StudentFacilitatorsPage } from '../pages/student-facilitators/student-facilitators';
 import { StudentDetailsPage } from '../pages/student-details/student-details';
-
+import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
+import { TaDetailsPage } from '../pages/ta-details/ta-details';
 
 @Component({
   templateUrl: 'app.html'

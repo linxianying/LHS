@@ -1,7 +1,12 @@
 <ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
   <ion-toolbar>
     <ion-title>
-      Student Details
+      Teaching Assistant Details
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -15,40 +20,38 @@
 <ion-content>
   <ion-list>
       <ion-item>
-        Student Name
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/{{ta.name}}.jpg">
+        </ion-thumbnail>
+        <h2>{{ta.username}}</h2>
+      </ion-item>
+
+      <ion-item>
+        Teaching Assistant Department
         <ion-note item-end>
-          {{student.name}}
+          {{ta.department}}
         </ion-note>
       </ion-item>
 
       <ion-item>
-        Student Department
+        Teaching Assistant Faculty
         <ion-note item-end>
-          {{student.department}}
+          {{ta.faculty}}
         </ion-note>
       </ion-item>
 
       <ion-item>
-        Student Faculty
+        Teaching Assistant Telephone
         <ion-note item-end>
-          {{student.faculty}}
+          {{ta.telephone}}
         </ion-note>
       </ion-item>
 
       <ion-item>
-        Student Telephone
+        Teaching Assistant Email
         <ion-note item-end>
-          {{student.telephone}}
+          {{ta.telephone}}
         </ion-note>
       </ion-item>
-
-      <ion-item>
-        Student Email
-        <ion-note item-end>
-          {{student.telephone}}
-        </ion-note>
-      </ion-item>
-
-     
   </ion-list>
 </ion-content>

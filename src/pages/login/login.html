@@ -10,7 +10,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>  	
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,7 +19,12 @@
 <div *ngIf="!isLogin">
 	
 		<h3>Login</h3>
-		
+		<div style="height:60px;">
+			<img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+	    </div>
+	    <div style="height:110px;">
+	  		
+	    </div>
 		<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
 		
 			<div>
@@ -82,6 +87,13 @@
 	</div>
 	
 	<div *ngIf="isLogin">
+		<div style="height:60px;">
+			<img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+	    </div>
+	    <div style="height:140px;">
+	  		
+	    </div>
+
 	
 		<h3>Welcome Back!</h3>
 	

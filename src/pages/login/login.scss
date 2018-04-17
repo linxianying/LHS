@@ -1,3 +1,20 @@
-page-login {
+.page-login {
+    
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	background-repeat: no-repeat;
+	ion-card-content {
+		background-color: transparent;
+	}	
+	ion-item {
+		background-color: transparent;
+	}
+}
 
+.loginLogo {
+	width:70%;
+	display: block;
+	margin: 0 auto;
 }
