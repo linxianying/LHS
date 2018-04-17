@@ -9,16 +9,16 @@
 
 	<ion-toolbar no-border-top>
 	    <ion-segment [(ngModel)]="moduleDetails">
-	      <ion-segment-button value="BasicInfo">
+	      <ion-segment-button value="BasicInfo" style="color:white;" >
 	        Basic Info
 	      </ion-segment-button>
-	      <ion-segment-button value="Facilitators">
+	      <ion-segment-button value="Facilitators" style="color:white;">
 	        Facilitators
 	      </ion-segment-button>
-	      <ion-segment-button value="ClassAndGroups">
+	      <ion-segment-button value="ClassAndGroups" style="color:white;">
 	        Class And Groups
 	      </ion-segment-button>
-	      <ion-segment-button value="Announcements">
+	      <ion-segment-button value="Announcements" style="color:white;">
 	        Announcements
 	      </ion-segment-button>
 	    </ion-segment>
@@ -29,7 +29,7 @@
 
 <ion-content *ngIf="module!==null && students !== null && lecturers !== null && tas !== null">
   <div [ngSwitch]="moduleDetails">
-    <ion-list *ngSwitchCase="'BasicInfo'">
+    <ion-list style="color:black;" *ngSwitchCase="'BasicInfo'">
       	<ion-grid>
 		  <ion-row>
 			<ion-col>
@@ -108,7 +108,7 @@
 		</ion-list>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'ClassAndGroups'">
+    <ion-list *ngSwitchCase="'ClassAndGroups'" style="color:black;">
     	<br/><br/><br/>
 		<ion-list>
 			<a ion-item *ngFor="let student of students" (click)="viewStudentDetails(student)">
