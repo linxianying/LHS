@@ -6,75 +6,136 @@
 
 </ion-header>
 
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      Module Details
+    </ion-title>
+  </ion-navbar>
 
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <button ion-item (click)="openPage(StudentFacilitatorsPage)">
-        Facilitator
-      </button>
-      <button ion-item (click)="openPage(ClassAndGroupsPage)">
-        Class and Groups
-      </button>
-      <button ion-item (click)="openPage(StudentAnnouncementsPage)">
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="moduleDetails">
+      <ion-segment-button value="BasicInfo">
+        Basic Info
+      </ion-segment-button>
+      <ion-segment-button value="Facilitators">
+        Facilitators
+      </ion-segment-button>
+      <ion-segment-button value="ClassAndGroups">
+        Class And Groups
+      </ion-segment-button>
+      <ion-segment-button value="Announcements">
         Announcements
-      </button>
-      <button ion-item (click)="openPage(StudentFilePage)">
-        Files
-      </button>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="module!==null && students !== null && lecturers !== null && tas !== null">
+  <div [ngSwitch]="moduleDetails">
+    <ion-list *ngSwitchCase="'BasicInfo'">
+    	<br/><br/><br/><br/>
+      	<ion-grid>
+		  <ion-row>
+			<ion-col>
+				<div>Module code:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.moduleCode}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Module Name:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.moduleName}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Module Description:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.description}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Class size:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.classSize}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Exam Date:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.examDate}}</div>
+			</ion-col>
+		  </ion-row>
+		</ion-grid>
     </ion-list>
-  </ion-content>
-</ion-menu>
 
-<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+    <ion-list *ngSwitchCase="'Facilitators'">
+    	<br/><br/><br/><br/>
+	    <div *ngIf="errorMessage" class="errorText">
+			{{errorMessage}}
+		</div>
 
+		<ion-list>
+			<ion-list-header>
+	      		Lecturers
+	    	</ion-list-header>
+			<a ion-item *ngFor="let lecturer of lecturers">
+				<ion-icon name='arrow-forward'></ion-icon> <b>{{lecturer.name}}</b>
+			</a>
+		</ion-list>
 
-<ion-content  *ngIf="module">
-    <ion-grid>
-	  <ion-row>
-		<ion-col>
-			<div>Module code:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.moduleCode}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Module Name:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.moduleName}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Module Description:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.description}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Class size:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.classSize}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Exam Date:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.examDate}}</div>
-		</ion-col>
-	  </ion-row>
-	</ion-grid>
+		<ion-list>
+			<ion-list-header>
+	      		Teaching Assistants
+	    	</ion-list-header>
+			<a ion-item *ngFor="let ta of tas">
+				<ion-icon name='arrow-forward'></ion-icon> <b>{{ta.name}}</b>
+			</a>
+		</ion-list>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'ClassAndGroups'">
+		<ion-list>
+			<br/><br/><br/><br/>
+			<ion-list-header>
+      			Class and Groups
+    		</ion-list-header>
+			<a ion-item *ngFor="let student of students">
+				<ion-icon name='arrow-forward'></ion-icon> <b>{{student.faculty}}: {{student.name}}</b>
+			</a>
+		</ion-list>
+    </ion-list>
+
+	<ion-list *ngSwitchCase="'Announcements'">
+	    <ion-list *ngFor="let a of announcements">
+		  <ion-item>
+	         {{a.name}}
+	        <ion-note item-end>
+	          {{a.date}}
+	        </ion-note>
+	      </ion-item>
+	      <ion-item>
+	         Description
+	        <ion-note item-end>
+	          {{a.description}}
+	        </ion-note>
+	      </ion-item>
+	    </ion-list>
+	</ion-list>
+
+  </div>
 </ion-content>
+
+
+
+
