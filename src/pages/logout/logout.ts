@@ -22,6 +22,7 @@ export class LogoutPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 	  this.isLogin = false;
+    this.password = "";
 	  this.username = "";
   }
 
@@ -31,6 +32,7 @@ export class LogoutPage {
     this.password = "";
     this.isLogin = false;
     sessionStorage.setItem('username', this.username);
+    sessionStorage.setItem('isLogin', this.isLogin);
   }
 
 }
