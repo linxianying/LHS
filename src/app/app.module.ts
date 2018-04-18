@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
@@ -59,7 +60,7 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerFilePage,
     AdminModuleManagementPage,
     AdminUserManagementPage,
-    ModuleDetailPage
+    ModuleDetailPage,
     StudentAnnouncementsPage,
     ClassAndGroupsPage
 
@@ -67,7 +68,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -89,10 +91,9 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerFilePage,
     AdminModuleManagementPage,
     AdminUserManagementPage,
-    ModuleDetailPage
+    ModuleDetailPage,
     StudentAnnouncementsPage,
     ClassAndGroupsPage
-
   ],
   providers: [
     StatusBar,

@@ -190,7 +190,7 @@ export class ModuleProvider {
 		);
 	}
 
-	createModule(): Observable<any>
+	createModule(newModule:Module): Observable<any>
 	{	
 		let path: string = '';
 		
