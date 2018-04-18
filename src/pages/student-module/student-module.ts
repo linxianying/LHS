@@ -16,8 +16,13 @@ export class StudentModulePage {
 	errorMessage: string;
 	modules: Module[];
 	studentUsername: string;
+	isLogin: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider) {
+  	if(sessionStorage.getItem("isLogin")==="false")
+		this.isLogin=false;
+	else
+		this.isLogin=true;
   }
 
   ionViewDidLoad() {

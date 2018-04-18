@@ -17,10 +17,26 @@
 
 
 <ion-content padding>
-	<ion-list>
-    	<button ion-item *ngFor="let timeEntry of timeEntries" (click)="viewTimeEntryDetails($event, timeEntry)">
-      		{{ timeEntry.title }}
-    	</button>
-  </ion-list>
+  <div *ngIf="!isLogin" style="color:black;">
+    <div style="height:60px;">
+      <img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+      </div>
+      <div style="height:140px;">
+        
+      </div>
 
+  
+    <h3 >Sorry!</h3>
+  
+    You are not logged in yet.
+  
+  </div>
+  <div *ngIf="isLogin" style="color:black;">
+  	<ion-list>
+      	<button ion-item *ngFor="let timeEntry of timeEntries" (click)="viewTimeEntryDetails($event, timeEntry)">
+        		{{ timeEntry.title }}
+      	</button>
+    </ion-list>
+    <button ion-item [navPush]="studentAddTimeEntryPage">Add TimeEntry</button>
+  </div>
 </ion-content>

@@ -10,7 +10,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>  	
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,7 +19,12 @@
 <div *ngIf="!isLogin">
 	
 		<h3>Login</h3>
-		
+		<div style="height:60px;">
+			<img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+	    </div>
+	    <div style="height:110px;">
+	  		
+	    </div>
 		<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
 		
 			<div>
@@ -58,12 +63,12 @@
 
 				<ion-item>
 					<ion-label fixed>Username</ion-label>
-					<ion-input type="text" id="username" name="username" [(ngModel)]="username" minlength="4" maxlength="32" required="true" #inusername="ngModel"></ion-input>
+					<ion-input style="color:black;" type="text" id="username" name="username" [(ngModel)]="username" minlength="4" maxlength="32" required="true" #inusername="ngModel"></ion-input>
 				</ion-item>
 
 				<ion-item>
 					<ion-label fixed>Password</ion-label>
-					<ion-input type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
+					<ion-input style="color:black;" type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
 				</ion-item>
 				
 				<ion-item>
@@ -81,9 +86,16 @@
 		
 	</div>
 	
-	<div *ngIf="isLogin">
+	<div *ngIf="isLogin" style="color:black;">
+		<div style="height:60px;">
+			<img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+	    </div>
+	    <div style="height:140px;">
+	  		
+	    </div>
+
 	
-		<h3>Welcome Back!</h3>
+		<h3 >Welcome Back!</h3>
 	
 		You are login as {{username}}
 	

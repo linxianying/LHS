@@ -1,4 +1,9 @@
 <ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
   <ion-toolbar>
     <ion-title>
       Teaching Assistant Details
@@ -15,10 +20,10 @@
 <ion-content>
   <ion-list>
       <ion-item>
-        Teaching Assistant Name
-        <ion-note item-end>
-          {{ta.name}}
-        </ion-note>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/{{ta.name}}.jpg">
+        </ion-thumbnail>
+        <h2>{{ta.username}}</h2>
       </ion-item>
 
       <ion-item>

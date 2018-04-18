@@ -1,4 +1,9 @@
 <ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
   <ion-toolbar>
     <ion-title>
       Lecturer Details
@@ -15,10 +20,10 @@
 <ion-content>
   <ion-list>
       <ion-item>
-        Lecturer Name
-        <ion-note item-end>
-          {{lecturer.name}}
-        </ion-note>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/{{lecturer.name}}.jpg">
+        </ion-thumbnail>
+        <h2>{{lecturer.username}}</h2>
       </ion-item>
 
       <ion-item>

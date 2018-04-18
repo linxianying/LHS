@@ -7,7 +7,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="page-home">
+  <div style="height:60px;">
+    <img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+    </div>
+    <div style="height:140px;">
+      
+    </div>
   <ion-list>
     <button ion-item *ngFor="let page of pages" (click)="pageTapped($event, page)">
       <ion-icon name='arrow-forward'></ion-icon>

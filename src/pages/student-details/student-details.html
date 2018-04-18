@@ -1,4 +1,10 @@
-<ion-header>
+<ion-header>  
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+  
   <ion-toolbar>
     <ion-title>
       Student Details
@@ -15,10 +21,10 @@
 <ion-content>
   <ion-list>
       <ion-item>
-        Student Name
-        <ion-note item-end>
-          {{student.name}}
-        </ion-note>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/{{student.name}}.jpg">
+        </ion-thumbnail>
+        <h2>{{student.username}}</h2>
       </ion-item>
 
       <ion-item>
@@ -45,7 +51,7 @@
       <ion-item>
         Student Email
         <ion-note item-end>
-          {{student.telephone}}
+          {{student.email}}
         </ion-note>
       </ion-item>
 

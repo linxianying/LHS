@@ -1,80 +1,157 @@
 <ion-header>
+  <ion-navbar no-border-bottom>
 
-  <ion-navbar>
-    <ion-title>student-module-details</ion-title>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <button ion-item (click)="openPage(StudentFacilitatorsPage)">
-        Facilitator
-      </button>
-      <button ion-item (click)="openPage(ClassAndGroupsPage)">
-        Class and Groups
-      </button>
-      <button ion-item (click)="openPage(StudentAnnouncementsPage)">
-        Announcements
-      </button>
-      <button ion-item (click)="openPage(StudentFilePage)">
-        Files
-      </button>
+  <ion-title> Student Module Details</ion-title>
+
+	<ion-toolbar no-border-top>
+	    <ion-segment [(ngModel)]="moduleDetails">
+	      <ion-segment-button value="BasicInfo" style="color:white;" >
+	        Basic Info
+	      </ion-segment-button>
+	      <ion-segment-button value="Facilitators" style="color:white;">
+	        Facilitators
+	      </ion-segment-button>
+	      <ion-segment-button value="ClassAndGroups" style="color:white;">
+	        Class And Groups
+	      </ion-segment-button>
+	      <ion-segment-button value="Announcements" style="color:white;">
+	        Announcements
+	      </ion-segment-button>
+	    </ion-segment>
+	</ion-toolbar>
+
+
+
+
+<ion-content *ngIf="module!==null && students !== null && lecturers !== null && tas !== null">
+  <div [ngSwitch]="moduleDetails">
+    <ion-list style="color:black;" *ngSwitchCase="'BasicInfo'">
+      	<ion-grid>
+		  <ion-row>
+			<ion-col>
+				<div>Module code:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.moduleCode}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Module Name:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.moduleName}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Class size:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.classSize}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Exam Date:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.examDate}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Module Description:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.description}}</div>
+			</ion-col>
+		  </ion-row>
+		</ion-grid>
     </ion-list>
-  </ion-content>
-</ion-menu>
 
-<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+    <ion-list *ngSwitchCase="'Facilitators'">
+	    <div *ngIf="errorMessage" class="errorText">
+			{{errorMessage}}
+		</div>
 
+		<ion-list>
+			<ion-list-header>
+	      		Lecturers
+	    	</ion-list-header>
+			<a ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturerDetails(lecturer)">
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{lecturer.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{lecturer.username}}</h2>
+			    </ion-item>
+			</a>
+		</ion-list>
 
-<ion-content  *ngIf="module">
-    <ion-grid>
-	  <ion-row>
-		<ion-col>
-			<div>Module code:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.moduleCode}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Module Name:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.moduleName}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Module Description:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.description}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Class size:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.classSize}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Exam Date:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{module.examDate}}</div>
-		</ion-col>
-	  </ion-row>
-	</ion-grid>
+		<ion-list>
+			<ion-list-header>
+	      		Teaching Assistants
+	    	</ion-list-header>
+			<a ion-item *ngFor="let ta of tas" (click)="viewTaDetails(ta)">
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{ta.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{ta.username}}</h2>
+			    </ion-item>
+			</a>
+		</ion-list>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'ClassAndGroups'" style="color:black;">
+    	<br/><br/><br/>
+		<ion-list>
+
+			<br/><br/>
+			<ion-list-header>
+      			Class and Groups
+    		</ion-list-header>
+
+			<a ion-item *ngFor="let student of students" (click)="viewStudentDetails(student)">
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{student.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{student.username}}</h2>
+			    </ion-item>
+			</a>
+		</ion-list>
+    </ion-list>
+
+	<ion-list *ngSwitchCase="'Announcements'" style="color:black;"> 
+	    <ion-list *ngFor="let a of announcements">
+	    	<br/><br/><br/><br/>
+		  <ion-item>
+	         {{a.name}}
+	        <ion-note item-end>
+	          {{a.date}}
+	        </ion-note>
+	      </ion-item>
+	      <ion-item>
+	         Description
+	        <ion-note item-end>
+	          {{a.description}}
+	        </ion-note>
+	      </ion-item>
+	    </ion-list>
+	</ion-list>
+
+  </div>
 </ion-content>
+
+
+
+
