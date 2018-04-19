@@ -31,7 +31,7 @@ export class LecturerSchedulePage {
 
     ionViewWillEnter()
 	{
-		this.timeEntryProvider.getEnrolledTimeEntry(this.lecturerUsername).subscribe(
+		this.timeEntryProvider.getLecturerEnrolledTimeEntry(this.lecturerUsername).subscribe(
 			response => {
 				this.timeEntries = response.timeEntrys;
 			},

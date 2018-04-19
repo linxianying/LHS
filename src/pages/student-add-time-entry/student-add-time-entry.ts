@@ -23,14 +23,17 @@ export class StudentAddTimeEntryPage {
   timeEntry: TimeEntry;
   username: string;
   student: Student;
+  role:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public timeEntryProvider: TimeEntryProvider) {
   	 this.timeEntry = new TimeEntry();
   	 this.username=sessionStorage.getItem('username');
+     this.role="student";
   }
 
   createTimeEntry(){
-    this.timeEntryProvider.createTimeEntry(this.timeEntry, this.username).subscribe(
+    this.role="student";
+    this.timeEntryProvider.createTimeEntry(this.timeEntry, this.username, this.role).subscribe(
       response => {           
         this.infoMessage = "New timeEntry " + response.id + " created successfully";
         this.errorMessage = null;

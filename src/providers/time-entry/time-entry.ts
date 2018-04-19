@@ -94,9 +94,9 @@ export class TimeEntryProvider {
 		);
 	}
 
-	createTimeEntry(timeEntry: TimeEntry, username: string): Observable<any>
+	createTimeEntry(timeEntry: TimeEntry, username: string, role:string): Observable<any>
 	{
-		let createTimeEntryReq = {"timeEntry": timeEntry, "username": username};
+		let createTimeEntryReq = {"timeEntry": timeEntry, "username": username, "role":role};
 		let path: string = '';
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
