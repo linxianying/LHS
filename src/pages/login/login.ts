@@ -61,12 +61,13 @@ export class LoginPage {
     
     if (loginForm.valid) 
     {
-      this.studentProvider.getStudent(this.username, this.password).subscribe(
+      this.studentProvider.getAdmin(this.username, this.password).subscribe(
         response => {         
-          this.infoMessage = "Student login successfully";
+          this.infoMessage = "Adminitrator login successfully";
           this.isLogin = true;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
+          sessionStorage.setItem("role", "student");
           this.studentProvider.setLoginCredential(this.username, this.password);
           let toast = this.toastCtrl.create(
           {

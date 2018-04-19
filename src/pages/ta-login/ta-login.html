@@ -16,6 +16,89 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="page-login">
+<div *ngIf="!isLogin">
+	
+		<h3>Login</h3>
+		<div style="height:60px;">
+			<img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+	    </div>
+	    <div style="height:110px;">
+	  		
+	    </div>
+		<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
+		
+			<div>
+			
+				<div *ngIf="inusername.invalid && (inusername.dirty || inusername.touched || submitted)" class="errorText">
+					<div *ngIf="inusername.errors.required">
+						Username is required.
+					</div>
+					<div *ngIf="inusername.errors.minlength">
+						Username must be at least 4 characters long.
+					</div>
+					<div *ngIf="inusername.errors.maxlength">
+						Username cannot exceed 32 characters.
+					</div>
+				</div>
+				
+				<div *ngIf="inpassword.invalid && (inpassword.dirty || inpassword.touched || submitted)" class="errorText">
+					<div *ngIf="inpassword.errors.required">
+						Password is required.
+					</div>
+					<div *ngIf="inpassword.errors.minlength">
+						Password must be at least 4 characters long.
+					</div>
+					<div *ngIf="inpassword.errors.maxlength">
+						Password cannot exceed 32 characters.
+					</div>
+				</div>
+				
+				<div *ngIf="loginErrorMessage" class="errorText">
+					{{loginErrorMessage}}
+				</div>
+				
+			</div>
 
+			<ion-list>
+
+				<ion-item>
+					<ion-label fixed>Username</ion-label>
+					<ion-input style="color:black;" type="text" id="username" name="username" [(ngModel)]="username" minlength="4" maxlength="32" required="true" #inusername="ngModel"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label fixed>Password</ion-label>
+					<ion-input style="color:black;" type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
+				</ion-item>
+				
+				<ion-item>
+					<button ion-button block (click)="clear()">
+						Clear
+					</button>					
+					<button type="submit" ion-button block>
+						Login
+					</button>
+				</ion-item>
+
+			</ion-list>
+			
+		</form>
+		
+	</div>
+	
+	<div *ngIf="isLogin" style="color:black;">
+		<div style="height:60px;">
+			<img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+	    </div>
+	    <div style="height:140px;">
+	  		
+	    </div>
+
+	
+		<h3 >Welcome Back!</h3>
+	
+		You are login as {{username}}
+	
+	</div>
 </ion-content>

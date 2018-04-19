@@ -40,6 +40,12 @@ export class LecturerLoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LecturerLoginPage');
+    if(sessionStorage.getItem("isLogin") === "true")
+    {
+      this.isLogin = true;
+    }
+    
+    this.username = sessionStorage.getItem("username");
   }
 
   clear()
@@ -60,6 +66,7 @@ export class LecturerLoginPage {
           this.isLogin = true;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
+          sessionStorage.setItem("role", "lecturer");
           this.studentProvider.setLoginCredential(this.username, this.password);
           let toast = this.toastCtrl.create(
           {

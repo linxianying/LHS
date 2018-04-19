@@ -34,7 +34,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: TaLoginPage },
       { title: 'Login', component: LoginPage },
-      { title: 'TA Login', component: AdminLoginPage },
+      { title: 'TA Login', component: TaLoginPage },
       { title: 'Admin Login', component: AdminLoginPage },
       { title: 'Lecturer Login', component: LecturerLoginPage },
       { title: 'Register', component: RegisterPage },
