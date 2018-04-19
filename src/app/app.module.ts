@@ -15,8 +15,8 @@ import { StudentSchedulePage } from '../pages/student-schedule/student-schedule'
 import { ScheduleDetailsPage } from '../pages/schedule-details/schedule-details';
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFilePage } from '../pages/student-file/student-file';
-import { LecturerModuleDetailsPage } from '../pages/Lecturer-module-details/Lecturer-module-details';
-import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
+import { LecturerModuleDetailsPage } from '../pages/lecturer-module-details/lecturer-module-details';
+import { LecturerFilePage } from '../pages/lecturer-file/lecturer-file';
 import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
