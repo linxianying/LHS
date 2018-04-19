@@ -14,15 +14,14 @@ import { StudentModuleDetailsPage } from '../pages/student-module-details/studen
 import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
-<<<<<<< HEAD
-//import { LecturerModuleDetailsPage } from '../pages/lecturer-module-details/lecturer-module-details';
+import { LecturerModuleDetailsPage } from '../pages/lecturer-module-details/lecturer-module-details';
 import { LecturerFilePage } from '../pages/lecturer-file/lecturer-file';
 
-=======
+
 import { LecturerLoginPage } from '../pages/lecturer-login/lecturer-login';
 import { AdminLoginPage } from '../pages/admin-login/admin-login';
 import { TaLoginPage } from '../pages/ta-login/ta-login';
->>>>>>> 52ad7117fae0cc8a7e7738d30aaa551188bf4744
+
 
 @Component({
   templateUrl: 'app.html'
