@@ -64,35 +64,48 @@ export class MyApp {
 
   buildMenu() {
   var role=sessionStorage.getItem("role");
-  if(role==="student"){
-    return [
-      { title: 'Home', component: HomePage },
-      { title: 'Login', component: LoginPage },
-      { title: 'Register', component: RegisterPage },
-      { title: 'Module Overview', component: StudentModulePage },
-      { title: 'Schedule', component: StudentSchedulePage },
-      { title: 'Logout', component: LogoutPage }
-    ];
-    }
-  else if (role==="lecturer"){
-    return [
-      { title: 'Home', component: HomePage },
-      { title: 'Login', component: LoginPage },
-      { title: 'Module Overview', component: LecturerModulePage },
-      { title: 'Schedule', component: StudentSchedulePage },
-      { title: 'Logout', component: LogoutPage }
-    ];
-  }
-  else{
-    return [
-      { title: 'Home', component: HomePage },
-      { title: 'Login', component: LoginPage },
-      { title: 'Register', component: RegisterPage },
-      { title: 'Module Overview', component: StudentModulePage },
-      { title: 'Schedule', component: StudentSchedulePage },
-      { title: 'Logout', component: LogoutPage }
-    ];
-  }
+  var isLogin=sessionStorage.getItem("isLogin");
 
+  if(isLogin==="true"){
+    if(role==="student"){
+      return [
+        { title: 'Home', component: HomePage },
+        { title: 'Login', component: LoginPage },
+        { title: 'Register', component: RegisterPage },
+        { title: 'Module Overview', component: StudentModulePage },
+        { title: 'Schedule', component: StudentSchedulePage },
+        { title: 'Logout', component: LogoutPage }
+      ];
+      }
+    else if (role==="lecturer"){
+      return [
+        { title: 'Home', component: HomePage },
+        { title: 'Login', component: LoginPage },
+        { title: 'Module Overview', component: LecturerModulePage },
+        { title: 'Schedule', component: StudentSchedulePage },
+        { title: 'Logout', component: LogoutPage }
+      ];
+    }
+    else{
+      return [
+        { title: 'Home', component: HomePage },
+        { title: 'Login', component: LoginPage },
+        { title: 'Register', component: RegisterPage },
+        { title: 'Module Overview', component: StudentModulePage },
+        { title: 'Schedule', component: StudentSchedulePage },
+        { title: 'Logout', component: LogoutPage }
+      ];
+    }
+  }else{
+  return [
+        { title: 'Home', component: HomePage },
+        { title: 'Login', component: LoginPage },
+        { title: 'Register', component: RegisterPage },
+        { title: 'TA Login', component: TaLoginPage },
+        { title: 'Admin Login', component: AdminLoginPage },
+        { title: 'Lecturer Login', component: LecturerLoginPage }
+      ];
+
+  }
 }
 }
