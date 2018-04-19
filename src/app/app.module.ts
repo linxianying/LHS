@@ -18,20 +18,19 @@ import { StudentModuleDetailsPage } from '../pages/student-module-details/studen
 import { StudentFilePage } from '../pages/student-file/student-file';
 import { LecturerModuleDetailsPage } from '../pages/Lecturer-module-details/Lecturer-module-details';
 import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
-<<<<<<< HEAD
+
 import { AdminModuleManagementPage } from '../pages/admin-module-management/admin-module-management';
 import { AdminUserManagementPage } from '../pages/admin-user-management/admin-user-management';
 import { ModuleDetailPage } from '../pages/module-detail/module-detail';
 import { CreateModulePage } from '../pages/create-module/create-module';
-import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
-import { ClassAndGroupsPage } from '../pages/class-and-groups/class-and-groups';
-=======
+
+
 import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
 import { StudentAddTimeEntryPage } from '../pages/student-add-time-entry/student-add-time-entry';
 
->>>>>>> b718117c3489afcda9251ed7a11e068d021a9736
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -64,18 +63,17 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerModuleDetailsPage,
     LecturerFilePage,
-<<<<<<< HEAD
+
     AdminModuleManagementPage,
     AdminUserManagementPage,
     ModuleDetailPage,
-    StudentAnnouncementsPage,
-    ClassAndGroupsPage
-=======
+   
+
     StudentDetailsPage,
     LecturerDetailsPage,
     TaDetailsPage,
     StudentAddTimeEntryPage
->>>>>>> b718117c3489afcda9251ed7a11e068d021a9736
+
 
   ],
   imports: [
@@ -101,19 +99,17 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerModuleDetailsPage,
     LecturerFilePage,
-<<<<<<< HEAD
+
     AdminModuleManagementPage,
     AdminUserManagementPage,
     ModuleDetailPage,
-    StudentAnnouncementsPage,
-    ClassAndGroupsPage
-=======
+   
     StudentDetailsPage,
     LecturerDetailsPage,
     TaDetailsPage,
     StudentAddTimeEntryPage
 
->>>>>>> b718117c3489afcda9251ed7a11e068d021a9736
+
   ],
   providers: [
     StatusBar,

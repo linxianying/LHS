@@ -63,6 +63,25 @@ export class LecturerProvider {
 		);
 	}
 
+	getAllLecturers(): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveAllLecturers/").pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 	private handleError(error: HttpErrorResponse)
 	{
 		if (error.error instanceof ErrorEvent) 

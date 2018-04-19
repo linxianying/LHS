@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
+
+import { ModuleProvider } from '../../providers/module/module';
+import { Module } from '../../entities/module';
+import { Lecturer } from '../../entities/lecturer';
+import { Student } from '../../entities/student';
+import { TeachingAssistant } from '../../entities/teachingAssistant';
 
 /**
  * Generated class for the ModuleAssignmentPage page.
@@ -14,11 +21,49 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ModuleAssignmentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	moduleId:number;
+	infoMessage: string;
+	errorMessage: string;
+
+	lecturers: Lecturer[];
+	students: Student[];
+	tas: TeachingAssistant[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public actionSheetCtrl: ActionSheetController,
+        public alertCtrl: AlertController,
+        public toastCtrl: ToastController) {
+        this.moduleId = navParams.get('moduleId');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModuleAssignmentPage');
+
+    this.moduleProvider.getLecturers(this.moduleId).subscribe(
+      response => {
+        this.lecturers = response.lecturers;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
+
+    this.moduleProvider.getTAs(this.moduleId).subscribe(
+      response => {
+        this.tas = response.tas;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
+
+    this.moduleProvider.getStudents(this.moduleId).subscribe(
+      response => {
+        this.students = response.students;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
   }
 
 }

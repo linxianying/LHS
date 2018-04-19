@@ -4,7 +4,9 @@ import { ModalController, Platform, NavParams, ViewController, NavController } f
 import { ModuleProvider } from '../../providers/module/module';
 import { Module } from '../../entities/module';
 
-import {ModuleDetailPage} from '../module-detail/module-detail'
+import { ModuleDetailPage } from '../module-detail/module-detail';
+import { CreateModulePage } from '../create-module/create-module';
+
 
 
 /**
@@ -24,7 +26,7 @@ export class AdminModuleManagementPage {
 	infoMessage: string;
 
 	submitted: boolean;
-	public modules = [];
+	modules: Module[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
   
@@ -33,28 +35,43 @@ export class AdminModuleManagementPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminModuleManagementPage');
+
+    this.moduleProvider.getModules().subscribe(
+      response => {
+        this.modules = response.modules;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
+  }
+
+   ionViewWillEnter()
+  {
+    this.moduleProvider.getModules().subscribe(
+      response => {
+        this.modules = response.modules;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
   }
 
   clear()
   {
-  		this.infoMessage = null;
+  	this.infoMessage = null;
 		this.errorMessage = null;
 		this.submitted = false;
   }
 
  	create(){
-
+    this.navCtrl.push(CreateModulePage);
  	}
 
  	viewModule(module:Module){
- 		this.navCtrl.push(ModuleDetailPage,{
- 			module:module
- 		});
+ 		this.navCtrl.push(ModuleDetailPage, {moduleId: module.id});
  	}
-
-	delete(){
-	
-	}
 
 	
 }

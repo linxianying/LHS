@@ -202,8 +202,62 @@ export class ModuleProvider {
 		{
 			path = this.fullBaseUrl;
 		}
+
+		let createModuleReq = {
+			"module": newModule
+		}
 		
-		return this.httpClient.get<any>(path + "/createModule/").pipe
+		return this.httpClient.put<any>(path, createModuleReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+
+
+	}
+
+	deleteModule(module: Module): Observable<any>
+	{	
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+
+		let deleteModuleReq = {
+			"module": module
+		}
+		
+		return this.httpClient.delete<any>(path, deleteModuleReq).pipe
+		(
+			catchError(this.handleError)
+		);
+
+
+	}
+
+	updateModule(module: Module): Observable<any>
+	{	
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+
+		let updateModuleReq = {
+			"module": module
+		}
+		
+		return this.httpClient.post<any>(path, updateModuleReq, httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);

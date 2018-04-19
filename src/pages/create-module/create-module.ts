@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, Platform, NavParams, ViewController, NavController } from 'ionic-angular';
 import { ModuleProvider } from '../../providers/module/module';
 import { Module } from '../../entities/module';
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
 
 /**
  * Generated class for the CreateModulePage page.
