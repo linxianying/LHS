@@ -61,9 +61,9 @@ export class LoginPage {
     
     if (loginForm.valid) 
     {
-      this.studentProvider.getAdmin(this.username, this.password).subscribe(
+      this.studentProvider.getStudent(this.username, this.password).subscribe(
         response => {         
-          this.infoMessage = "Adminitrator login successfully";
+          this.infoMessage = "Student login successfully";
           this.isLogin = true;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
