@@ -1,18 +1,157 @@
-<!--
-  Generated template for the LecturerModuleDetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
+  <ion-navbar no-border-bottom>
 
-  <ion-navbar>
-    <ion-title>lecturer-module-details</ion-title>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 
+
+
+  <ion-title> Lecturer Module Details</ion-title>
+
+	<ion-toolbar no-border-top>
+	    <ion-segment [(ngModel)]="moduleDetails">
+	      <ion-segment-button value="BasicInfo" style="color:white;" >
+	        Basic Info
+	      </ion-segment-button>
+	      <ion-segment-button value="Facilitators" style="color:white;">
+	        Facilitators
+	      </ion-segment-button>
+	      <ion-segment-button value="ClassAndGroups" style="color:white;">
+	        Class And Groups
+	      </ion-segment-button>
+	      <ion-segment-button value="Announcements" style="color:white;">
+	        Announcements
+	      </ion-segment-button>
+	    </ion-segment>
+	</ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
 
+<ion-content *ngIf="module!==null && students !== null && lecturers !== null && tas !== null">
+  <div [ngSwitch]="moduleDetails">
+    <ion-list style="color:black;" *ngSwitchCase="'BasicInfo'">
+      	<ion-grid>
+		  <ion-row>
+			<ion-col>
+				<div>Module code:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.moduleCode}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Module Name:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.moduleName}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Class size:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.classSize}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Exam Date:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.examDate}}</div>
+			</ion-col>
+		  </ion-row>
+		  <ion-row>
+			<ion-col>
+				<div>Module Description:</div>
+			</ion-col>
+			<ion-col>
+				<div>{{module.description}}</div>
+			</ion-col>
+		  </ion-row>
+		</ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Facilitators'">
+	    <div *ngIf="errorMessage" class="errorText">
+			{{errorMessage}}
+		</div>
+
+		<ion-list>
+			<ion-list-header>
+	      		Lecturers
+	    	</ion-list-header>
+			<a ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturerDetails(lecturer)">
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{lecturer.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{lecturer.username}}</h2>
+			    </ion-item>
+			</a>
+		</ion-list>
+
+		<ion-list>
+			<ion-list-header>
+	      		Teaching Assistants
+	    	</ion-list-header>
+			<a ion-item *ngFor="let ta of tas" (click)="viewTaDetails(ta)">
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{ta.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{ta.username}}</h2>
+			    </ion-item>
+			</a>
+		</ion-list>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'ClassAndGroups'" style="color:black;">
+    
+		<ion-list>
+
+
+			<a ion-item *ngFor="let student of students" (click)="viewStudentDetails(student)">
+				<ion-item>
+			        <ion-thumbnail item-start>
+			          <img src="assets/imgs/{{student.name}}.jpg">
+			        </ion-thumbnail>
+			        <h2>{{student.username}}</h2>
+			    </ion-item>
+			</a>
+		</ion-list>
+    </ion-list>
+
+	<ion-list *ngSwitchCase="'Announcements'" style="color:black;"> 
+		<button ion-button icon-start (click)="newAnnouncement()">
+  			<ion-icon name="add"></ion-icon>
+			  New Announcemenet
+		</button>
+	    <ion-list *ngFor="let a of announcements">
+	   
+		  <ion-item>
+	         {{a.name}}
+	        <ion-note item-end>
+	          {{a.date}}
+	        </ion-note>
+	      </ion-item>
+	      <ion-item>
+	         Description
+	        <ion-note item-end>
+	          {{a.description}}
+	        </ion-note>
+	      </ion-item>
+	    </ion-list>
+	</ion-list>
+
+  </div>
 </ion-content>
+
+
+
+

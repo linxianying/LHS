@@ -1,0 +1,46 @@
+<!--
+  Generated template for the NewAnnouncementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>NewAnnouncement</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div *ngIf="infoMessage" style="color:#809555;" class="infoText">
+		{{infoMessage}}
+	</div>
+	<div *ngIf="errorMessage" style="color:#809555;" class="errorText">
+		{{errorMessage}}
+	</div>
+	
+	<ion-list>
+		<ion-list-header style="color:white">
+			Create A New Announcement
+		</ion-list-header>
+		<ion-item>
+			<ion-label floating  style="color:white">Title</ion-label>
+			<ion-input type="text" [(ngModel)]="announcement.name"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating  style="color:white">Description</ion-label>
+			<ion-input type="text" [(ngModel)]="announcement.description"></ion-input>
+		</ion-item>
+		<ion-item>
+			<button ion-button block (click)="createAnnouncement()">
+				Create
+			</button>
+		</ion-item>
+	</ion-list>	
+
+</ion-content>

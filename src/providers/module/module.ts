@@ -54,6 +54,28 @@ export class ModuleProvider {
 	}
 
 
+	getTeachingModules(username: string): Observable<any>
+	{
+
+		console.error('******** getTeachingModules: ' + username);
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveTeachingModules/" + username).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+
 	getSpecificModule(moduleId: number): Observable<any>
 	{
 		let path: string = '';

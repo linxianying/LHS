@@ -6,6 +6,8 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { Platform } from 'ionic-angular';
 
 import { Lecturer} from '../../entities/lecturer';
+import { Announcement } from '../../entities/announcement';
+import { Module } from '../../entities/module';
 
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -62,6 +64,27 @@ export class LecturerProvider {
 			catchError(this.handleError)
 		);
 	}
+
+	createAnnouncement(announcement: Announcement, moduleId:number, username: string): Observable<any>
+	 {
+	  let createAnnouncementReq = {"announcement": announcement, "moduleId": moduleId, "username": username};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path, createAnnouncementReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
+
 
 	private handleError(error: HttpErrorResponse)
 	{
