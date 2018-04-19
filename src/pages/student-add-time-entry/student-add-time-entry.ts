@@ -4,9 +4,12 @@ import { NgForm } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
+import { Platform, ViewController } from 'ionic-angular';
+
 import { TimeEntryProvider } from '../../providers/time-entry/time-entry';
 
 import { TimeEntry } from '../../entities/timeEntry';
+import { Student } from '../../entities/student';
 
 
 @IonicPage()
@@ -19,6 +22,7 @@ export class StudentAddTimeEntryPage {
   errorMessage: string;
   timeEntry: TimeEntry;
   username: string;
+  student: Student;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public timeEntryProvider: TimeEntryProvider) {
   	 this.timeEntry = new TimeEntry();
