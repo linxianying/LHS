@@ -60,6 +60,27 @@ export class StudentProvider {
 		);
 	}
 
+	getLecturer(username: string, password: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/lecturerLogin" + "/" + username + "/"
+		+ password
+		+ this.loginCredential).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 	createStudent(student: Student): Observable<any>
 	 {
 	  let createStudentReq = {"student": student};

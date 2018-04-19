@@ -13,7 +13,9 @@ import { StudentModuleDetailsPage } from '../pages/student-module-details/studen
 import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
-
+import { LecturerLoginPage } from '../pages/lecturer-login/lecturer-login';
+import { AdminLoginPage } from '../pages/admin-login/admin-login';
+import { TaLoginPage } from '../pages/ta-login/ta-login';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,8 +32,11 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Home', component: HomePage },
+      { title: 'Home', component: TaLoginPage },
       { title: 'Login', component: LoginPage },
+      { title: 'TA Login', component: AdminLoginPage },
+      { title: 'Admin Login', component: AdminLoginPage },
+      { title: 'Lecturer Login', component: LecturerLoginPage },
       { title: 'Register', component: RegisterPage },
       { title: 'Module Overview', component: StudentModulePage },
       { title: 'Schedule', component: StudentSchedulePage },
