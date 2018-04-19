@@ -15,7 +15,14 @@ import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
 import { LecturerModuleDetailsPage } from '../pages/lecturer-module-details/lecturer-module-details';
-import { LecturerFilePage } from '../pages/lecturer-file/lecturer-file';
+import { LecturerSchedulePage } from '../pages/lecturer-schedule/lecturer-schedule';
+import { TaModulePage } from '../pages/ta-module/ta-module';
+import { TaSchedulePage } from '../pages/ta-schedule/ta-schedule';
+import { AdminSchedulePage } from '../pages/admin-schedule/admin-schedule';
+import { AdminModuleManagementPage } from '../pages/admin-module-management/admin-module-management';
+import { AdminUserManagementPage } from '../pages/admin-user-management/admin-user-management';
+
+import { NewAnnouncementPage } from '../pages/new-announcement/new-announcement';
 
  
 import { LecturerLoginPage } from '../pages/lecturer-login/lecturer-login';
@@ -70,9 +77,8 @@ export class MyApp {
     if(role==="student"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Login', component: LoginPage },
         { title: 'Register', component: RegisterPage },
-        { title: 'Module Overview', component: StudentModulePage },
+        { title: 'Enrolled Modules', component: StudentModulePage },
         { title: 'Schedule', component: StudentSchedulePage },
         { title: 'Logout', component: LogoutPage }
       ];
@@ -80,27 +86,33 @@ export class MyApp {
     else if (role==="lecturer"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Login', component: LoginPage },
-        { title: 'Module Overview', component: LecturerModulePage },
-        { title: 'Schedule', component: StudentSchedulePage },
+        { title: 'Teaching Modules', component: LecturerModulePage },
+        { title: 'Schedule', component: LecturerSchedulePage },
         { title: 'Logout', component: LogoutPage }
       ];
     }
-    else{
+    else if (role==="ta"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Login', component: LoginPage },
-        { title: 'Register', component: RegisterPage },
-        { title: 'Module Overview', component: StudentModulePage },
-        { title: 'Schedule', component: StudentSchedulePage },
+        { title: 'Module Overview', component: TaModulePage },
+        { title: 'Schedule', component: TaSchedulePage },
+        { title: 'Logout', component: LogoutPage }
+      ];
+    }
+    else if (role==="admin"){
+      return [
+        { title: 'Home', component: HomePage },
+        { title: 'Module Management', component: AdminModuleManagementPage },
+        { title: 'User Management', component: AdminUserManagementPage },
+        { title: 'Schedule', component: AdminSchedulePage },
         { title: 'Logout', component: LogoutPage }
       ];
     }
   }else{
   return [
         { title: 'Home', component: HomePage },
-        { title: 'Login', component: LoginPage },
-        { title: 'Register', component: RegisterPage },
+        { title: 'Student Register', component: RegisterPage },
+        { title: 'Student Login', component: LoginPage },
         { title: 'TA Login', component: TaLoginPage },
         { title: 'Admin Login', component: AdminLoginPage },
         { title: 'Lecturer Login', component: LecturerLoginPage }

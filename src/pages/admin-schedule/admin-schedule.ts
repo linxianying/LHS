@@ -2,23 +2,23 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the AdminModuleManagementPage page.
+ * Generated class for the AdminSchedulePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-admin-module-management',
-  templateUrl: 'admin-module-management.html',
+  selector: 'page-admin-schedule',
+  templateUrl: 'admin-schedule.html',
 })
-export class AdminModuleManagementPage {
+export class AdminSchedulePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminModuleManagementPage');
+    console.log('ionViewDidLoad AdminSchedulePage');
   }
 
 }
