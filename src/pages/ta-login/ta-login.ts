@@ -10,24 +10,26 @@ import { RegisterPage } from '../register/register';
 
 import { StudentProvider } from '../../providers/student/student';
 
+import { TeachingAssistant } from '../../entities/teachingAssistant';
+
+
+@IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-ta-login',
+  templateUrl: 'ta-login.html',
 })
+export class TaLoginPage {
 
-
-export class LoginPage {
-  fromPage: string;
-  student = {} as Student;
+  teachingAssistant = {} as TeachingAssistant;
   submitted: boolean;
   isLogin: boolean;
   username: string;
   password: string;
   errorMessage: string;
   infoMessage: string;
-	
-	
-	constructor(public navCtrl: NavController,
+
+
+  constructor(public navCtrl: NavController,
         public alertCtrl: AlertController,
         public toastCtrl: ToastController,
         public navParams: NavParams,
@@ -35,12 +37,11 @@ export class LoginPage {
   {
     this.submitted = false;
     this.isLogin = false;
-    this.fromPage = navParams.get('fromPage');
   }
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    console.log('ionViewDidLoad TeachingAssistantLoginPage');
     if(sessionStorage.getItem("isLogin") === "true")
     {
       this.isLogin = true;
@@ -61,13 +62,13 @@ export class LoginPage {
     
     if (loginForm.valid) 
     {
-      this.studentProvider.getStudent(this.username, this.password).subscribe(
+      this.studentProvider.getTa(this.username, this.password).subscribe(
         response => {         
-          this.infoMessage = "Student login successfully";
+          this.infoMessage = "Teaching Assistant login successfully";
           this.isLogin = true;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
-          sessionStorage.setItem("role", "student");
+          sessionStorage.setItem("role", "ta");
           this.studentProvider.setLoginCredential(this.username, this.password);
           let toast = this.toastCtrl.create(
           {

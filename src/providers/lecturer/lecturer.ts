@@ -6,6 +6,8 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { Platform } from 'ionic-angular';
 
 import { Lecturer} from '../../entities/lecturer';
+import { Announcement } from '../../entities/announcement';
+import { Module } from '../../entities/module';
 
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,7 +16,7 @@ const httpOptions = {
 @Injectable()
 export class LecturerProvider {
 
-	ipAddress = '172.25.107.223';
+	ipAddress = 'localhost';
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/lecturer';
 	
@@ -63,6 +65,7 @@ export class LecturerProvider {
 		);
 	}
 
+<<<<<<< HEAD
 	getAllLecturers(): Observable<any>
 	{
 		let path: string = '';
@@ -81,6 +84,28 @@ export class LecturerProvider {
 			catchError(this.handleError)
 		);
 	}
+=======
+	createAnnouncement(announcement: Announcement, moduleId:number, username: string): Observable<any>
+	 {
+	  let createAnnouncementReq = {"announcement": announcement, "moduleId": moduleId, "username": username};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path, createAnnouncementReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
+
+>>>>>>> 7e19531b6d96c4135ba3e30fd87078a082698e75
 
 	private handleError(error: HttpErrorResponse)
 	{

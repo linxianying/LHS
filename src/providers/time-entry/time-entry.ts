@@ -75,7 +75,7 @@ export class TimeEntryProvider {
 
 	createTimeEntry(timeEntry: TimeEntry, username: string): Observable<any>
 	{
-		let createTimeEntryReq = {"timeEntry": timeEntry};
+		let createTimeEntryReq = {"timeEntry": timeEntry, "username": username};
 		let path: string = '';
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
@@ -87,7 +87,7 @@ export class TimeEntryProvider {
 			path = this.fullBaseUrl;
 		}				
 		
-		return this.httpClient.put<any>(path+ "/createTimeEntry/" + username , createTimeEntryReq, httpOptions).pipe
+		return this.httpClient.put<any>(path, createTimeEntryReq, httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);

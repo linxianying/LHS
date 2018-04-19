@@ -38,7 +38,7 @@ export class StudentModuleDetailsPage {
   tas: TeachingAssistant[];
   announcements: Announcement[];
 
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public navParams: NavParams, public moduleProvider: ModuleProvider) {
   	this.moduleId = JSON.parse(sessionStorage.getItem('moduleId'));
   }
 

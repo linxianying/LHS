@@ -46,6 +46,9 @@ export class StudentSchedulePage {
 		sessionStorage.setItem('timeEntryId', timeEntry.id);
 	}
 
+  newTimeEntry(){
+  	this.navCtrl.push(StudentAddTimeEntryPage, {username: this.studentUsername});
+  }
 
 
   ionViewDidLoad() {

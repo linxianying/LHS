@@ -4,30 +4,25 @@ import { NgForm } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
-import { Student } from '../../entities/student';
-
-import { RegisterPage } from '../register/register';
-
+import { Administrator } from '../../entities/administrator';
 import { StudentProvider } from '../../providers/student/student';
 
+@IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-admin-login',
+  templateUrl: 'admin-login.html',
 })
-
-
-export class LoginPage {
+export class AdminLoginPage {
   fromPage: string;
-  student = {} as Student;
+  admin = {} as Administrator;
   submitted: boolean;
   isLogin: boolean;
   username: string;
   password: string;
   errorMessage: string;
   infoMessage: string;
-	
-	
-	constructor(public navCtrl: NavController,
+
+  constructor(public navCtrl: NavController,
         public alertCtrl: AlertController,
         public toastCtrl: ToastController,
         public navParams: NavParams,
@@ -35,12 +30,11 @@ export class LoginPage {
   {
     this.submitted = false;
     this.isLogin = false;
-    this.fromPage = navParams.get('fromPage');
   }
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    console.log('ionViewDidLoad AdminLoginPage');
     if(sessionStorage.getItem("isLogin") === "true")
     {
       this.isLogin = true;
@@ -61,13 +55,13 @@ export class LoginPage {
     
     if (loginForm.valid) 
     {
-      this.studentProvider.getStudent(this.username, this.password).subscribe(
+      this.studentProvider.getAdmin(this.username, this.password).subscribe(
         response => {         
-          this.infoMessage = "Student login successfully";
+          this.infoMessage = "Adminitrator login successfully";
           this.isLogin = true;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
-          sessionStorage.setItem("role", "student");
+          sessionStorage.setItem("role", "admin");
           this.studentProvider.setLoginCredential(this.username, this.password);
           let toast = this.toastCtrl.create(
           {

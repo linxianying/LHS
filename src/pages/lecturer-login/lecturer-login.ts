@@ -4,30 +4,31 @@ import { NgForm } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
-import { Student } from '../../entities/student';
-
-import { RegisterPage } from '../register/register';
-
+import { Lecturer } from '../../entities/lecturer';
 import { StudentProvider } from '../../providers/student/student';
+/**
+ * Generated class for the LecturerLoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-lecturer-login',
+  templateUrl: 'lecturer-login.html',
 })
-
-
-export class LoginPage {
+export class LecturerLoginPage {
   fromPage: string;
-  student = {} as Student;
+  lecturer = {} as Lecturer;
   submitted: boolean;
   isLogin: boolean;
   username: string;
   password: string;
   errorMessage: string;
   infoMessage: string;
-	
-	
-	constructor(public navCtrl: NavController,
+
+  constructor(public navCtrl: NavController,
         public alertCtrl: AlertController,
         public toastCtrl: ToastController,
         public navParams: NavParams,
@@ -35,12 +36,10 @@ export class LoginPage {
   {
     this.submitted = false;
     this.isLogin = false;
-    this.fromPage = navParams.get('fromPage');
   }
 
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    console.log('ionViewDidLoad LecturerLoginPage');
     if(sessionStorage.getItem("isLogin") === "true")
     {
       this.isLogin = true;
@@ -61,13 +60,13 @@ export class LoginPage {
     
     if (loginForm.valid) 
     {
-      this.studentProvider.getStudent(this.username, this.password).subscribe(
+      this.studentProvider.getLecturer(this.username, this.password).subscribe(
         response => {         
-          this.infoMessage = "Student login successfully";
+          this.infoMessage = "Lecturer login successfully";
           this.isLogin = true;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
-          sessionStorage.setItem("role", "student");
+          sessionStorage.setItem("role", "lecturer");
           this.studentProvider.setLoginCredential(this.username, this.password);
           let toast = this.toastCtrl.create(
           {
