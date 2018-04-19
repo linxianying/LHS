@@ -112,13 +112,9 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'ClassAndGroups'" style="color:black;">
-    	<br/><br/><br/>
+    
 		<ion-list>
 
-			<br/><br/>
-			<ion-list-header>
-      			Class and Groups
-    		</ion-list-header>
 
 			<a ion-item *ngFor="let student of students" (click)="viewStudentDetails(student)">
 				<ion-item>
@@ -132,8 +128,9 @@
     </ion-list>
 
 	<ion-list *ngSwitchCase="'Announcements'" style="color:black;"> 
+		
 	    <ion-list *ngFor="let a of announcements">
-	    	<br/><br/><br/><br/>
+	   
 		  <ion-item>
 	         {{a.name}}
 	        <ion-note item-end>
