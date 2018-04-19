@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the LecturerSchedulePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { TimeEntryProvider } from '../../providers/time-entry/time-entry';
+import { TimeEntry } from '../../entities/timeEntry';
+import { ScheduleDetailsPage } from '../schedule-details/schedule-details';
+import { LecturerAddTimeEntryPage } from '../lecturer-add-time-entry/lecturer-add-time-entry';
 
 @Component({
   selector: 'page-lecturer-schedule',
@@ -14,11 +12,59 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LecturerSchedulePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    errorMessage: string;
+	timeEntries: TimeEntry[];
+	lecturerUsername: string;
+	lecturerAddTimeEntryPage:any;
+	isLogin:boolean;
+
+
+  constructor(public navCtrl: NavController, 
+	public navParams: NavParams, 
+	public timeEntryProvider: TimeEntryProvider) {
+	this.lecturerAddTimeEntryPage=LecturerAddTimeEntryPage;
+	if(sessionStorage.getItem("isLogin")==="false")
+		this.isLogin=false;
+	else
+		this.isLogin=true;
   }
+
+    ionViewWillEnter()
+	{
+		this.timeEntryProvider.getEnrolledTimeEntry(this.lecturerUsername).subscribe(
+			response => {
+				this.timeEntries = response.timeEntrys;
+			},
+			error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);
+	}
+
+	viewTimeEntryDetails(event, timeEntry) 
+	{
+		this.navCtrl.push(ScheduleDetailsPage, {'timeEntryToViewId': timeEntry.id});
+		sessionStorage.setItem('timeEntryId', timeEntry.id);
+	}
+
+  newTimeEntry(){
+  	this.navCtrl.push(LecturerAddTimeEntryPage, {username: this.lecturerUsername});
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LecturerSchedulePage');
+    
+    this.lecturerUsername = sessionStorage.getItem("username");
+
+    this.timeEntryProvider.getLecturerEnrolledTimeEntry(this.lecturerUsername).subscribe(
+			response => {
+				this.timeEntries = response.timeEntrys;
+			},
+			error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);
   }
 
 }

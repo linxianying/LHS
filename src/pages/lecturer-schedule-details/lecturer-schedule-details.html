@@ -1,0 +1,52 @@
+<!--
+  Generated template for the ScheduleDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Schedule Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content  *ngIf="timeEntry" style="color:black;">
+    <ion-grid>
+	  <ion-row>
+		<ion-col>
+			<div>Title:</div>
+		</ion-col>
+		<ion-col>
+			<div>{{timeEntry.title}}</div>
+		</ion-col>
+	  </ion-row>
+	  <ion-row>
+		<ion-col>
+			<div>Start Date:</div>
+		</ion-col>
+		<ion-col>
+			<div>{{timeEntry.fromDate}}</div>
+		</ion-col>
+	  </ion-row>
+	  <ion-row>
+		<ion-col>
+			<div>End Date:</div>
+		</ion-col>
+		<ion-col>
+			<div>{{timeEntry.toDate}}</div>
+		</ion-col>
+	  </ion-row>
+	  <ion-row>
+		<ion-col>
+			<div>Details:</div>
+		</ion-col>
+		<ion-col>
+			<div>{{timeEntry.details}}</div>
+		</ion-col>
+	  </ion-row>
+	</ion-grid>
+</ion-content>

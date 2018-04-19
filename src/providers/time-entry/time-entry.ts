@@ -53,6 +53,27 @@ export class TimeEntryProvider {
 		);
 	}
 
+	getLecturerEnrolledTimeEntry(username: string): Observable<any>
+	{
+
+		console.error('******** getEnrolledTimeEntry: ' + username);
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveTimeEntryByLecturerName/" + username).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 
 	retrieveTimeEntry(id: number): Observable<any> 
 	{
@@ -92,6 +113,8 @@ export class TimeEntryProvider {
 			catchError(this.handleError)
 		);
 	}
+
+	
 
 	updateTimeEntry(timeEntry: TimeEntry): Observable<any>
 	{
