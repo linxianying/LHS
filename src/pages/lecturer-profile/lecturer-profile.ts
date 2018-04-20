@@ -60,7 +60,7 @@ export class LecturerProfilePage {
     );
 
     if(this.outStatus===true){
-      this.navCtrl.push(LogoutPage, {fromPage: 'profile', isPremium: this.student.isPremium});
+      this.navCtrl.push(LogoutPage, {fromPage: 'profile', isPremium: this.lecturer.isPremium});
     }
 
   }

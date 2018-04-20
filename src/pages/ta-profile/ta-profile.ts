@@ -4,6 +4,7 @@ import { NavController, NavParams, ViewController, ToastController, AlertControl
 import { TeachingAssistantProvider } from '../../providers/teaching-assistant/teaching-assistant';
 
 import { TeachingAssistant } from '../../entities/teachingAssistant';
+import { LogoutPage } from '../logout/logout';
 
 @Component({
   selector: 'page-ta-profile',
@@ -58,7 +59,7 @@ export class TaProfilePage {
     );
 
     if(this.outStatus===true){
-      this.navCtrl.push(LogoutPage, {fromPage: 'profile', isPremium: this.student.isPremium});
+      this.navCtrl.push(LogoutPage, {fromPage: 'profile', isPremium: this.ta.isPremium});
     }
 
   }
