@@ -7,10 +7,11 @@ import { TimeEntry } from '../../entities/timeEntry';
 
 @IonicPage()
 @Component({
-  selector: 'page-schedule-details',
-  templateUrl: 'schedule-details.html',
+  selector: 'page-lecturer-schedule-details',
+  templateUrl: 'lecturer-schedule-details.html',
 })
-export class ScheduleDetailsPage {
+export class LecturerScheduleDetailsPage {
+
   errorMessage: string;
   timeEntry: TimeEntry;
   timeEntryId: number;

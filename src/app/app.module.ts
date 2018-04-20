@@ -14,6 +14,8 @@ import { StudentDashboardPage } from '../pages/student-dashboard/student-dashboa
 import { StudentModulePage } from '../pages/student-module/student-module';
 import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
 import { ScheduleDetailsPage } from '../pages/schedule-details/schedule-details';
+import { LecturerScheduleDetailsPage } from '../pages/lecturer-schedule-details/lecturer-schedule-details';
+
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFilePage } from '../pages/student-file/student-file';
 
@@ -40,6 +42,7 @@ import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
 import { StudentAddTimeEntryPage } from '../pages/student-add-time-entry/student-add-time-entry';
+import { LecturerAddTimeEntryPage } from '../pages/lecturer-add-time-entry/lecturer-add-time-entry';
 import { NewAnnouncementPage } from '../pages/new-announcement/new-announcement';
 
 
@@ -90,7 +93,9 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModuleManagementPage,
     AdminUserManagementPage,
     TaModulePage,
-    TaSchedulePage
+    TaSchedulePage,
+    LecturerScheduleDetailsPage,
+    LecturerAddTimeEntryPage
 
 
   ],
@@ -135,8 +140,14 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModuleManagementPage,
     AdminUserManagementPage,
     TaModulePage,
+<<<<<<< HEAD
     TaSchedulePage
 
+=======
+    TaSchedulePage,
+    LecturerScheduleDetailsPage,
+    LecturerAddTimeEntryPage
+>>>>>>> dcbbc53cc7a13b5f0447536ef1eb3b28541d7e23
   ],
   providers: [
     StatusBar,

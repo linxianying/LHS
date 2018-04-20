@@ -104,6 +104,7 @@ export class LecturerProvider {
 		);
 	 }
 
+<<<<<<< HEAD
 	 assignModule(moduleId:number, lecturer: Lecturer): Observable<any>
 	 {
 	  let assignModuleReq = {"lecturer": lecturer, "moduleId": moduleId};
@@ -123,6 +124,9 @@ export class LecturerProvider {
 			catchError(this.handleError)
 		);
 	 }
+=======
+	 
+>>>>>>> dcbbc53cc7a13b5f0447536ef1eb3b28541d7e23
 
 
 	private handleError(error: HttpErrorResponse)
