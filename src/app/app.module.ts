@@ -140,14 +140,14 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModuleManagementPage,
     AdminUserManagementPage,
     TaModulePage,
-<<<<<<< HEAD
-    TaSchedulePage
 
-=======
+    TaSchedulePage,
+
+
     TaSchedulePage,
     LecturerScheduleDetailsPage,
     LecturerAddTimeEntryPage
->>>>>>> dcbbc53cc7a13b5f0447536ef1eb3b28541d7e23
+
   ],
   providers: [
     StatusBar,
