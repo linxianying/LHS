@@ -5,14 +5,31 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-toolbar>
 
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Teaching Module</ion-title>
-  </ion-navbar>
-
+    <table width="100%">
+      <tr >
+        <td width="2%">
+        <ion-buttons start>
+          <button ion-button menuToggle >
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+      </td>
+      <td>
+        <ion-title>Teaching Modules</ion-title>
+      </td>
+      <td>
+      <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="viewUserDetails()">
+          <ion-icon name="person-add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </td>
+  </tr>
+</table>
+  </ion-toolbar>
+  
 </ion-header>
 
 

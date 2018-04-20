@@ -6,6 +6,7 @@ import { ModuleProvider } from '../../providers/module/module';
 import { Module } from '../../entities/module';
 
 import { LecturerModuleDetailsPage } from '../lecturer-module-details/lecturer-module-details';
+import { LecturerProfilePage } from '../lecturer-profile/lecturer-profile';
 
 @Component({
   selector: 'page-lecturer-module',
@@ -60,6 +61,10 @@ export class LecturerModulePage {
 		sessionStorage.setItem('moduleId', module.id);
 		this.navCtrl.push(LecturerModuleDetailsPage);
 		
+	}
+
+	viewUserDetails(){
+		this.navCtrl.push(LecturerProfilePage);
 	}
 
 }

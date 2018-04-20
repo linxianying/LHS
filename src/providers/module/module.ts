@@ -75,6 +75,27 @@ export class ModuleProvider {
 		);
 	}
 
+	getFacilitatingModules(username: string): Observable<any>
+	{
+
+		console.error('******** getFacilitatingModules: ' + username);
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveFacilitatingModules/" + username).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 
 	getSpecificModule(moduleId: number): Observable<any>
 	{

@@ -15,6 +15,7 @@ import { StudentSchedulePage } from '../pages/student-schedule/student-schedule'
 import { ScheduleDetailsPage } from '../pages/schedule-details/schedule-details';
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFilePage } from '../pages/student-file/student-file';
+import { TaModuleDetailsPage } from '../pages/ta-module-details/ta-module-details';
 
 import { LecturerModuleDetailsPage } from '../pages/lecturer-module-details/lecturer-module-details';
 import { LecturerFilePage } from '../pages/lecturer-file/lecturer-file';
@@ -32,6 +33,11 @@ import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details'
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
 import { StudentAddTimeEntryPage } from '../pages/student-add-time-entry/student-add-time-entry';
 import { NewAnnouncementPage } from '../pages/new-announcement/new-announcement';
+
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
+import { LecturerProfilePage } from '../pages/lecturer-profile/lecturer-profile';
+import { TaProfilePage } from '../pages/ta-profile/ta-profile';
+import { AdminProfilePage } from '../pages/admin-profile/admin-profile';
 
 
 
@@ -77,7 +83,12 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModuleManagementPage,
     AdminUserManagementPage,
     TaModulePage,
-    TaSchedulePage
+    TaSchedulePage,
+    StudentProfilePage,
+    LecturerProfilePage,
+    TaProfilePage,
+    AdminProfilePage,
+    TaModuleDetailsPage
 
   ],
   imports: [
@@ -114,7 +125,12 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModuleManagementPage,
     AdminUserManagementPage,
     TaModulePage,
-    TaSchedulePage
+    TaSchedulePage,
+    StudentProfilePage,
+    LecturerProfilePage,
+    TaProfilePage,
+    AdminProfilePage,
+    TaModuleDetailsPage
   ],
   providers: [
     StatusBar,

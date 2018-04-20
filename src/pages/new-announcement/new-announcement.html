@@ -30,11 +30,11 @@
 		</ion-list-header>
 		<ion-item>
 			<ion-label floating  style="color:white">Title</ion-label>
-			<ion-input type="text" [(ngModel)]="announcement.name"></ion-input>
+			<ion-input [(ngModel)]="announcement.name"></ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-label floating  style="color:white">Description</ion-label>
-			<ion-input type="text" [(ngModel)]="announcement.description"></ion-input>
+			<ion-textarea  [(ngModel)]="announcement.description"></ion-textarea>
 		</ion-item>
 		<ion-item>
 			<button ion-button block (click)="createAnnouncement()">

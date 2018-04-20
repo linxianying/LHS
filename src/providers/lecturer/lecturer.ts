@@ -85,6 +85,45 @@ export class LecturerProvider {
 		);
 	 }
 
+	updateLecturer(lecturer: Lecturer): Observable<any>
+	{
+		let updateLecturerReq = {"lecturer": lecturer};
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.post<any>(path, updateLecturerReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	getCurrentLecturer(username: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/getLecturer" + "/" + username).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 
 	private handleError(error: HttpErrorResponse)
 	{
