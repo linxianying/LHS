@@ -76,7 +76,7 @@ export class ModuleDetailPage {
           }
         },
         { 
-          text: 'Facilitators'
+          text: 'Facilitators',
           handler:() => {
             this.navCtrl.push(ModuleAssignmentPage,{'moduleId': this.module.id});
           }
@@ -97,7 +97,7 @@ export class ModuleDetailPage {
               {
                 text: 'Yes',
                 handler: () => {
-                this.moduleProvider.deleteModule(this.module).subscribe(
+                this.moduleProvider.deleteModule(this.moduleId).subscribe(
                   response => {
                     let toast = this.toastCtrl.create(
                     {

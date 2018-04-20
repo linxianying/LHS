@@ -16,16 +16,13 @@ import { StudentSchedulePage } from '../pages/student-schedule/student-schedule'
 import { ScheduleDetailsPage } from '../pages/schedule-details/schedule-details';
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFilePage } from '../pages/student-file/student-file';
-<<<<<<< HEAD
-import { LecturerModuleDetailsPage } from '../pages/Lecturer-module-details/Lecturer-module-details';
-import { LecturerFilePage } from '../pages/Lecturer-file/Lecturer-file';
 
-import { AdminModuleManagementPage } from '../pages/admin-module-management/admin-module-management';
-import { AdminUserManagementPage } from '../pages/admin-user-management/admin-user-management';
+
+
 import { ModuleDetailPage } from '../pages/module-detail/module-detail';
 import { CreateModulePage } from '../pages/create-module/create-module';
 
-=======
+
 
 import { LecturerModuleDetailsPage } from '../pages/lecturer-module-details/lecturer-module-details';
 import { LecturerFilePage } from '../pages/lecturer-file/lecturer-file';
@@ -37,7 +34,7 @@ import { AdminUserManagementPage } from '../pages/admin-user-management/admin-us
 import { TaLoginPage } from '../pages/ta-login/ta-login';
 import { TaModulePage } from '../pages/ta-module/ta-module';
 import { TaSchedulePage } from '../pages/ta-schedule/ta-schedule';
->>>>>>> 7e19531b6d96c4135ba3e30fd87078a082698e75
+
 
 import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
@@ -78,9 +75,6 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerModuleDetailsPage,
     LecturerFilePage,
-
-    AdminModuleManagementPage,
-    AdminUserManagementPage,
     ModuleDetailPage,
    
 
@@ -124,19 +118,15 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerModuleDetailsPage,
     LecturerFilePage,
-
-    AdminModuleManagementPage,
-    AdminUserManagementPage,
     ModuleDetailPage,
    
     StudentDetailsPage,
     LecturerDetailsPage,
     TaDetailsPage,
-<<<<<<< HEAD
-    StudentAddTimeEntryPage
+
+    StudentAddTimeEntryPage,
 
 
-=======
     StudentAddTimeEntryPage,
     AdminLoginPage,
     TaLoginPage,
@@ -146,7 +136,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdminUserManagementPage,
     TaModulePage,
     TaSchedulePage
->>>>>>> 7e19531b6d96c4135ba3e30fd87078a082698e75
+
   ],
   providers: [
     StatusBar,

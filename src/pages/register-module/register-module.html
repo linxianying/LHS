@@ -1,0 +1,34 @@
+<!--
+  Generated template for the RegisterModulePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>register-module</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div *ngIf="infoMessage" style="color:#809555;" class="infoText">
+		{{infoMessage}}
+	</div>
+	<div *ngIf="errorMessage" style="color:#809555;" class="errorText">
+		{{errorMessage}}
+	</div>
+			<ion-item>
+				<ion-label fixed>Lecturer Id</ion-label>
+				<ion-input type="text" id="lecturerId" name="lecturerId" [(ngModel)]="lecturerId" required="true" #moduleName="ngModel"></ion-input>
+			</ion-item>
+		
+			<button ion-button block (click)="registerModule()">
+				Register
+			</button>
+		</ion-item>
+	</ion-list>	
+
+</ion-content>

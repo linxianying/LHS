@@ -7,6 +7,9 @@ import { Platform } from 'ionic-angular';
 
 import { TeachingAssistant } from '../../entities/teachingAssistant';
 
+const httpOptions = {
+	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 /*
   Generated class for the TeachingAssistantProvider provider.
@@ -17,7 +20,13 @@ import { TeachingAssistant } from '../../entities/teachingAssistant';
 @Injectable()
 export class TeachingAssistantProvider {
 
-  constructor(public http: HttpClient) {
+	ipAddress = 'localhost';
+	portNo = '8080';
+	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/teachingAssitant';
+	
+	baseUrl = "/api/teachingAssitant";
+
+  constructor(public platform: Platform, private httpClient: HttpClient) {
     console.log('Hello TeachingAssistantProvider Provider');
   }
 

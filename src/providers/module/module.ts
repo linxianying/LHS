@@ -237,7 +237,7 @@ export class ModuleProvider {
 
 	}
 
-	deleteModule(module: Module): Observable<any>
+	deleteModule(moduleId: number): Observable<any>
 	{	
 		let path: string = '';
 		
@@ -249,12 +249,8 @@ export class ModuleProvider {
 		{
 			path = this.fullBaseUrl;
 		}
-
-		let deleteModuleReq = {
-			"module": module
-		}
 		
-		return this.httpClient.delete<any>(path, deleteModuleReq).pipe
+		return this.httpClient.delete<any>(path + "/" + moduleId).pipe
 		(
 			catchError(this.handleError)
 		);

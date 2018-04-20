@@ -8,6 +8,8 @@ import { Lecturer } from '../../entities/lecturer';
 import { Student } from '../../entities/student';
 import { TeachingAssistant } from '../../entities/teachingAssistant';
 
+import { RegisterModulePage } from '../register-module/register-module';
+
 /**
  * Generated class for the ModuleAssignmentPage page.
  *
@@ -29,9 +31,7 @@ export class ModuleAssignmentPage {
 	students: Student[];
 	tas: TeachingAssistant[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public actionSheetCtrl: ActionSheetController,
-        public alertCtrl: AlertController,
-        public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider) {
         this.moduleId = navParams.get('moduleId');
   }
 
@@ -66,4 +66,8 @@ export class ModuleAssignmentPage {
     );
   }
 
+  registerModule(lecturerId: number)
+  { 
+    this.navCtrl.push(RegisterModulePage, {'moduleId': this.moduleId});
+  }
 }

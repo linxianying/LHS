@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
+
 import { ModalController, Platform, NavParams, ViewController, NavController } from 'ionic-angular';
 
 import { ModuleProvider } from '../../providers/module/module';
@@ -8,10 +8,6 @@ import { Module } from '../../entities/module';
 import { ModuleDetailPage } from '../module-detail/module-detail';
 import { CreateModulePage } from '../create-module/create-module';
 
-
-=======
-import { NavController, NavParams } from 'ionic-angular';
->>>>>>> 7e19531b6d96c4135ba3e30fd87078a082698e75
 
 /**
  * Generated class for the AdminModuleManagementPage page.
@@ -26,7 +22,6 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class AdminModuleManagementPage {
 
-<<<<<<< HEAD
 	errorMessage: string;
 	infoMessage: string;
 
@@ -36,14 +31,12 @@ export class AdminModuleManagementPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
   
   	this.submitted = false;
-=======
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
->>>>>>> 7e19531b6d96c4135ba3e30fd87078a082698e75
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminModuleManagementPage');
-<<<<<<< HEAD
+
 
     this.moduleProvider.getModules().subscribe(
       response => {
@@ -83,8 +76,8 @@ export class AdminModuleManagementPage {
  	}
 
 	
-=======
+
   }
 
->>>>>>> 7e19531b6d96c4135ba3e30fd87078a082698e75
-}
+
+

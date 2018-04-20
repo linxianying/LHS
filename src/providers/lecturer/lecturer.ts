@@ -65,7 +65,6 @@ export class LecturerProvider {
 		);
 	}
 
-<<<<<<< HEAD
 	getAllLecturers(): Observable<any>
 	{
 		let path: string = '';
@@ -84,7 +83,7 @@ export class LecturerProvider {
 			catchError(this.handleError)
 		);
 	}
-=======
+	
 	createAnnouncement(announcement: Announcement, moduleId:number, username: string): Observable<any>
 	 {
 	  let createAnnouncementReq = {"announcement": announcement, "moduleId": moduleId, "username": username};
@@ -105,7 +104,26 @@ export class LecturerProvider {
 		);
 	 }
 
->>>>>>> 7e19531b6d96c4135ba3e30fd87078a082698e75
+	 assignModule(moduleId:number, lecturer: Lecturer): Observable<any>
+	 {
+	  let assignModuleReq = {"lecturer": lecturer, "moduleId": moduleId};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path, assignModuleReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
+
 
 	private handleError(error: HttpErrorResponse)
 	{
