@@ -13,6 +13,8 @@ import { StudentDashboardPage } from '../pages/student-dashboard/student-dashboa
 import { StudentModulePage } from '../pages/student-module/student-module';
 import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
 import { ScheduleDetailsPage } from '../pages/schedule-details/schedule-details';
+import { LecturerScheduleDetailsPage } from '../pages/lecturer-schedule-details/lecturer-schedule-details';
+
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFilePage } from '../pages/student-file/student-file';
 import { TaModuleDetailsPage } from '../pages/ta-module-details/ta-module-details';
@@ -32,6 +34,7 @@ import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
 import { TaDetailsPage } from '../pages/ta-details/ta-details';
 import { StudentAddTimeEntryPage } from '../pages/student-add-time-entry/student-add-time-entry';
+import { LecturerAddTimeEntryPage } from '../pages/lecturer-add-time-entry/lecturer-add-time-entry';
 import { NewAnnouncementPage } from '../pages/new-announcement/new-announcement';
 
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
@@ -88,7 +91,9 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerProfilePage,
     TaProfilePage,
     AdminProfilePage,
-    TaModuleDetailsPage
+    TaModuleDetailsPage,
+    LecturerScheduleDetailsPage,
+    LecturerAddTimeEntryPage
 
   ],
   imports: [
@@ -130,7 +135,9 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerProfilePage,
     TaProfilePage,
     AdminProfilePage,
-    TaModuleDetailsPage
+    TaModuleDetailsPage,
+    LecturerScheduleDetailsPage,
+    LecturerAddTimeEntryPage
   ],
   providers: [
     StatusBar,
