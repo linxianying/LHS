@@ -14,12 +14,9 @@
 
 
 <ion-content padding>
-
-	<ion-content padding>
 		
-	<div *ngIf="moduleToUpdate != null">
 	
-		<form #updateModuleForm="ngForm" (ngSubmit)="update(updateModuleForm)" >
+		
 		
 			<div *ngIf="errorMessage" class="errorText">
 				{{errorMessage}}
@@ -29,74 +26,41 @@
 				{{infoMessage}}
 			</div>
 		
-			<div>
 			
-				<div *ngIf="moduleName.invalid && (moduleName.dirty || moduleName.touched || submitted)" class="errorText">
-					<div *ngIf="moduleName.errors.required">
-						Name is required.
-					</div>
-				</div>
-				
-				<div *ngIf="description.invalid && (description.dirty || description.touched || submitted)" class="errorText">
-					<div *ngIf="description.errors.required">
-						Description is required.
-					</div>
-				</div>
-				
-				<div *ngIf="moduleCode.invalid && (moduleCode.dirty || moduleCode.touched || submitted)" class="errorText">
-					<div *ngIf="moduleCode.errors.required">
-						Module Code is required.
-					</div>
-				</div>
-				
-				<div *ngIf="classSize.invalid && (classSize.dirty || classSize.touched || submitted)" class="errorText">
-					<div *ngIf="classSize.errors.required">
-						Class Szie is required.
-					</div>
-				</div>
-				
-				<div *ngIf="examDate.invalid && (examDate.dirty || examDate.touched || submitted)" class="errorText">
-					<div *ngIf="examDate.errors.required">
-						Exam Date is required.
-					</div>
-				</div>
-				
-			</div>					
-
 			<ion-list>
 			
 				<ion-item>
 					<b>Module ID</b>
-					{{moduleToUpdate.id}}
+					<b>{{moduleToUpdate.id}}</b>
 				</ion-item>
 				
 				<ion-item>
 					<b>Module Code</b>
-					{{moduleToUpdate.moduleCode}}
+					<b>{{moduleToUpdate.moduleCode}}</b>
 				</ion-item>
 				
 				<ion-item>
-					<ion-label fixed>Module Name</ion-label>
-					<ion-input type="text" id="moduleName" name="moduleName" [(ngModel)]="moduleToUpdate.name" required="true" #moduleName="ngModel"></ion-input>
+					<ion-label fixed style="color:white">Module Name</ion-label>
+					<ion-input type="text" id="moduleName" name="moduleName" [(ngModel)]="moduleToUpdate.moduleName" required="true" #moduleName="ngModel"></ion-input>
 				</ion-item>
 				
 				<ion-item>
-					<ion-label fixed>Description</ion-label>
+					<ion-label fixed style="color:white">Description</ion-label>
 					<ion-input type="text" id="description" name="description" [(ngModel)]="moduleToUpdate.description" required="true" #description="ngModel"></ion-input>
 				</ion-item>
 				
 				<ion-item>
-					<ion-label fixed>Module Code</ion-label>
+					<ion-label fixed style="color:white">Module Code</ion-label>
 					<ion-input type="text" id="moduleCode" name="moduleCode" [(ngModel)]="moduleToUpdate.moduleCode" required="true" #moduleCode="ngModel"></ion-input>
 				</ion-item>
 				
 				<ion-item>
-					<ion-label fixed>Class Size</ion-label>
+					<ion-label fixed style="color:white">Class Size</ion-label>
 					<ion-input type="text" id="classSize" name="classSize" [(ngModel)]="moduleToUpdate.classSize" required="true" #rclassSize="ngModel"></ion-input>
 				</ion-item>
 				
 				<ion-item>
-					<ion-label fixed>Exam Date</ion-label>
+					<ion-label fixed style="color:white">Exam Date</ion-label>
 					<ion-datetime id="examDate" name="examDate" displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="examDate"></ion-datetime>
 				</ion-item>
 				
@@ -108,10 +72,7 @@
 
 			</ion-list>
 			
-		</form>
 	
-	</div>
 
 </ion-content>
 
-</ion-content>

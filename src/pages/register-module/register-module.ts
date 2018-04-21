@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 
 import { ModuleProvider } from '../../providers/module/module';
 import { LecturerProvider } from '../../providers/lecturer/lecturer';
+
 import { Module } from '../../entities/module';
 import { Lecturer } from '../../entities/lecturer';
 
@@ -19,32 +20,24 @@ export class RegisterModulePage {
 	infoMessage: string;
 	errorMessage: string;
 
-	lecturerToAssign: Lecturer;
+  lecturerToAssignId: number;
+  studentToAssignId: number;
+  taToAssignId: number;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public lecturerProvider: LecturerProvider) {
     this.moduleId = navParams.get('moduleId');
-    this.lecturerToAssign = new Lecturer();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterModulePage');
   }
 
-  registerModule(lecturerId: number)
+  registerModuleLecturer()
   { 
-    this.lecturerProvider.getSpecificLecturer(lecturerId).subscribe(
-      response => {           
-        this.lecturerToAssign = response.lecturer;
-      },
-      error => {        
-        this.infoMessage = null;
-        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
-      }
-    );
 
-    this.lecturerProvider.assignModule(this.moduleId, this.lecturerToAssign).subscribe(
+    this.lecturerProvider.assignModule(this.moduleId, this.lecturerToAssignId).subscribe(
       response => {           
         this.infoMessage = "Module " + response.id + " registered successfully";
         this.errorMessage = null;
@@ -55,4 +48,7 @@ export class RegisterModulePage {
       }
     );
   }
+
+
+  
 }

@@ -127,6 +127,46 @@ export class TeachingAssistantProvider {
 			catchError(this.handleError)
 		);
 	}
+
+	assignModule(moduleId:number, taId: number): Observable<any>
+	 {
+	  let assignModuleTAReq = {"taId": taId, "moduleId": moduleId};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path + "/assignModule", assignModuleTAReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
+
+	 dropModule(moduleId:number, taId: number): Observable<any>
+	 {
+	  let dropModuleTAReq = {"taId": taId, "moduleId": moduleId};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path + "/dropModule", dropModuleTAReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
 		
 
 

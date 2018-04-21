@@ -5,7 +5,7 @@ import { Lecturer } from '../../entities/lecturer';
 import { LecturerProvider } from '../../providers/lecturer/lecturer';
 import { ActionSheetController, AlertController, ToastController } from 'ionic-angular';
 
-import { UpdateLecturerPage } from '../update-lecturer/update-lecturer';
+
 
 
 @Component({
@@ -30,32 +30,14 @@ export class AdminLecturerPage {
   {
     let actionSheet = this.actionSheetCtrl.create(
     {
-      title: 'Lecturer' + this.lecturer.id,
+      title: 'Delete Lecturer' + this.lecturer.id,
       cssClass: 'action-sheets-basic-page',
       buttons: [  
-        {
-          text: 'Update',       
-          handler: () => {
-            this.navCtrl.push(UpdateLecturerPage);
-          }
-        },
     
         {
-          text: 'Delete',
+          text: 'Confirm',
           role: 'destructive',        
           handler: () => {
-            let confirm = this.alertCtrl.create({
-              title: 'Confirm Delete',
-              message: 'Do you want to delete this lecturer account?',
-              buttons: [
-              {
-                text: 'No',
-                handler: () => {
-                }
-              },
-              {
-                text: 'Yes',
-                handler: () => {
                 this.lecturerProvider.deleteLecturer(this.lecturer.id).subscribe(
                   response => {
                     let toast = this.toastCtrl.create(
@@ -81,15 +63,11 @@ export class AdminLecturerPage {
                   }
                 );
                 }
-              }
-              ]
-            });
-            confirm.present();
-          }
+              
         },    
         {
           text: 'Cancel',
-          role: 'cancel', // will always sort to be on the bottom
+          role: 'cancel', 
           handler: () => {            
           }
         }

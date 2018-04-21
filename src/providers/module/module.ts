@@ -279,7 +279,7 @@ export class ModuleProvider {
 
 	}
 
-	updateModule(module: Module): Observable<any>
+	updateModule(moduleId: number): Observable<any>
 	{	
 		let path: string = '';
 		
@@ -293,7 +293,7 @@ export class ModuleProvider {
 		}
 
 		let updateModuleReq = {
-			"module": module
+			"moduleId": moduleId
 		}
 		
 		return this.httpClient.post<any>(path, updateModuleReq, httpOptions).pipe

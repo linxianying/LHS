@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-	<button ion-item (click)="registerModule()">
+	<button ion-item (click)="registerModuleLecturer()">
 		Register Module: Lecturer
 	</button>
 
@@ -29,25 +29,33 @@
 			        </ion-thumbnail>
 			        <h2>{{lecturer.name}}</h2>
 			        <p>{{lecturer.faculty}}:{{lecturer.department}}</p>
-			        <button ion-button clear item-end>Remove</button>
+			        <button ion-button clear item-end (click)="removeLecturer(lecturer)">Remove</button>
 			    </ion-item>
 			   
 		</ion-list>
+		<br/>
 
+		<button ion-item (click)="registerModuleTA()">
+			Register Module: Teaching Assistant
+		</button>
 		<ion-list>
 			<ion-list-header>
 	      		Teaching Assistants
 	    	</ion-list-header>
-				<ion-item *ngFor="let ta of TAs">
+				<ion-item *ngFor="let ta of tas">
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{ta.name}}.jpg">
 			        </ion-thumbnail>
 			        <h2>{{ta.name}}</h2>
 			        <p>{{ta.faculty}}:{{ta.department}}</p>
-			        <button ion-button clear item-end>Remove</button>
+			        <button ion-button clear item-end (click)="removeTA(ta)">Remove</button>
 			    </ion-item>
 		</ion-list>
+		<br/>
 
+		<button ion-item (click)="registerModuleStudent()">
+			Register Module: Student
+		</button>
 		<ion-list>
 			<ion-list-header>
 	      		Students
@@ -58,7 +66,7 @@
 			        </ion-thumbnail>
 			        <h2>{{student.name}}</h2>
 			        <p>{{student.faculty}}:{{student.department}}</p>
-			        <button ion-button clear item-end>Remove</button>
+			        <button ion-button clear item-end (click)="removeStudent(student)">Remove</button>
 			    </ion-item>
 		</ion-list>
 

@@ -62,6 +62,11 @@ export class ModuleDetailPage {
     );
   }
 
+  viewUsersEnrolled()
+  {
+    this.navCtrl.push(ModuleAssignmentPage,{'moduleId': this.moduleId});
+  }
+
   showActionSheet()
   {
     let actionSheet = this.actionSheetCtrl.create(
@@ -72,15 +77,9 @@ export class ModuleDetailPage {
         {
           text: 'Update',       
           handler: () => {
-            this.navCtrl.push(UpdateModulePage, {'moduleToUpdateId': this.moduleId});
+            this.navCtrl.push(UpdateModulePage, {'moduleToUpdate': this.module});
           }
-        },
-        { 
-          text: 'Facilitators',
-          handler:() => {
-            this.navCtrl.push(ModuleAssignmentPage,{'moduleId': this.moduleId});
-          }
-        },    
+        }, 
         {
           text: 'Delete',
           role: 'destructive',        

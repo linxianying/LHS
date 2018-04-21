@@ -26,6 +26,8 @@ import { ModuleDetailPage } from '../pages/module-detail/module-detail';
 import { CreateModulePage } from '../pages/create-module/create-module';
 import { ModuleAssignmentPage } from '../pages/module-assignment/module-assignment';
 import { RegisterModulePage } from '../pages/register-module/register-module';
+import { RegisterModuleStudentPage } from '../pages/register-module-student/register-module-student';
+import { RegisterModuleTaPage } from '../pages/register-module-ta/register-module-ta';
 import { UpdateModulePage } from '../pages/update-module/update-module';
 import { AdminLecturerPage } from '../pages/admin-lecturer/admin-lecturer';
 import { AdminStudentPage } from '../pages/admin-student/admin-student';
@@ -100,6 +102,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminStudentPage,
     AdminTaPage,
     UpdateLecturerPage,
+    RegisterModuleStudentPage,
+    RegisterModuleTaPage,
    
 
     StudentDetailsPage,
@@ -158,6 +162,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminStudentPage,
     AdminTaPage,
     UpdateLecturerPage,
+    RegisterModuleStudentPage,
+    RegisterModuleTaPage,
    
     StudentDetailsPage,
     LecturerDetailsPage,

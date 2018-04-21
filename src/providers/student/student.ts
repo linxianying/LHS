@@ -225,6 +225,46 @@ export class StudentProvider {
 		);
 	}
 
+	 assignModule(moduleId:number, studentId: number): Observable<any>
+	 {
+	  let assignModuleStudentReq = {"studentId": studentId, "moduleId": moduleId};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path + "/assignModule", assignModuleStudentReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
+
+	dropModule(moduleId:number, studentId: number): Observable<any>
+	 {
+	  let dropModuleStudentReq = {"studentId": studentId, "moduleId": moduleId};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path + "/dropModule", dropModuleStudentReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
+
 
 
 	private handleError(error: HttpErrorResponse)
