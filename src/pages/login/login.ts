@@ -12,6 +12,7 @@ import { StudentProvider } from '../../providers/student/student';
 
 import { StudentProfilePage } from '../student-profile/student-profile';
 
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-login',
@@ -84,6 +85,7 @@ export class LoginPage {
           });
         
           toast.present();
+          this.navCtrl.push(HomePage, {username: this.username});
         },
         error => {
           this.errorMessage = "HTTP " + error.status + ": " + error.error.message;

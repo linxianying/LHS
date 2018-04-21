@@ -12,6 +12,7 @@ import { StudentProvider } from '../../providers/student/student';
 
 import { TeachingAssistant } from '../../entities/teachingAssistant';
 
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -77,6 +78,7 @@ export class TaLoginPage {
           });
         
           toast.present();
+          this.navCtrl.push(HomePage, {username: this.username});
         },
         error => {
           this.errorMessage = "HTTP " + error.status + ": " + error.error.message;

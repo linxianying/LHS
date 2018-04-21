@@ -6,6 +6,7 @@ import { ToastController } from 'ionic-angular';
 
 import { Administrator } from '../../entities/administrator';
 import { StudentProvider } from '../../providers/student/student';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -70,6 +71,7 @@ export class AdminLoginPage {
           });
         
           toast.present();
+          this.navCtrl.push(HomePage, {username: this.username});
         },
         error => {
           this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
