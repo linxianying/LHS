@@ -163,7 +163,7 @@ export class StudentProvider {
 		);
 	}
 
-<<<<<<< HEAD
+
 	deleteStudent(studentId: number): Observable<any>
 	{	
 		let path: string = '';
@@ -185,11 +185,7 @@ export class StudentProvider {
 
 	}
 
-	getAllStudents(): Observable<any>
-=======
-	getCurrentStudent(username: string): Observable<any>
->>>>>>> 455b81daddf90d1b485113ff334aaec138862109
-	{
+	getAllStudents(): Observable<any>{
 		let path: string = '';
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
@@ -201,21 +197,36 @@ export class StudentProvider {
 			path = this.fullBaseUrl;
 		}
 		
-<<<<<<< HEAD
+
 		return this.httpClient.get<any>(path + "/retrieveAllStudents/").pipe
-=======
-		return this.httpClient.get<any>(path + "/getStudent" + "/" + username).pipe
->>>>>>> 455b81daddf90d1b485113ff334aaec138862109
 		(
 			catchError(this.handleError)
 		);
 	}
 
-<<<<<<< HEAD
-=======
-	
+	getCurrentStudent(username: string): Observable<any>
 
->>>>>>> 455b81daddf90d1b485113ff334aaec138862109
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+
+		return this.httpClient.get<any>(path + "/getStudent" + "/" + username).pipe
+
+		(
+			catchError(this.handleError)
+		);
+	}
+
+
+
 	private handleError(error: HttpErrorResponse)
 	{
 		if (error.error instanceof ErrorEvent) 

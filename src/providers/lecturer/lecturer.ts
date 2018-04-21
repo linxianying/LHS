@@ -104,7 +104,7 @@ export class LecturerProvider {
 		);
 	 }
 
-<<<<<<< HEAD
+
 
 	 assignModule(moduleId:number, lecturer: Lecturer): Observable<any>
 	 {
@@ -127,8 +127,24 @@ export class LecturerProvider {
 	 }
 
 	 deleteLecturer(lecturerId: number): Observable<any>
-	{	
-=======
+	{	let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+
+		return this.httpClient.delete<any>(path + "/" + lecturerId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 	updateLecturer(lecturer: Lecturer): Observable<any>
 	{
 		let updateLecturerReq = {"lecturer": lecturer};
@@ -151,7 +167,7 @@ export class LecturerProvider {
 
 	getCurrentLecturer(username: string): Observable<any>
 	{
->>>>>>> 455b81daddf90d1b485113ff334aaec138862109
+
 		let path: string = '';
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
@@ -163,22 +179,12 @@ export class LecturerProvider {
 			path = this.fullBaseUrl;
 		}
 		
-<<<<<<< HEAD
-		return this.httpClient.delete<any>(path + "/" + lecturerId).pipe
-		(
-			catchError(this.handleError)
-		);
-
-
-	}
-
-=======
 		return this.httpClient.get<any>(path + "/getLecturer" + "/" + username).pipe
 		(
 			catchError(this.handleError)
 		);
 	}
->>>>>>> 455b81daddf90d1b485113ff334aaec138862109
+
 
 
 	private handleError(error: HttpErrorResponse)
