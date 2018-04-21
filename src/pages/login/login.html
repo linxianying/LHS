@@ -10,7 +10,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>  	
-    <ion-title>Login</ion-title>
+    <ion-title>Student Login</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -30,30 +30,30 @@
 			<div>
 			
 				<div *ngIf="inusername.invalid && (inusername.dirty || inusername.touched || submitted)" class="errorText">
-					<div *ngIf="inusername.errors.required">
+					<div *ngIf="inusername.errors.required" style="color:black;">
 						Username is required.
 					</div>
-					<div *ngIf="inusername.errors.minlength">
+					<div *ngIf="inusername.errors.minlength" style="color:black;">
 						Username must be at least 4 characters long.
 					</div>
-					<div *ngIf="inusername.errors.maxlength">
+					<div *ngIf="inusername.errors.maxlength" style="color:black;">
 						Username cannot exceed 32 characters.
 					</div>
 				</div>
 				
 				<div *ngIf="inpassword.invalid && (inpassword.dirty || inpassword.touched || submitted)" class="errorText">
-					<div *ngIf="inpassword.errors.required">
+					<div *ngIf="inpassword.errors.required" style="color:black;">
 						Password is required.
 					</div>
-					<div *ngIf="inpassword.errors.minlength">
+					<div *ngIf="inpassword.errors.minlength" style="color:black;">
 						Password must be at least 4 characters long.
 					</div>
-					<div *ngIf="inpassword.errors.maxlength">
+					<div *ngIf="inpassword.errors.maxlength" style="color:black;">
 						Password cannot exceed 32 characters.
 					</div>
 				</div>
 				
-				<div *ngIf="loginErrorMessage" class="errorText">
+				<div *ngIf="loginErrorMessage" class="errorText" style="color:black;">
 					{{loginErrorMessage}}
 				</div>
 				
