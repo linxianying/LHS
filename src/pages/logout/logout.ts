@@ -19,11 +19,18 @@ export class LogoutPage {
   isLogin: boolean;
   username: string;
   password: string;
+  isPremium: boolean;
+  fromPage: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 	  this.isLogin = false;
     this.password = "";
 	  this.username = "";
+    this.fromPage = navParams.get('fromPage');
+    this.isPremium = navParams.get('isPremium');
+    console.error(this.fromPage);
+    console.error(this.isPremium);
+
   }
 
   ionViewDidLoad() {

@@ -5,39 +5,56 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+    <ion-toolbar>
 
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Enrolled Module</ion-title>
-  </ion-navbar>
+        <table width="100%">
+            <tr>
+                <td width="2%">
+                    <ion-buttons start>
+                        <button ion-button menuToggle>
+                            <ion-icon name="menu"></ion-icon>
+                        </button>
+                    </ion-buttons>
+                </td>
+                <td>
+                    <ion-title>Enrolled Modules</ion-title>
+                </td>
+                <td>
+                    <ion-buttons end>
+                        <button ion-button icon-only color="royal" (click)="viewUserDetails()">
+                            <ion-icon name="person-add"></ion-icon>
+                        </button>
+                    </ion-buttons>
+                </td>
+            </tr>
+        </table>
+    </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <div *ngIf="!isLogin" style="color:black;">
-    <div style="height:60px;">
-      <img class="loginLogo"  src="assets/imgs/logo.jpg"/>
-      </div>
-      <div style="height:140px;">
-        
-      </div>
+    <div *ngIf="!isLogin" style="color:black;">
+        <div style="height:60px;">
+            <img class="loginLogo" src="assets/imgs/logo.jpg" />
+        </div>
+        <div style="height:140px;">
 
-  
-    <h3 >Sorry!</h3>
-  
-    You are not logged in yet.
-  
-  </div>
-  <div *ngIf="isLogin" style="color:black;">
-  	<ion-list>
+        </div>
 
-      	<button ion-item *ngFor="let module of modules" (click)="viewModuleDetails($event, module)">
-        		{{ module.moduleCode }}
-        		{{ module.moduleName }}
-      	</button>
-    </ion-list>
-  </div>
+
+        <h3>Sorry!</h3>
+
+        You are not logged in yet.
+
+    </div>
+    <div *ngIf="isLogin" style="color:black;">
+        <ion-list>
+
+            <button ion-item *ngFor="let module of modules" (click)="viewModuleDetails($event, module)">
+              {{ module.moduleCode }}
+              {{ module.moduleName }}
+            </button>
+        </ion-list>
+    </div>
 </ion-content>

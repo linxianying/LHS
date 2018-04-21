@@ -65,6 +65,25 @@ export class LecturerProvider {
 		);
 	}
 
+	getAllLecturers(): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveAllLecturers/").pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+	
 	createAnnouncement(announcement: Announcement, moduleId:number, username: string): Observable<any>
 	 {
 	  let createAnnouncementReq = {"announcement": announcement, "moduleId": moduleId, "username": username};
@@ -85,7 +104,87 @@ export class LecturerProvider {
 		);
 	 }
 
-	 
+
+
+	 assignModule(moduleId:number, lecturer: Lecturer): Observable<any>
+	 {
+	  let assignModuleReq = {"lecturer": lecturer, "moduleId": moduleId};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path, assignModuleReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
+
+	 deleteLecturer(lecturerId: number): Observable<any>
+	{	let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+
+		return this.httpClient.delete<any>(path + "/" + lecturerId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	updateLecturer(lecturer: Lecturer): Observable<any>
+	{
+		let updateLecturerReq = {"lecturer": lecturer};
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.post<any>(path, updateLecturerReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	getCurrentLecturer(username: string): Observable<any>
+	{
+
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/getLecturer" + "/" + username).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 
 
 	private handleError(error: HttpErrorResponse)

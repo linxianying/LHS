@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+
+import { ModalController, Platform, NavParams, ViewController, NavController } from 'ionic-angular';
+
+import { ModuleProvider } from '../../providers/module/module';
+import { Module } from '../../entities/module';
+
+import { ModuleDetailPage } from '../module-detail/module-detail';
+import { CreateModulePage } from '../create-module/create-module';
+
 
 /**
  * Generated class for the AdminModuleManagementPage page.
@@ -14,11 +22,62 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class AdminModuleManagementPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	errorMessage: string;
+	infoMessage: string;
+
+	submitted: boolean;
+	modules: Module[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
+  
+  	this.submitted = false;
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminModuleManagementPage');
+
+
+    this.moduleProvider.getModules().subscribe(
+      response => {
+        this.modules = response.modules;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
   }
 
-}
+   ionViewWillEnter()
+  {
+    this.moduleProvider.getModules().subscribe(
+      response => {
+        this.modules = response.modules;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
+  }
+
+  clear()
+  {
+  	this.infoMessage = null;
+		this.errorMessage = null;
+		this.submitted = false;
+  }
+
+ 	create(){
+    this.navCtrl.push(CreateModulePage);
+ 	}
+
+ 	viewModuleDetails(module:Module){
+ 		this.navCtrl.push(ModuleDetailPage, {moduleId: module.id});
+ 	}
+
+	
+
+  }
+
+
+

@@ -13,9 +13,25 @@
     <ion-title>adminModuleManagement</ion-title>
   </ion-navbar>
 
+
 </ion-header>
 
 
 <ion-content padding>
+
+	<div *ngIf="errorMessage" class="errorText">
+		{{errorMessage}}
+	</div>
+
+	<button ion-item (click)="create()">
+		Create New Module
+	</button>
+
+	<ion-list>
+		<button ion-item *ngFor="let module of modules" (click)="viewModuleDetails(module)">
+			<ion-icon name='arrow-forward'></ion-icon> <b>{{module.id}}: {{module.moduleCode}}</b>
+			<p>{{module.moduleName}}</p>
+		</button>
+	</ion-list>
 
 </ion-content>

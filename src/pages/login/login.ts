@@ -10,6 +10,9 @@ import { RegisterPage } from '../register/register';
 
 import { StudentProvider } from '../../providers/student/student';
 
+import { StudentProfilePage } from '../student-profile/student-profile';
+
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -49,6 +52,10 @@ export class LoginPage {
     this.username = sessionStorage.getItem("username");
   }
 
+  viewUserDetails(){
+    this.navCtrl.push(StudentProfilePage);
+  }
+
   clear()
   {
     this.username = "";
@@ -82,7 +89,7 @@ export class LoginPage {
           let alert = this.alertCtrl.create(
           {
             title: 'Login',
-            subTitle: 'Invalid login credential',
+            subTitle: 'Invalid login credential' + error.status,
             buttons: ['OK']
           });
           

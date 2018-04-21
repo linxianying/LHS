@@ -96,6 +96,20 @@ export class LecturerModuleDetailsPage {
   }
 
 
+  ionViewWillEnter()
+  {
+    this.moduleProvider.getAnnouncements(this.moduleId).subscribe(
+      response => {
+        this.announcements = response.announcements;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
+  }
+
+
+
   newAnnouncement(){
   	this.navCtrl.push(NewAnnouncementPage, {module: this.module});
   }

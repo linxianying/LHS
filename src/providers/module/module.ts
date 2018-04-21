@@ -53,6 +53,27 @@ export class ModuleProvider {
 		);
 	}
 
+	getModules(): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveAllModules/").pipe
+		(
+			catchError(this.handleError)
+		);
+
+
+	}
+
 
 	getTeachingModules(username: string): Observable<any>
 	{
@@ -70,6 +91,27 @@ export class ModuleProvider {
 		}
 		
 		return this.httpClient.get<any>(path + "/retrieveTeachingModules/" + username).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	getFacilitatingModules(username: string): Observable<any>
+	{
+
+		console.error('******** getFacilitatingModules: ' + username);
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveFacilitatingModules/" + username).pipe
 		(
 			catchError(this.handleError)
 		);
@@ -189,6 +231,77 @@ export class ModuleProvider {
 		(
 			catchError(this.handleError)
 		);
+	}
+
+	createModule(newModule:Module): Observable<any>
+	{	
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+
+		let createModuleReq = {
+			"module": newModule
+		}
+		
+		return this.httpClient.put<any>(path, createModuleReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+
+
+	}
+
+	deleteModule(moduleId: number): Observable<any>
+	{	
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.delete<any>(path + "/" + moduleId).pipe
+		(
+			catchError(this.handleError)
+		);
+
+
+	}
+
+	updateModule(module: Module): Observable<any>
+	{	
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+
+		let updateModuleReq = {
+			"module": module
+		}
+		
+		return this.httpClient.post<any>(path, updateModuleReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+
+
 	}
 
 
