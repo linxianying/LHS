@@ -48,7 +48,7 @@ export class HomePage {
 				public navParams: NavParams) 
   {
 		this.pages = [];
-    this.username = params.get('username');
+    this.username = navParams.get('username');
 		if(sessionStorage.getItem("isLogin") === "true")
 	    {
 	      this.isLogin = true;
