@@ -1,5 +1,5 @@
 <!--
-  Generated template for the RegisterModulePage page.
+  Generated template for the RegisterModuleTaPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -21,11 +21,11 @@
 		{{errorMessage}}
 	</div>
 			<ion-item>
-				<ion-label fixed style="color:white">Lecturer Id</ion-label>
-				<ion-input type="text" id="lecturerId" name="lecturerId" [(ngModel)]="lecturerToAssignId" required="true" ></ion-input>
+				<ion-label fixed style="color:white">TA Id</ion-label>
+				<ion-input type="text" id="taId" name="taId" [(ngModel)]="taToAssignId" required="true" ></ion-input>
 			</ion-item>
 		
-			<button ion-button block (click)="registerModuleLecturer()">
+			<button ion-button block (click)="registerModuleTA()">
 				Register 
 			</button>
 		

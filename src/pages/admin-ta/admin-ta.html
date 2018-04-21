@@ -66,4 +66,8 @@
       </ion-item>
   </ion-list>
 
+  <button *ngIf="ta != null" ion-button block (click)="showActionSheet()">
+    Delete
+  </button>
+
 </ion-content>

@@ -46,6 +46,82 @@ export class LecturerProvider {
 		);
 	}
 
+	updateLecturerPassword(id: number, newPassword: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/updateLecturerPassword/" + id+"/"+newPassword).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	updateStudentPassword(id: number, newPassword: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/updateStudentPassword/" + id+"/"+newPassword).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	updateTAPassword(id: number, newPassword: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/updateTAPassword/" + id+"/"+newPassword).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	updateAdminPassword(id: number, newPassword: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/updateAdminPassword/" + id+"/"+newPassword).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 	getEnrolledModules(lecturerId: number): Observable<any>
 	{
 		let path: string = '';
@@ -106,9 +182,9 @@ export class LecturerProvider {
 
 
 
-	 assignModule(moduleId:number, lecturer: Lecturer): Observable<any>
+	 assignModule(moduleId:number, lecturerId: number): Observable<any>
 	 {
-	  let assignModuleReq = {"lecturer": lecturer, "moduleId": moduleId};
+	  let assignModuleReq = {"lecturerId": lecturerId, "moduleId": moduleId};
 	  let path: string = '';
 	  
 	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
@@ -120,7 +196,27 @@ export class LecturerProvider {
 	   path = this.fullBaseUrl;
 	  }    
 	  
-	  return this.httpClient.put<any>(path, assignModuleReq, httpOptions).pipe
+	  return this.httpClient.put<any>(path + "/assignModule", assignModuleReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	 }
+
+	 dropModule(moduleId:number, lecturerId: number): Observable<any>
+	 {
+	  let dropModuleReq = {"lecturerId": lecturerId, "moduleId": moduleId};
+	  let path: string = '';
+	  
+	  if(this.platform.is('core') || this.platform.is('mobileweb')) 
+	  {
+	   path = this.baseUrl;
+	  }
+	  else
+	  {
+	   path = this.fullBaseUrl;
+	  }    
+	  
+	  return this.httpClient.put<any>(path + "/dropModule", dropModuleReq, httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);

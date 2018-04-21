@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams,ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-
-import { ModuleProvider } from '../../providers/module/module';
-import { LecturerProvider } from '../../providers/lecturer/lecturer';
+import { StudentProvider } from '../../providers/student/student';
 
 import { Module } from '../../entities/module';
-import { Lecturer } from '../../entities/lecturer';
 
-
+/**
+ * Generated class for the RegisterModuleStudentPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @Component({
-  selector: 'page-register-module',
-  templateUrl: 'register-module.html',
+  selector: 'page-register-module-student',
+  templateUrl: 'register-module-student.html',
 })
-export class RegisterModulePage {
+export class RegisterModuleStudentPage {
 
 	moduleId:number;
 	infoMessage: string;
@@ -24,21 +26,21 @@ export class RegisterModulePage {
   studentToAssignId: number;
   taToAssignId: number;
 
-  constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    public lecturerProvider: LecturerProvider,public toastCtrl: ToastController) {
-    this.moduleId = navParams.get('moduleId');
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public studentProvider: StudentProvider,public toastCtrl: ToastController) {
+  this.moduleId = navParams.get('moduleId');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterModulePage');
+    console.log('ionViewDidLoad RegisterModuleStudentPage');
   }
 
-  registerModuleLecturer()
+  registerModuleStudent()
   { 
 
-    this.lecturerProvider.assignModule(this.moduleId, this.lecturerToAssignId).subscribe(
+    this.studentProvider.assignModule(this.moduleId, this.studentToAssignId).subscribe(
       response => {           
+  
         this.errorMessage = null;
 
         let toast = this.toastCtrl.create(
@@ -66,9 +68,8 @@ export class RegisterModulePage {
                     
                     toast.present();
       }
+      
     );
   }
 
-
-  
 }

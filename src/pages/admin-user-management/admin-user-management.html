@@ -16,40 +16,59 @@
 </ion-header>
 
 
+<br/><br/><br/>
+	<ion-toolbar no-border-top>
+	    <ion-segment [(ngModel)]="userManagement">
+	      <ion-segment-button value="Lecturers" style="color:white;" >
+	        Lecturers
+	      </ion-segment-button>
+	      <ion-segment-button value="TAs" style="color:white;">
+	        TAs
+	      </ion-segment-button>
+	      <ion-segment-button value="Students" style="color:white;">
+	        Students
+	      </ion-segment-button>
+	    </ion-segment>
+	</ion-toolbar>
+
+
 <ion-content padding>
 
-	<div *ngIf="errorMessage" class="errorText">
-		{{errorMessage}}
-	</div>
+	<div [ngSwitch]="userManagement">
 
-	<ion-list>
-		<ion-list-header>
-	      		Lecturers
-	    </ion-list-header>
+	<ion-list *ngSwitchCase="'Lecturers'">
+		<br/><br/><br/>
+		<div *ngIf="errorMessage" class="errorText">
+			{{errorMessage}}
+		</div>
 		<button ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturer(lecturer)">
 			<ion-icon name='arrow-forward'></ion-icon> <b>{{lecturer.id}}:{{lecturer.username}}</b>
 			<p>{{lecturer.name}}</p>
 		</button>
 	</ion-list>
-	<br/>
-	<ion-list>
-		<ion-list-header>
-	      		Teaching Assistants
-	    </ion-list-header>
+
+	<ion-list *ngSwitchCase="'TAs'">
+		<br/><br/><br/>
+		<div *ngIf="errorMessage" class="errorText">
+			{{errorMessage}}
+		</div>
 		<button ion-item *ngFor="let ta of TAs" (click)="viewTA(ta)">
 			<ion-icon name='arrow-forward'></ion-icon> <b>{{ta.id}}:{{ta.username}}</b>
 			<p>{{ta.name}}</p>
 		</button>
 	</ion-list>
-	<br/>
-	<ion-list>
-		<ion-list-header>
-	      		Students
-	    </ion-list-header>
+
+	<ion-list *ngSwitchCase="'Students'">
+		<br/><br/><br/>
+		<div *ngIf="errorMessage" class="errorText">
+			{{errorMessage}}
+		</div>
 		<button ion-item *ngFor="let student of students" (click)="viewStudent(student)">
 			<ion-icon name='arrow-forward'></ion-icon> <b>{{student.id}}:{{student.username}}</b>
 			<p>{{student.name}}</p>
 		</button>
 	</ion-list>
+	
+	</div>
 
 </ion-content>

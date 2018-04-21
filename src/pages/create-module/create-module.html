@@ -15,14 +15,13 @@
 
 <ion-content padding>
 
-	
-	
 	<div *ngIf="infoMessage" class="infoText">
 		{{infoMessage}}
-	</div>
-	<div *ngIf="errorMessage" class="errorText">
+		</div>
+		<div *ngIf="errorMessage" class="errorText">
 		{{errorMessage}}
-	</div>
+		</div>
+
 
 	
 	<ion-list >
@@ -54,10 +53,11 @@
 			<ion-datetime displayFormat="MMM DD, YYYY HH:mm" id="examDate" name="examDate" [(ngModel)]="newModule.examDate" required="true" ></ion-datetime>
 		</ion-item>
 		<ion-item>
-			<button ion-button block (click)="createModule()">
+			<button  ion-button block (click)="createModule()">
 				Create
 			</button>
 		</ion-item>
+
 	</ion-list>	
 
 	

@@ -22,13 +22,12 @@ export class UpdateModulePage {
 	errorMessage: string;
   	infoMessage: string
   	moduleToUpdate: Module;
-  	moduleToUpdateId: number;
   	submitted: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public actionSheetCtrl: ActionSheetController,
         public alertCtrl: AlertController,
         public toastCtrl: ToastController) {
-        this.moduleToUpdateId = navParams.get('moduleToUpdateId');
+        this.moduleToUpdate = navParams.get('moduleToUpdate');
         this.submitted = false;
   }
 
@@ -36,14 +35,11 @@ export class UpdateModulePage {
     console.log('ionViewDidLoad UpdateModulePage');
   }
 
-  update(updateModuleForm: NgForm)
+  update()
 	{		
 		this.submitted = true;
-		
-		if (updateModuleForm.valid) 
-		{	
-
-			this.moduleProvider.updateModule(this.moduleToUpdate).subscribe(
+			
+			this.moduleProvider.updateModule(this.moduleToUpdate.id).subscribe(
 				response => {					
 					this.infoMessage = "Module updated successfully";
 				},
@@ -52,9 +48,6 @@ export class UpdateModulePage {
 				}
 			);
 		}
-		else
-		{			
-		}
-	}
+		
 
 }
