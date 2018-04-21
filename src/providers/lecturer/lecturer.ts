@@ -46,6 +46,82 @@ export class LecturerProvider {
 		);
 	}
 
+	updateLecturerPassword(id: number, newPassword: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/updateLecturerPassword/" + id+"/"+newPassword).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	updateStudentPassword(id: number, newPassword: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/updateStudentPassword/" + id+"/"+newPassword).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	updateTAPassword(id: number, newPassword: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/updateTAPassword/" + id+"/"+newPassword).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	updateAdminPassword(id: number, newPassword: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/updateAdminPassword/" + id+"/"+newPassword).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 	getEnrolledModules(lecturerId: number): Observable<any>
 	{
 		let path: string = '';
