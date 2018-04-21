@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { ModalController, Platform, NavParams, ViewController, NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { ModuleProvider } from '../../providers/module/module';
 
+import { Student } from '../../entities/student';
 
 import { AlertController } from 'ionic-angular';
 
 import { Module } from '../../entities/module';
 
 import { Lecturer } from '../../entities/lecturer';
-
-import { Student } from '../../entities/student';
 
 import { TeachingAssistant } from '../../entities/teachingAssistant';
 
@@ -22,30 +21,28 @@ import { LecturerDetailsPage } from '../lecturer-details/lecturer-details';
 
 import { TaDetailsPage } from '../ta-details/ta-details';
 
-import { NewAnnouncementPage } from '../new-announcement/new-announcement';
-
 
 
 @Component({
-  selector: 'page-lecturer-module-details',
-  templateUrl: 'lecturer-module-details.html',
+  selector: 'page-ta-module-details',
+  templateUrl: 'ta-module-details.html',
 })
-export class LecturerModuleDetailsPage {
+export class TaModuleDetailsPage {
 
-	  errorMessage: string;
-	  module: Module;
-	  moduleId: number;
-	  students: Student[];
-	  lecturers: Lecturer[];
-	  tas: TeachingAssistant[];
-	  announcements: Announcement[];
+  errorMessage: string;
+  module: Module;
+  moduleId: number;
+  students: Student[];
+  lecturers: Lecturer[];
+  tas: TeachingAssistant[];
+  announcements: Announcement[];
 
   constructor(public navCtrl: NavController,public alertCtrl: AlertController, public navParams: NavParams, public moduleProvider: ModuleProvider) {
   	this.moduleId = JSON.parse(sessionStorage.getItem('moduleId'));
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LecturerModuleDetailsPage');
+    console.log('ionViewDidLoad TaModuleDetailsPage');
 
     this.moduleProvider.getSpecificModule(this.moduleId).subscribe(
       response => {
@@ -55,7 +52,6 @@ export class LecturerModuleDetailsPage {
         this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
       }
     );
-
 
     this.moduleProvider.getClassAndGroups(this.moduleId).subscribe(
       response => {
@@ -92,26 +88,6 @@ export class LecturerModuleDetailsPage {
         this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
       }
     );
-
-  }
-
-
-  ionViewWillEnter()
-  {
-    this.moduleProvider.getAnnouncements(this.moduleId).subscribe(
-      response => {
-        this.announcements = response.announcements;
-      },
-      error => {        
-        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
-      }
-    );
-  }
-
-
-
-  newAnnouncement(){
-  	this.navCtrl.push(NewAnnouncementPage, {module: this.module});
   }
 
 

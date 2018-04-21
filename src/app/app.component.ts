@@ -21,8 +21,13 @@ import { TaSchedulePage } from '../pages/ta-schedule/ta-schedule';
 import { AdminSchedulePage } from '../pages/admin-schedule/admin-schedule';
 import { AdminModuleManagementPage } from '../pages/admin-module-management/admin-module-management';
 import { AdminUserManagementPage } from '../pages/admin-user-management/admin-user-management';
-
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
+import { LecturerProfilePage } from '../pages/lecturer-profile/lecturer-profile';
+import { TaProfilePage } from '../pages/ta-profile/ta-profile';
+import { AdminProfilePage } from '../pages/admin-profile/admin-profile';
 import { NewAnnouncementPage } from '../pages/new-announcement/new-announcement';
+import { TaModuleDetailsPage } from '../pages/ta-module-details/ta-module-details';
+
 
  
 import { LecturerLoginPage } from '../pages/lecturer-login/lecturer-login';
@@ -94,7 +99,7 @@ export class MyApp {
     else if (role==="ta"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Module Overview', component: TaModulePage },
+        { title: 'Modules Involved', component: TaModulePage },
         { title: 'Schedule', component: TaSchedulePage },
         { title: 'Logout', component: LogoutPage }
       ];
@@ -104,7 +109,6 @@ export class MyApp {
         { title: 'Home', component: HomePage },
         { title: 'Module Management', component: AdminModuleManagementPage },
         { title: 'User Management', component: AdminUserManagementPage },
-        { title: 'Schedule', component: AdminSchedulePage },
         { title: 'Logout', component: LogoutPage }
       ];
     }

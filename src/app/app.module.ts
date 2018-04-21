@@ -18,6 +18,7 @@ import { LecturerScheduleDetailsPage } from '../pages/lecturer-schedule-details/
 
 import { StudentModuleDetailsPage } from '../pages/student-module-details/student-module-details';
 import { StudentFilePage } from '../pages/student-file/student-file';
+import { TaModuleDetailsPage } from '../pages/ta-module-details/ta-module-details';
 
 
 
@@ -51,6 +52,11 @@ import { TaDetailsPage } from '../pages/ta-details/ta-details';
 import { StudentAddTimeEntryPage } from '../pages/student-add-time-entry/student-add-time-entry';
 import { LecturerAddTimeEntryPage } from '../pages/lecturer-add-time-entry/lecturer-add-time-entry';
 import { NewAnnouncementPage } from '../pages/new-announcement/new-announcement';
+
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
+import { LecturerProfilePage } from '../pages/lecturer-profile/lecturer-profile';
+import { TaProfilePage } from '../pages/ta-profile/ta-profile';
+import { AdminProfilePage } from '../pages/admin-profile/admin-profile';
 
 
 
@@ -109,6 +115,11 @@ import { HttpClientModule } from '@angular/common/http';
     AdminUserManagementPage,
     TaModulePage,
     TaSchedulePage,
+    StudentProfilePage,
+    LecturerProfilePage,
+    TaProfilePage,
+    AdminProfilePage,
+    TaModuleDetailsPage,
     LecturerScheduleDetailsPage,
     LecturerAddTimeEntryPage
 
@@ -168,6 +179,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 
     TaSchedulePage,
+    StudentProfilePage,
+    LecturerProfilePage,
+    TaProfilePage,
+    AdminProfilePage,
+    TaModuleDetailsPage,
     LecturerScheduleDetailsPage,
     LecturerAddTimeEntryPage
 

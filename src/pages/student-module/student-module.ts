@@ -7,6 +7,8 @@ import { Module } from '../../entities/module';
 
 import { StudentModuleDetailsPage } from '../student-module-details/student-module-details';
 
+import { StudentProfilePage } from '../student-profile/student-profile';
+
 @Component({
   selector: 'page-student-module',
   templateUrl: 'student-module.html',
@@ -59,6 +61,10 @@ export class StudentModulePage {
 		sessionStorage.setItem('moduleId', module.id);
 		this.navCtrl.push(StudentModuleDetailsPage);
 		
+	}
+
+	viewUserDetails(){
+		this.navCtrl.push(StudentProfilePage);
 	}
 
 
