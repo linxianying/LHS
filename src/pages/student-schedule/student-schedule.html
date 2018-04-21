@@ -33,10 +33,33 @@
   </div>
   <div *ngIf="isLogin" style="color:black;">
   	<ion-list>
-      	<button ion-item *ngFor="let timeEntry of timeEntries" (click)="viewTimeEntryDetails($event, timeEntry)">
-        		{{ timeEntry.title }}
-      	</button>
+      	<ion-card>
+
+          <ion-card-header>
+            Comming Events
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list>
+              <button ion-item *ngFor="let timeEntry of timeEntries" (click)="viewTimeEntryDetails($event, timeEntry)" style="color:black;">
+                {{ timeEntry.title }}          
+              </button>
+            </ion-list>
+          </ion-card-content>
+
+        </ion-card>
+
+        <ion-card>
+
+          <ion-card-header>
+            Actions
+          </ion-card-header>
+
+          <ion-card-content>
+            <button ion-item [navPush]="studentAddTimeEntryPage">Add TimeEntry</button>
+          </ion-card-content>
+        </ion-card>
     </ion-list>
-    <button ion-item [navPush]="studentAddTimeEntryPage">Add TimeEntry</button>
+    
   </div>
 </ion-content>
