@@ -71,7 +71,7 @@ export class AdminModuleManagementPage {
     this.navCtrl.push(CreateModulePage);
  	}
 
- 	viewModule(module:Module){
+ 	viewModuleDetails(module:Module){
  		this.navCtrl.push(ModuleDetailPage, {moduleId: module.id});
  	}
 

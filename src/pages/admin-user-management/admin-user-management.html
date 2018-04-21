@@ -18,4 +18,38 @@
 
 <ion-content padding>
 
+	<div *ngIf="errorMessage" class="errorText">
+		{{errorMessage}}
+	</div>
+
+	<ion-list>
+		<ion-list-header>
+	      		Lecturers
+	    </ion-list-header>
+		<button ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturer(lecturer)">
+			<ion-icon name='arrow-forward'></ion-icon> <b>{{lecturer.id}}:{{lecturer.username}}</b>
+			<p>{{lecturer.name}}</p>
+		</button>
+	</ion-list>
+
+	<ion-list>
+		<ion-list-header>
+	      		Teaching Assistants
+	    </ion-list-header>
+		<button ion-item *ngFor="let ta of TAs" (click)="viewTA(ta)">
+			<ion-icon name='arrow-forward'></ion-icon> <b>{{ta.id}}:{{ta.username}}</b>
+			<p>{{ta.name}}</p>
+		</button>
+	</ion-list>
+
+	<ion-list>
+		<ion-list-header>
+	      		Students
+	    </ion-list-header>
+		<button ion-item *ngFor="let student of students" (click)="viewStudent(student)">
+			<ion-icon name='arrow-forward'></ion-icon> <b>{{student.id}}:{{student.username}}</b>
+			<p>{{student.name}}</p>
+		</button>
+	</ion-list>
+
 </ion-content>

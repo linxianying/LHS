@@ -56,7 +56,7 @@ export class ModuleAssignmentPage {
       }
     );
 
-    this.moduleProvider.getStudents(this.moduleId).subscribe(
+    this.moduleProvider.getClassAndGroups(this.moduleId).subscribe(
       response => {
         this.students = response.students;
       },
@@ -66,7 +66,7 @@ export class ModuleAssignmentPage {
     );
   }
 
-  registerModule(lecturerId: number)
+  registerModule()
   { 
     this.navCtrl.push(RegisterModulePage, {'moduleId': this.moduleId});
   }

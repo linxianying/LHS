@@ -23,6 +23,13 @@ import { StudentFilePage } from '../pages/student-file/student-file';
 
 import { ModuleDetailPage } from '../pages/module-detail/module-detail';
 import { CreateModulePage } from '../pages/create-module/create-module';
+import { ModuleAssignmentPage } from '../pages/module-assignment/module-assignment';
+import { RegisterModulePage } from '../pages/register-module/register-module';
+import { UpdateModulePage } from '../pages/update-module/update-module';
+import { AdminLecturerPage } from '../pages/admin-lecturer/admin-lecturer';
+import { AdminStudentPage } from '../pages/admin-student/admin-student';
+import { AdminTaPage } from '../pages/admin-ta/admin-ta';
+import { UpdateLecturerPage } from '../pages/update-lecturer/update-lecturer';
 
 
 
@@ -79,6 +86,14 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerModuleDetailsPage,
     LecturerFilePage,
     ModuleDetailPage,
+    CreateModulePage,
+    ModuleAssignmentPage,
+    RegisterModulePage, 
+    UpdateModulePage,
+    AdminLecturerPage,
+    AdminStudentPage,
+    AdminTaPage,
+    UpdateLecturerPage,
    
 
     StudentDetailsPage,
@@ -124,6 +139,14 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerModuleDetailsPage,
     LecturerFilePage,
     ModuleDetailPage,
+    UpdateModulePage,
+    CreateModulePage,
+    ModuleAssignmentPage,
+    RegisterModulePage,
+    AdminLecturerPage,
+    AdminStudentPage,
+    AdminTaPage,
+    UpdateLecturerPage,
    
     StudentDetailsPage,
     LecturerDetailsPage,

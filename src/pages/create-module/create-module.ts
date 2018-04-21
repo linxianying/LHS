@@ -24,7 +24,7 @@ export class CreateModulePage {
 	newModule: Module;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moduleProvider: ModuleProvider, public modalCtrl: ModalController) {
-
+  	this.submitted = false;
   	this.newModule = new Module();
   }
 
@@ -32,15 +32,13 @@ export class CreateModulePage {
     console.log('ionViewDidLoad CreateModulePage');
   }
 
-   create(createModuleForm: NgForm)
+   createModule()
 	{		
 		this.submitted = true;
 		
 		this.infoMessage = null;
 		this.errorMessage = null;
-		
-		if (createModuleForm.valid) 
-		{		
+			
 			this.moduleProvider.createModule(this.newModule).subscribe(
 				response => {					
 					this.infoMessage = "New module " + response.Id + " created successfully";
@@ -48,8 +46,8 @@ export class CreateModulePage {
 				error => {
 					this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 				}
-			);
-		}
+
+		)
 	}
 
 }

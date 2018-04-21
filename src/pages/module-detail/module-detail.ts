@@ -72,13 +72,13 @@ export class ModuleDetailPage {
         {
           text: 'Update',       
           handler: () => {
-            this.navCtrl.push(UpdateModulePage, {'moduleToUpdateId': this.module.id});
+            this.navCtrl.push(UpdateModulePage, {'moduleToUpdateId': this.moduleId});
           }
         },
         { 
           text: 'Facilitators',
           handler:() => {
-            this.navCtrl.push(ModuleAssignmentPage,{'moduleId': this.module.id});
+            this.navCtrl.push(ModuleAssignmentPage,{'moduleId': this.moduleId});
           }
         },    
         {

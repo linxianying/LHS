@@ -49,6 +49,27 @@ export class TeachingAssistantProvider {
 		);
 	}
 
+	deleteTA(taId: number): Observable<any>
+	{	
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.delete<any>(path + "/" + taId).pipe
+		(
+			catchError(this.handleError)
+		);
+
+
+	}
+
   private handleError(error: HttpErrorResponse)
 	{
 		if (error.error instanceof ErrorEvent) 

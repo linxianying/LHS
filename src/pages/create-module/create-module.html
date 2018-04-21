@@ -14,6 +14,8 @@
 
 
 <ion-content padding>
+
+	
 	
 	<div *ngIf="infoMessage" class="infoText">
 		{{infoMessage}}
@@ -21,41 +23,44 @@
 	<div *ngIf="errorMessage" class="errorText">
 		{{errorMessage}}
 	</div>
+
 	
 	<ion-list>
 		<ion-list-header>
 			Create New Module
 		</ion-list-header>
 		<ion-item>
-			<ion-label fixed>ID</ion-label>
-			<ion-input type="text" [(ngModel)]="newModule.id"></ion-input>
-		</ion-item>
-		<ion-item>
 			<ion-label fixed>Module Name</ion-label>
-			<ion-input type="text" [(ngModel)]="newModule.name"></ion-input>
+			<ion-input type="text" id="moduleName" name="moduleName" [(ngModel)]="newModule.moduleName" required="true" ></ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-label fixed>Module Code</ion-label>
-			<ion-input type="text" [(ngModel)]="newModule.code"></ion-input>
+			<ion-input type="text" id="moduleCode" name="moduleCode" [(ngModel)]="newModule.moduleCode" required="true" ></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed>Module Credit</ion-label>
+			<ion-input type="text" id="moduleCredit" name="moduleCredit" [(ngModel)]="newModule.moduleCredit" required="true" ></ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-label fixed>Class Size</ion-label>
-			<ion-input type="text" [(ngModel)]="newMdule.classSize"></ion-input>
+			<ion-input type="text" id="classSize" name="classSize" [(ngModel)]="newModule.classSize" required = "true"  ></ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-label fixed>Description</ion-label>
-			<ion-input type="text" [(ngModel)]="newModule.description"></ion-input>
+			<ion-input type="text" id="description" name="description" [(ngModel)]="newModule.description" required="true"  ></ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-label fixed>Exam Date</ion-label>
-			<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="newModule.examDate"></ion-datetime>
+			<ion-datetime displayFormat="YYYY-MM-DD HH:mm" id="examDate" name="examDate" [(ngModel)]="newModule.examDate" required="true" ></ion-datetime>
 		</ion-item>
 		<ion-item>
 			<button ion-button block (click)="createModule()">
 				Create
 			</button>
 		</ion-item>
-	</ion-list>		
+	</ion-list>	
+
+	
 	
 </ion-content>
 

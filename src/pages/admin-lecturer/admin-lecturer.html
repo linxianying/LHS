@@ -1,0 +1,73 @@
+<!--
+  Generated template for the AdminLecturerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Account Detail: Lecturer</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/{{lecturer.name}}.jpg">
+        </ion-thumbnail>
+        <h2>{{lecturer.name}}</h2>
+      </ion-item>
+
+      <ion-item>
+        Lecturer Username
+        <ion-note item-end>
+          {{lecturer.username}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        Lecturer Password
+        <ion-note item-end>
+          {{lecturer.password}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        Lecturer Department
+        <ion-note item-end>
+          {{lecturer.department}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        Lecturer Faculty
+        <ion-note item-end>
+          {{lecturer.faculty}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        Lecturer Telephone
+        <ion-note item-end>
+          {{lecturer.telephone}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        Lecturer Email
+        <ion-note item-end>
+          {{lecturer.email}}
+        </ion-note>
+      </ion-item>
+  </ion-list>
+
+  <button *ngIf="lecturer != null" ion-button block (click)="showActionSheet()">
+    Action
+  </button>
+
+</ion-content>

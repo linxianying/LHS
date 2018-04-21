@@ -82,7 +82,7 @@ export class LoginPage {
           let alert = this.alertCtrl.create(
           {
             title: 'Login',
-            subTitle: 'Invalid login credential',
+            subTitle: 'Invalid login credential' + error.status,
             buttons: ['OK']
           });
           
