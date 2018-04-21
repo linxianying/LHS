@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
@@ -19,6 +20,20 @@ import { StudentModuleDetailsPage } from '../pages/student-module-details/studen
 import { StudentFilePage } from '../pages/student-file/student-file';
 import { TaModuleDetailsPage } from '../pages/ta-module-details/ta-module-details';
 
+
+
+import { ModuleDetailPage } from '../pages/module-detail/module-detail';
+import { CreateModulePage } from '../pages/create-module/create-module';
+import { ModuleAssignmentPage } from '../pages/module-assignment/module-assignment';
+import { RegisterModulePage } from '../pages/register-module/register-module';
+import { UpdateModulePage } from '../pages/update-module/update-module';
+import { AdminLecturerPage } from '../pages/admin-lecturer/admin-lecturer';
+import { AdminStudentPage } from '../pages/admin-student/admin-student';
+import { AdminTaPage } from '../pages/admin-ta/admin-ta';
+import { UpdateLecturerPage } from '../pages/update-lecturer/update-lecturer';
+
+
+
 import { LecturerModuleDetailsPage } from '../pages/lecturer-module-details/lecturer-module-details';
 import { LecturerFilePage } from '../pages/lecturer-file/lecturer-file';
 import { LecturerLoginPage } from '../pages/lecturer-login/lecturer-login';
@@ -29,6 +44,7 @@ import { AdminUserManagementPage } from '../pages/admin-user-management/admin-us
 import { TaLoginPage } from '../pages/ta-login/ta-login';
 import { TaModulePage } from '../pages/ta-module/ta-module';
 import { TaSchedulePage } from '../pages/ta-schedule/ta-schedule';
+
 
 import { StudentDetailsPage } from '../pages/student-details/student-details';
 import { LecturerDetailsPage } from '../pages/lecturer-details/lecturer-details';
@@ -41,6 +57,7 @@ import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { LecturerProfilePage } from '../pages/lecturer-profile/lecturer-profile';
 import { TaProfilePage } from '../pages/ta-profile/ta-profile';
 import { AdminProfilePage } from '../pages/admin-profile/admin-profile';
+
 
 
 
@@ -74,6 +91,17 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerModuleDetailsPage,
     LecturerFilePage,
+    ModuleDetailPage,
+    CreateModulePage,
+    ModuleAssignmentPage,
+    RegisterModulePage, 
+    UpdateModulePage,
+    AdminLecturerPage,
+    AdminStudentPage,
+    AdminTaPage,
+    UpdateLecturerPage,
+   
+
     StudentDetailsPage,
     LecturerLoginPage,
     LecturerDetailsPage,
@@ -95,11 +123,13 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerScheduleDetailsPage,
     LecturerAddTimeEntryPage
 
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -119,9 +149,23 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFilePage,
     LecturerModuleDetailsPage,
     LecturerFilePage,
+    ModuleDetailPage,
+    UpdateModulePage,
+    CreateModulePage,
+    ModuleAssignmentPage,
+    RegisterModulePage,
+    AdminLecturerPage,
+    AdminStudentPage,
+    AdminTaPage,
+    UpdateLecturerPage,
+   
     StudentDetailsPage,
     LecturerDetailsPage,
     TaDetailsPage,
+
+    StudentAddTimeEntryPage,
+
+
     StudentAddTimeEntryPage,
     AdminLoginPage,
     TaLoginPage,
@@ -130,6 +174,10 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModuleManagementPage,
     AdminUserManagementPage,
     TaModulePage,
+
+    TaSchedulePage,
+
+
     TaSchedulePage,
     StudentProfilePage,
     LecturerProfilePage,
@@ -138,6 +186,7 @@ import { HttpClientModule } from '@angular/common/http';
     TaModuleDetailsPage,
     LecturerScheduleDetailsPage,
     LecturerAddTimeEntryPage
+
   ],
   providers: [
     StatusBar,

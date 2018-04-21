@@ -51,10 +51,10 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: TaLoginPage },
-      { title: 'Login', component: LoginPage },
-      { title: 'TA Login', component: TaLoginPage },
-      { title: 'Admin Login', component: AdminLoginPage },
+      { title: 'Student Login', component: LoginPage },
       { title: 'Lecturer Login', component: LecturerLoginPage },
+      { title: 'Admin Login', component: AdminLoginPage },
+      { title: 'TA Login', component: TaLoginPage },
       { title: 'Register', component: RegisterPage },
       { title: 'Module Overview', component: StudentModulePage },
       { title: 'Schedule', component: StudentSchedulePage },
@@ -82,46 +82,45 @@ export class MyApp {
     if(role==="student"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Register', component: RegisterPage },
-        { title: 'Enrolled Modules', component: StudentModulePage },
         { title: 'Schedule', component: StudentSchedulePage },
+        { title: 'Enrolled Modules', component: StudentModulePage },
         { title: 'Logout', component: LogoutPage }
       ];
       }
     else if (role==="lecturer"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Teaching Modules', component: LecturerModulePage },
         { title: 'Schedule', component: LecturerSchedulePage },
+        { title: 'Teaching Modules', component: LecturerModulePage },
         { title: 'Logout', component: LogoutPage }
       ];
     }
     else if (role==="ta"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Modules Involved', component: TaModulePage },
         { title: 'Schedule', component: TaSchedulePage },
+        { title: 'Modules Involved', component: TaModulePage },
         { title: 'Logout', component: LogoutPage }
       ];
     }
     else if (role==="admin"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Module Management', component: AdminModuleManagementPage },
         { title: 'User Management', component: AdminUserManagementPage },
+        { title: 'Module Management', component: AdminModuleManagementPage },
         { title: 'Logout', component: LogoutPage }
       ];
     }
   }else{
-  return [
-        { title: 'Home', component: HomePage },
-        { title: 'Student Register', component: RegisterPage },
-        { title: 'Student Login', component: LoginPage },
-        { title: 'TA Login', component: TaLoginPage },
-        { title: 'Admin Login', component: AdminLoginPage },
-        { title: 'Lecturer Login', component: LecturerLoginPage }
-      ];
+    return [
+          { title: 'Home', component: HomePage },
+          { title: 'Student Login', component: LoginPage },
+          { title: 'Lecturer Login', component: LecturerLoginPage },
+          { title: 'Admin Login', component: AdminLoginPage },
+          { title: 'TA Login', component: TaLoginPage },
+          { title: 'Register', component: RegisterPage }
+        ];
 
+    }
   }
-}
 }

@@ -163,8 +163,9 @@ export class StudentProvider {
 		);
 	}
 
-	getCurrentStudent(username: string): Observable<any>
-	{
+
+	deleteStudent(studentId: number): Observable<any>
+	{	
 		let path: string = '';
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
@@ -176,13 +177,55 @@ export class StudentProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "/getStudent" + "/" + username).pipe
+		return this.httpClient.delete<any>(path + "/" + studentId).pipe
+		(
+			catchError(this.handleError)
+		);
+
+
+	}
+
+	getAllStudents(): Observable<any>{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+
+		return this.httpClient.get<any>(path + "/retrieveAllStudents/").pipe
 		(
 			catchError(this.handleError)
 		);
 	}
 
-	
+	getCurrentStudent(username: string): Observable<any>
+
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+
+		return this.httpClient.get<any>(path + "/getStudent" + "/" + username).pipe
+
+		(
+			catchError(this.handleError)
+		);
+	}
+
+
 
 	private handleError(error: HttpErrorResponse)
 	{
