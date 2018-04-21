@@ -117,7 +117,8 @@ export class MyApp {
           { title: 'Student Login', component: LoginPage },
           { title: 'Lecturer Login', component: LecturerLoginPage },
           { title: 'Admin Login', component: AdminLoginPage },
-          { title: 'TA Login', component: TaLoginPage }
+          { title: 'TA Login', component: TaLoginPage },
+          { title: 'Register', component: RegisterPage }
         ];
 
     }

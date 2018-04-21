@@ -10,6 +10,9 @@ import { RegisterPage } from '../register/register';
 
 import { StudentProvider } from '../../providers/student/student';
 
+import { StudentProfilePage } from '../student-profile/student-profile';
+
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -47,6 +50,10 @@ export class LoginPage {
     }
     
     this.username = sessionStorage.getItem("username");
+  }
+
+  viewUserDetails(){
+    this.navCtrl.push(StudentProfilePage);
   }
 
   clear()
