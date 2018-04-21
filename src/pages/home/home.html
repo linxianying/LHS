@@ -3,15 +3,32 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home Page of Learning Hub System</ion-title>
+    <ion-title>Learning Hub System</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="page-home">
-  <div style="height:60px;">
+  <div *ngIf="isLogin" style="color:black;">
+    <div style="height:60px;">
+      <img class="loginLogo"  src="assets/imgs/logo.jpg"/>
+      </div>
+      <div style="height:140px;">
+        
+      </div>
+
+  
+    <h3 >Welcome Back!</h3>
+  
+    You are login as {{username}}
+  
+  </div>
+  <div *ngIf="!isLogin"  style="height:60px;">
     <img class="loginLogo"  src="assets/imgs/logo.jpg"/>
     </div>
     <div style="height:140px;">
-      
+        
     </div>
+    </div>
+
 </ion-content>
+

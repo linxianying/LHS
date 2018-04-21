@@ -29,7 +29,7 @@
 			<div>Start Date:</div>
 		</ion-col>
 		<ion-col>
-			<div>{{timeEntry.fromDate}}</div>
+			<div>{{timeEntry.fromDate| date:'dd-MM-yyyy hh:mm a'}}</div>
 		</ion-col>
 	  </ion-row>
 	  <ion-row>
@@ -37,7 +37,7 @@
 			<div>End Date:</div>
 		</ion-col>
 		<ion-col>
-			<div>{{timeEntry.toDate}}</div>
+			<div>{{timeEntry.toDate| date:'dd-MM-yyyy hh:mm a'}}</div>
 		</ion-col>
 	  </ion-row>
 	  <ion-row>

@@ -10,6 +10,9 @@ import { RegisterPage } from '../register/register';
 
 import { StudentProvider } from '../../providers/student/student';
 
+import { StudentProfilePage } from '../student-profile/student-profile';
+
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -18,7 +21,7 @@ import { StudentProvider } from '../../providers/student/student';
 
 export class LoginPage {
   fromPage: string;
-  student = {} as Student;
+  student : Student;
   submitted: boolean;
   isLogin: boolean;
   username: string;
@@ -49,6 +52,10 @@ export class LoginPage {
     this.username = sessionStorage.getItem("username");
   }
 
+  viewUserDetails(){
+    this.navCtrl.push(StudentProfilePage);
+  }
+
   clear()
   {
     this.username = "";
@@ -65,6 +72,7 @@ export class LoginPage {
         response => {         
           this.infoMessage = "Student login successfully";
           this.isLogin = true;
+          this.student=response.student;
           sessionStorage.setItem("username", this.username);   
           sessionStorage.setItem("isLogin", "true");
           sessionStorage.setItem("role", "student");

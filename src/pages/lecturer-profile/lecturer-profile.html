@@ -58,7 +58,11 @@
         <ion-label> Do You want to cancel premium mobile app?</ion-label>
         <ion-checkbox [(ngModel)]="outStatus" color="danger" checked="false"></ion-checkbox>
       </ion-item>
-
+      <ion-item>
+      <button ion-button block (click)="updatePassword()">
+        Update Password
+      </button>
+    </ion-item>
       <ion-item>
       <button ion-button block (click)="updateLecturer()">
         Update Profile

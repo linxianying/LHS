@@ -33,6 +33,7 @@ import { AdminLecturerPage } from '../pages/admin-lecturer/admin-lecturer';
 import { AdminStudentPage } from '../pages/admin-student/admin-student';
 import { AdminTaPage } from '../pages/admin-ta/admin-ta';
 import { UpdateLecturerPage } from '../pages/update-lecturer/update-lecturer';
+import { PasswordPage } from '../pages/password/password';
 
 
 
@@ -125,7 +126,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminProfilePage,
     TaModuleDetailsPage,
     LecturerScheduleDetailsPage,
-    LecturerAddTimeEntryPage
+    LecturerAddTimeEntryPage,
+    PasswordPage
 
 
   ],
@@ -191,7 +193,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminProfilePage,
     TaModuleDetailsPage,
     LecturerScheduleDetailsPage,
-    LecturerAddTimeEntryPage
+    LecturerAddTimeEntryPage,
+    PasswordPage
 
   ],
   providers: [

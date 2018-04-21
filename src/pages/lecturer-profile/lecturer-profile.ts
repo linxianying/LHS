@@ -5,6 +5,9 @@ import { LecturerProvider } from '../../providers/lecturer/lecturer';
 
 import { Lecturer } from '../../entities/lecturer';
 import { LogoutPage } from '../logout/logout';
+import { PasswordPage } from '../password/password';
+
+
 
 @Component({
   selector: 'page-lecturer-profile',
@@ -39,6 +42,10 @@ export class LecturerProfilePage {
     );
   }
 
+  updatePassword(){
+    this.navCtrl.push(PasswordPage, {oldPassword: this.lecturer.password, id: this.lecturer.id, role: 'lecturer'});
+  }
+
 
     updateLecturer(){
     console.log('update lecturer LecturerProfilePage');
@@ -60,6 +67,7 @@ export class LecturerProfilePage {
     );
 
     if(this.outStatus===true){
+      
       this.navCtrl.push(LogoutPage, {fromPage: 'profile', isPremium: this.lecturer.isPremium});
     }
 

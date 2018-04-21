@@ -27,7 +27,7 @@ import { TaProfilePage } from '../pages/ta-profile/ta-profile';
 import { AdminProfilePage } from '../pages/admin-profile/admin-profile';
 import { NewAnnouncementPage } from '../pages/new-announcement/new-announcement';
 import { TaModuleDetailsPage } from '../pages/ta-module-details/ta-module-details';
-
+import { PasswordPage } from '../pages/password/password';
 
  
 import { LecturerLoginPage } from '../pages/lecturer-login/lecturer-login';
@@ -98,7 +98,6 @@ export class MyApp {
     else if (role==="ta"){
       return [
         { title: 'Home', component: HomePage },
-        { title: 'Schedule', component: TaSchedulePage },
         { title: 'Modules Involved', component: TaModulePage },
         { title: 'Logout', component: LogoutPage }
       ];
@@ -117,7 +116,8 @@ export class MyApp {
           { title: 'Student Login', component: LoginPage },
           { title: 'Lecturer Login', component: LecturerLoginPage },
           { title: 'Admin Login', component: AdminLoginPage },
-          { title: 'TA Login', component: TaLoginPage }
+          { title: 'TA Login', component: TaLoginPage },
+          { title: 'Register', component: RegisterPage }
         ];
 
     }
