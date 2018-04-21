@@ -1,75 +1,67 @@
+<ion-header>
 
-<ion-header>  
-  
-  <ion-toolbar>
-    <ion-navbar no-border-bottom>
-      <button ion-button menuToggle>
+    <ion-toolbar>
+        <ion-navbar no-border-bottom>
+            <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-       <ion-title>
-      Student Details
-    </ion-title>
-    </ion-navbar>
-   
-    
-
-  </ion-toolbar>
+            <ion-title>
+                Student Details
+            </ion-title>
+        </ion-navbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="student">
-  <br/>
-  <ion-list>
-      <ion-item>
-        <br/>
-        <ion-thumbnail item-start>
-          <img src="assets/imgs/{{student.name}}.jpg">
-        </ion-thumbnail>
-        <h2>{{student.username}}</h2>
-      </ion-item>
+    <br/>
+    <ion-list>
+        <ion-item>
+            <br/>
+            <ion-thumbnail item-start>
+                <img src="assets/imgs/{{student.name}}.jpg">
+            </ion-thumbnail>
+            <h2>{{student.username}}</h2>
+        </ion-item>
 
-      <ion-item>
-        Student Department
-        <ion-note color ="light" item-end>
-          {{student.department}}
-        </ion-note>
-      </ion-item>
+        <ion-item>
+            Student Department
+            <ion-note color="light" item-end>
+                {{student.department}}
+            </ion-note>
+        </ion-item>
 
-      <ion-item>
-        Student Faculty
-        <ion-note color ="light" item-end>
-          {{student.faculty}}
-        </ion-note>
-      </ion-item>
+        <ion-item>
+            Student Faculty
+            <ion-note color="light" item-end>
+                {{student.faculty}}
+            </ion-note>
+        </ion-item>
 
-      <ion-item>
-        <ion-label color="light">Telephone (can update)</ion-label>
-        <ion-input text-right [(ngModel)]="student.telephone" value="{{student.telephone}}"></ion-input>
-      </ion-item>
+        <ion-item>
+            <ion-label color="light">Telephone (can update)</ion-label>
+            <ion-input text-right [(ngModel)]="student.telephone" value="{{student.telephone}}"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label color="light"> Email (can update)</ion-label>
-        <ion-input text-right [(ngModel)]="student.email" value="{{student.email}}"  ></ion-input>
-      </ion-item>
+        <ion-item>
+            <ion-label color="light"> Email (can update)</ion-label>
+            <ion-input text-right [(ngModel)]="student.email" value="{{student.email}}"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label> Want to cancel premium mobile app?</ion-label>
-        <ion-checkbox [(ngModel)]="outStatus" color="danger" checked="false"></ion-checkbox>
-      </ion-item>
+        <ion-item>
+            <ion-label> Want to cancel premium mobile app?</ion-label>
+            <ion-checkbox [(ngModel)]="outStatus" color="danger" checked="false"></ion-checkbox>
+        </ion-item>
 
-      <ion-item>
-      <button ion-button block (click)="updatePassword()">
-        Update Password
-      </button>
-    </ion-item>
+        <ion-item>
+            <button ion-button block (click)="updatePassword()">
+              Update Password
+            </button>
+        </ion-item>
 
-      <ion-item>
-      <button ion-button block (click)="updateStudent()">
-        Update Profile
-      </button>
-    </ion-item>
-
-    
-
-     
-  </ion-list>
+        <ion-item>
+            <button ion-button block (click)="updateStudent()">
+              Update Profile
+            </button>
+        </ion-item>
+    </ion-list>
 </ion-content>
