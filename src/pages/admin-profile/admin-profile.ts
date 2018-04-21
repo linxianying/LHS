@@ -79,7 +79,7 @@ export class AdminProfilePage {
     );
 
     if(this.outStatus===true){
-      this.navCtrl.push(LogoutPage, {fromPage: 'profile', isPremium: this.student.isPremium});
+      this.navCtrl.push(LogoutPage, {fromPage: 'profile', isPremium: this.admin.isPremium});
     }
 
   }
