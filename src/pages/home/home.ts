@@ -12,11 +12,18 @@ import { RegisterPage } from '../register/register';
 export class HomePage {
 
   pages: Array<{title: string, name: string}>;
+  isLogin:boolean;
 
   constructor(public navCtrl: NavController, 
 				public navParams: NavParams) 
   {
 		this.pages = [];
+		if(sessionStorage.getItem("isLogin") === "true")
+	    {
+	      this.isLogin = true;
+	    }else{
+	      this.isLogin = false;
+	    }
 		
 		this.pages.push({title: 'LoginPage', name: 'LoginPage'});
 		this.pages.push({title: 'RegisterPage', name: 'RegisterPage'});
@@ -25,18 +32,6 @@ export class HomePage {
   ionViewDidLoad() 
   {
 	console.log('ionViewDidLoad home page');
-  }
-
-  pageTapped(event, page) 
-  {	
-	if(page.name == 'LoginPage')
-	{
-		this.navCtrl.push(LoginPage, {fromPage: 'HomePage'});
-	}
-	else if(page.name == 'RegisterPage')
-	{
-		this.navCtrl.push(RegisterPage, {fromPage: 'HomePage'});
-	}
-		
+	
   }
 }
