@@ -37,4 +37,20 @@ export class LecturerScheduleDetailsPage {
     );
   }
 
+  updateTimeEntry(){
+    console.log('update timeEntry ScheduleDetailsPage');
+    console.error(this.timeEntry.title);
+    console.error(this.timeEntry.details);
+    this.timeEntryProvider.updateTimeEntry(this.timeEntry).subscribe(
+      response => {
+        console.error("inside update timeEntry");
+        window.alert('TimeEntry updated successfully!');
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+         window.alert('an error happened when update timeEntry!');
+      }
+    );
+  }
+
 }
