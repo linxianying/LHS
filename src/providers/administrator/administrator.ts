@@ -25,7 +25,7 @@ export class AdministratorProvider {
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/LearningHubSystem-rest/webresources/administrator';
 	
-	baseUrl = "/api/administrator";
+	baseUrl = "/api/admin";
 	
 	username = "";
 	password = "";
@@ -50,6 +50,26 @@ export class AdministratorProvider {
 		}
 		
 		return this.httpClient.get<any>(path + "/retrieveAdmin/" + adminId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+
+	getCurrentAdmin(username: string): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/getAdmin/" + username).pipe
 		(
 			catchError(this.handleError)
 		);

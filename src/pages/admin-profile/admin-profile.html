@@ -1,18 +1,63 @@
-<!--
-  Generated template for the AdminProfilePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<ion-header>  
+  
+  <ion-toolbar>
+    <ion-navbar no-border-bottom>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+       <ion-title>
+      Administrator Details
+    </ion-title>
+    </ion-navbar>
+   
+    
 
-  <ion-navbar>
-    <ion-title>adminProfile</ion-title>
-  </ion-navbar>
-
+  </ion-toolbar>
 </ion-header>
 
+<ion-content *ngIf="admin">
+  <br/>
+  <ion-list>
+      <ion-item>
+        <br/><br/>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/{{admin.name}}.jpg">
+        </ion-thumbnail>
+        <h2>{{admin.username}}</h2>
+      </ion-item>
 
-<ion-content padding>
+      
 
+      <ion-item>
+        <ion-label color="light">Telephone (can update)</ion-label>
+        <ion-input text-right [(ngModel)]="admin.telephone" value="{{admin.telephone}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="light"> Email (can update)</ion-label>
+        <ion-input text-right [(ngModel)]="admin.email" value="{{admin.email}}"  ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label> Want to cancel premium mobile app?</ion-label>
+        <ion-checkbox [(ngModel)]="outStatus" color="danger" checked="false"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+      <button ion-button block (click)="updatePassword()">
+        Update Password
+      </button>
+    </ion-item>
+
+      <ion-item>
+      <button ion-button block (click)="updateAdmin()">
+        Update Profile
+      </button>
+    </ion-item>
+
+    
+
+     
+  </ion-list>
 </ion-content>
