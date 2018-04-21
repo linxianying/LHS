@@ -37,11 +37,11 @@
 		</ion-item>
 		<ion-item>
 			<ion-label floating  style="color:white">Start Date</ion-label>
-			<ion-datetime displayFormat="YYYY-MM-DD HH:mm" [(ngModel)]="timeEntry.fromDate"></ion-datetime>
+			<ion-datetime displayFormat="YYYY-MM-DD HH:mm" pickerFormat="YYYY-MM-DD HH:mm"  [(ngModel)]="timeEntry.fromDate"></ion-datetime>
 		</ion-item>
 		<ion-item>
 			<ion-label floating  style="color:white">End Date</ion-label>
-			<ion-datetime displayFormat="YYYY-MM-DD HH:mm" [(ngModel)]="timeEntry.toDate"></ion-datetime>
+			<ion-datetime displayFormat="YYYY-MM-DD HH:mm" pickerFormat="YYYY-MM-DD HH:mm" [(ngModel)]="timeEntry.toDate"></ion-datetime>
 		</ion-item>
 		<ion-item>
 			<ion-label floating style="color:white">Details</ion-label>

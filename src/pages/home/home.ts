@@ -62,7 +62,7 @@ export class HomePage {
   }
   ionViewDidLoad() 
   {
-	console.log('ionViewDidLoad home page');
+	  console.log('ionViewDidLoad home page');
 	
   }
 }
