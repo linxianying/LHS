@@ -15,38 +15,29 @@
 
 
 <ion-content  *ngIf="timeEntry" style="color:black;">
-    <ion-grid>
-	  <ion-row>
-		<ion-col>
-			<div>Title:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{timeEntry.title}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Start Date:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{timeEntry.fromDate| date:'yyyy-MM-dd HH:mm:ss'}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>End Date:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{timeEntry.toDate| date:'yyyy-MM-dd HH:mm:ss'}}</div>
-		</ion-col>
-	  </ion-row>
-	  <ion-row>
-		<ion-col>
-			<div>Details:</div>
-		</ion-col>
-		<ion-col>
-			<div>{{timeEntry.details}}</div>
-		</ion-col>
-	  </ion-row>
-	</ion-grid>
+	<div style="height:30px;" ></div>
+	
+	<ion-item>
+      <ion-label color="light">Title</ion-label>
+   	  <ion-input text-right [(ngModel)]="timeEntry.title" value="{{timeEntry.title}}"></ion-input>
+    </ion-item>
+	<ion-item>
+	    Start Date
+	    <ion-note color ="light" item-end>
+	      {{timeEntry.fromDate| date:'yyyy-MM-dd HH:mm:ss'}}
+	    </ion-note>
+	</ion-item>
+	<ion-item>
+	    End Date
+	    <ion-note color ="light" item-end>
+	      {{timeEntry.toDate| date:'yyyy-MM-dd HH:mm:ss'}}
+	    </ion-note>
+	</ion-item>
+	<ion-item>
+      <ion-label color="light">Details</ion-label>
+   	  <ion-input text-right [(ngModel)]="timeEntry.details" value="{{timeEntry.details}}"></ion-input>
+    </ion-item>
+	 <button ion-button block (click)="updateTimeEntry()">
+        Update TimeEntry
+      </button>
 </ion-content>
