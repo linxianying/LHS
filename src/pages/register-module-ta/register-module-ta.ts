@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams,ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { TeachingAssistantProvider } from '../../providers/teaching-assistant/teaching-assistant';
 import { Module } from '../../entities/module';
@@ -24,7 +24,8 @@ export class RegisterModuleTaPage {
   studentToAssignId: number;
   taToAssignId: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public taProvider:TeachingAssistantProvider,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  public taProvider:TeachingAssistantProvider,public toastCtrl: ToastController) {
   this.moduleId = navParams.get('moduleId');
   }
 
@@ -37,8 +38,18 @@ export class RegisterModuleTaPage {
 
     this.taProvider.assignModule(this.moduleId, this.taToAssignId).subscribe(
       response => {           
-        this.infoMessage = "Module " + response.id + " registered successfully";
         this.errorMessage = null;
+
+        let toast = this.toastCtrl.create(
+                    {
+                      message: 'Module registered successfully',
+                      cssClass: 'toast',
+                      duration: 3000
+                    });
+                    
+                    toast.present();
+                    
+                    this.navCtrl.pop();
       },
       error => {        
         this.infoMessage = null;
