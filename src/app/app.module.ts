@@ -10,7 +10,6 @@ import { LogoutPage } from '../pages/logout/logout';
 import { RegisterPage } from '../pages/register/register';
 import { LecturerModulePage } from '../pages/lecturer-module/lecturer-module';
 import { LecturerSchedulePage } from '../pages/lecturer-schedule/lecturer-schedule';
-import { StudentDashboardPage } from '../pages/student-dashboard/student-dashboard';
 import { StudentModulePage } from '../pages/student-module/student-module';
 import { StudentSchedulePage } from '../pages/student-schedule/student-schedule';
 import { ScheduleDetailsPage } from '../pages/schedule-details/schedule-details';
@@ -86,7 +85,6 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterPage,
     LecturerModulePage,
     LecturerSchedulePage,
-    StudentDashboardPage,
     StudentModulePage,
     StudentSchedulePage,
     ScheduleDetailsPage,
@@ -147,7 +145,6 @@ import { HttpClientModule } from '@angular/common/http';
     LecturerModulePage,
     LecturerSchedulePage,
     LecturerLoginPage,
-    StudentDashboardPage,
     StudentModulePage,
     StudentSchedulePage,
     ScheduleDetailsPage,

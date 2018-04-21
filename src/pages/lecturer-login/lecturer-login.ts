@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, NavController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
 import { Lecturer } from '../../entities/lecturer';
 import { StudentProvider } from '../../providers/student/student';
+import { homePage } from '../home/home';
+
 /**
  * Generated class for the LecturerLoginPage page.
  *
@@ -75,6 +77,8 @@ export class LecturerLoginPage {
           });
         
           toast.present();
+          this.navCtrl.push(homePage, {username: username});
+          
         },
         error => {
           this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
@@ -87,7 +91,7 @@ export class LecturerLoginPage {
           
           alert.present(); 
           });
-      
+
       
     }
     else

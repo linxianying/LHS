@@ -8,30 +8,30 @@
 </ion-header>
 
 <ion-content padding class="page-home">
-  <div *ngIf="isLogin" style="color:black;">
-    <div style="height:60px;">
-      <img class="loginLogo"  src="assets/imgs/logo.jpg"/>
-      </div>
-      <div style="height:140px;">
-        
-      </div>
-
-  
-    <h3 >Welcome Back!</h3>
-  
-    You are login as {{username}}
-  
+  <div *ngIf="!isLogin" style="color:black;">
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+  </ion-slides>
   </div>
 
 
-  <div *ngIf="!isLogin"  style="height:60px;">
-    <div>
-    <img class="loginLogo"  src="assets/imgs/logo.jpg"/>
-    </div>
-    <div style="height:140px;">
-        
-    </div>
-    </div>
+  <div *ngIf="isLogin" >
+    <h2>Welcome To Learning Hub System</h2>
+    <h2>You are login as {{username}}</h2>
+
+    <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+  </ion-slides>
+
+  </div>
 
 </ion-content>
 
