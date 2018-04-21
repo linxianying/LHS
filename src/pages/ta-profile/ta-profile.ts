@@ -5,6 +5,7 @@ import { TeachingAssistantProvider } from '../../providers/teaching-assistant/te
 
 import { TeachingAssistant } from '../../entities/teachingAssistant';
 import { LogoutPage } from '../logout/logout';
+import { PasswordPage } from '../password/password';
 
 @Component({
   selector: 'page-ta-profile',
@@ -37,6 +38,11 @@ export class TaProfilePage {
       }
     );
   }
+
+  updatePassword(){
+    this.navCtrl.push(PasswordPage, {oldPassword: this.ta.password, id: this.ta.id, role: 'ta'});
+  }
+
 
 
   updateTA(){

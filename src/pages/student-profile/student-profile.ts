@@ -4,6 +4,7 @@ import { NavController, NavParams, ViewController, ToastController, AlertControl
 import { Student } from '../../entities/student';
 import { StudentProvider } from '../../providers/student/student';
 import { LogoutPage } from '../logout/logout';
+import { PasswordPage } from '../password/password';
 
 /**
  * Generated class for the StudentProfilePage page.
@@ -48,6 +49,10 @@ export class StudentProfilePage {
         this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
       }
     );
+  }
+
+  updatePassword(){
+    this.navCtrl.push(PasswordPage, {oldPassword: this.student.password, id: this.student.id, role: 'student'});
   }
 
   updateStudent(){

@@ -84,6 +84,7 @@ export class MyApp {
         { title: 'Home', component: HomePage },
         { title: 'Schedule', component: StudentSchedulePage },
         { title: 'Enrolled Modules', component: StudentModulePage },
+        { title: 'Profile Management', component: StudentProfilePage},
         { title: 'Logout', component: LogoutPage }
       ];
       }
@@ -92,6 +93,7 @@ export class MyApp {
         { title: 'Home', component: HomePage },
         { title: 'Schedule', component: LecturerSchedulePage },
         { title: 'Teaching Modules', component: LecturerModulePage },
+        { title: 'Profile Management', component: LecturerProfilePage},
         { title: 'Logout', component: LogoutPage }
       ];
     }
@@ -99,6 +101,7 @@ export class MyApp {
       return [
         { title: 'Home', component: HomePage },
         { title: 'Modules Involved', component: TaModulePage },
+        { title: 'Profile Management', component: TaProfilePage},
         { title: 'Logout', component: LogoutPage }
       ];
     }
@@ -107,7 +110,9 @@ export class MyApp {
         { title: 'Home', component: HomePage },
         { title: 'User Management', component: AdminUserManagementPage },
         { title: 'Module Management', component: AdminModuleManagementPage },
+        { title: 'Profile Management', component: AdminProfilePage},
         { title: 'Logout', component: LogoutPage }
+
       ];
     }
   }else{
