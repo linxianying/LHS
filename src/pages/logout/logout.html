@@ -15,17 +15,34 @@
 </ion-header>
 
 
+
 <ion-header *ngIf="fromPage=='profile' && isPremium==false">
-  
-    <ion-title>Logout</ion-title>
-    <p> your premium membership has been cancelled successfully!</p>
-    <p> If you want to renew your premium membership, please log on to web portal->profile management to update!</p>
- 
-</ion-header>
+    <ion-toolbar>
+        <table width="100%">
+            <tr>
+                <td width="2%">
+                    <ion-buttons start>
+                        <button ion-button menuToggle>
+                            <ion-icon name="menu"></ion-icon>
+                        </button>
+                    </ion-buttons>
+                </td>
+                <ion-title>Logout</ion-title>
+            </tr>
+        </table>
+    </ion-toolbar>
+    </ion-header>
 
 <ion-content padding style="color:black;" >
-  
-	You are successfully logged out!
+  <h3>You are successfully logged out!</h3>
+	
+  <p *ngIf="fromPage=='profile' && isPremium==false"> 
+  Your premium membership has been cancelled successfully!
+  </p>
+
+  <p *ngIf="fromPage=='profile' && isPremium==false"> 
+    If you want to renew your premium membership, please log on to web portal->profile management to update!
+  </p>
 
   <ion-slides pager>
     <ion-slide *ngFor="let slide of slides">
