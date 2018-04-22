@@ -5,7 +5,7 @@ import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
 import { Student } from '../../entities/student';
-
+import { LoginPage } from '../login/login';
 import { StudentProvider } from '../../providers/student/student';
 
 
@@ -26,12 +26,18 @@ export class RegisterPage {
     this.student = new Student();
   }
 
+  loginStudent(){
+    this.navCtrl.push(LoginPage);
+  }
+
+
 
   createStudent()
   {
     this.studentProvider.createStudent(this.student).subscribe(
       response => {           
         this.infoMessage = "New student " + response.id + " created successfully";
+        window.alert('New student created successfully!');
         this.errorMessage = null;
       },
       error => {        
@@ -43,6 +49,10 @@ export class RegisterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter RegisterPage');
   }
 
 }
