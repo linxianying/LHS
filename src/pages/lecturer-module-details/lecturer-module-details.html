@@ -83,7 +83,7 @@
 		</div>
 
 		<ion-list>
-			<ion-list-header>
+			<ion-list-header style="color:white;">
 	      		Lecturers
 	    	</ion-list-header>
 			<a ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturerDetails(lecturer)">
@@ -96,8 +96,9 @@
 			</a>
 		</ion-list>
 
+	<br/>
 		<ion-list>
-			<ion-list-header>
+			<ion-list-header style="color:white;">
 	      		Teaching Assistants
 	    	</ion-list-header>
 			<a ion-item *ngFor="let ta of tas" (click)="viewTaDetails(ta)">

@@ -39,13 +39,6 @@
                         </button>
                     </ion-buttons>
                 </td>
-                <td>
-                    <ion-buttons end>
-                        <button ion-button icon-only color="royal" (click)="logout()">
-                            <ion-icon name="log-out"></ion-icon>
-                        </button>
-                    </ion-buttons>
-                </td>
             </tr>
         </table>
     </ion-toolbar>
@@ -107,13 +100,13 @@
 					<ion-input style="color:black;" type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
 				</ion-item>
 				
-				<ion-item>
-					<button ion-button block (click)="clear()">
-						Clear
-					</button>					
+				<ion-item>		
 					<button type="submit" ion-button block>
 						Login
 					</button>
+					<button ion-button block (click)="clear()">
+						Clear
+					</button>	
 				</ion-item>
 
 			</ion-list>

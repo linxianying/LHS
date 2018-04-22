@@ -37,6 +37,20 @@ export class LecturerScheduleDetailsPage {
     );
   }
 
+  deleteTimeEntry(){
+      console.log('delete timeEntry ScheduleDetailsPage');
+      this.timeEntryProvider.deleteTimeEntry(this.timeEntryId).subscribe(
+        response => {
+        console.error("inside update timeEntry");
+        window.alert('TimeEntry delete successfully!');
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+         window.alert('an error happened when delete timeEntry!');
+      }
+    );
+  }
+
   updateTimeEntry(){
     console.log('update timeEntry ScheduleDetailsPage');
     console.error(this.timeEntry.title);

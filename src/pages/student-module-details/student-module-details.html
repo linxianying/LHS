@@ -1,12 +1,20 @@
 <ion-header>
-  <ion-navbar no-border-bottom>
-
-  	<button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-navbar>
-
-
+    <ion-toolbar>
+        <table width="100%">
+            <tr>
+                <td width="2%">
+                    <ion-buttons start>
+                        <button ion-button menuToggle>
+                            <ion-icon name="menu"></ion-icon>
+                        </button>
+                    </ion-buttons>
+                </td>
+                <td>
+                    <ion-title>Module Details</ion-title>
+                </td>
+            </tr>
+        </table>
+    </ion-toolbar>
 
   <ion-title> Student Module Details</ion-title>
 
@@ -83,7 +91,7 @@
 		</div>
 
 		<ion-list>
-			<ion-list-header>
+			<ion-list-header style="color:white;">
 	      		Lecturers
 	    	</ion-list-header>
 			<a ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturerDetails(lecturer)">
@@ -96,8 +104,9 @@
 			</a>
 		</ion-list>
 
+	<br/>
 		<ion-list>
-			<ion-list-header>
+			<ion-list-header style="color:white;">
 	      		Teaching Assistants
 	    	</ion-list-header>
 			<a ion-item *ngFor="let ta of tas" (click)="viewTaDetails(ta)">

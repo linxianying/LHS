@@ -5,6 +5,8 @@ import { TimeEntryProvider } from '../../providers/time-entry/time-entry';
 
 import { TimeEntry } from '../../entities/timeEntry';
 
+import { ActionSheetController, AlertController, ToastController } from 'ionic-angular';
+
 @IonicPage()
 @Component({
   selector: 'page-schedule-details',
@@ -15,11 +17,25 @@ export class ScheduleDetailsPage {
   timeEntry: TimeEntry;
   timeEntryId: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public timeEntryProvider: TimeEntryProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public timeEntryProvider: TimeEntryProvider, public alertCtrl: AlertController,
+        public toastCtrl: ToastController) {
   	this.timeEntryId = JSON.parse(sessionStorage.getItem('timeEntryId'));
     
   }
 
+  deleteTimeEntry(){
+      console.log('delete timeEntry ScheduleDetailsPage');
+      this.timeEntryProvider.deleteTimeEntry(this.timeEntryId).subscribe(
+        response => {
+        console.error("inside update timeEntry");
+        window.alert('TimeEntry delete successfully!');
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+         window.alert('an error happened when delete timeEntry!');
+      }
+    );
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScheduleDetailsPage');
@@ -50,4 +66,6 @@ export class ScheduleDetailsPage {
       }
     );
   }
+
+  
 }
