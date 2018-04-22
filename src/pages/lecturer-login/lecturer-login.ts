@@ -115,13 +115,12 @@ export class LecturerLoginPage {
           let alert = this.alertCtrl.create(
           {
             title: 'Login Failed',
-            subTitle: 'Invalid login credential',
+            subTitle: 'Invalid login credential or expired member identity.',
             buttons: ['OK']
           });
           
           alert.present(); 
-          });
-
+        });
       
     }
     else
