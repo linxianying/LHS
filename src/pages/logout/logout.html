@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header *ngIf="fromPage!='profile' || isPremium==true">
+<ion-header *ngIf="fromPage ==null || isPremium==true">
   <ion-navbar >
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -34,6 +34,7 @@
     </ion-header>
 
 <ion-content padding style="color:black;" >
+
   <h3>You are successfully logged out!</h3>
 	
   <p *ngIf="fromPage=='profile' && isPremium==false"> 
@@ -43,7 +44,6 @@
   <p *ngIf="fromPage=='profile' && isPremium==false"> 
     If you want to renew your premium membership, please log on to web portal->profile management to update!
   </p>
-
   <ion-slides pager>
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.image" class="slide-image"/>

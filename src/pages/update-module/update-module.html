@@ -61,11 +61,11 @@
 				
 				<ion-item>
 					<ion-label fixed style="color:white">Exam Date</ion-label>
-					<ion-datetime id="examDate" name="examDate" displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="examDate"></ion-datetime>
+					<ion-datetime id="examDate" name="examDate" displayFormat="YYYY-MM-DD HH:mm:ss" [(ngModel)]="moduleToUpdate.examDate"></ion-datetime>
 				</ion-item>
 				
 				<ion-item>					
-					<button type="submit" ion-button block>
+					<button type="submit" ion-button block (click)="update()">
 						Update
 					</button>
 				</ion-item>
