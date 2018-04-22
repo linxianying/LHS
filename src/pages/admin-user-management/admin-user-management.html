@@ -10,7 +10,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button> 
-    <ion-title>adminUserManagement</ion-title>
+    <ion-title>Admin User Management</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -42,7 +42,7 @@
 			{{errorMessage}}
 		</div>
 		<button ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturer(lecturer)">
-			<ion-icon name='arrow-forward'></ion-icon> <b>{{lecturer.id}}:{{lecturer.username}}</b>
+			<ion-icon name='ios-arrow-forward'></ion-icon> <b>{{lecturer.username}}</b>
 			<p>{{lecturer.name}}</p>
 		</button>
 	</ion-list>
@@ -53,7 +53,7 @@
 			{{errorMessage}}
 		</div>
 		<button ion-item *ngFor="let ta of TAs" (click)="viewTA(ta)">
-			<ion-icon name='arrow-forward'></ion-icon> <b>{{ta.id}}:{{ta.username}}</b>
+			<ion-icon name='ios-arrow-forward'></ion-icon> <b>{{ta.username}}</b>
 			<p>{{ta.name}}</p>
 		</button>
 	</ion-list>
@@ -64,7 +64,7 @@
 			{{errorMessage}}
 		</div>
 		<button ion-item *ngFor="let student of students" (click)="viewStudent(student)">
-			<ion-icon name='arrow-forward'></ion-icon> <b>{{student.id}}:{{student.username}}</b>
+			<ion-icon name='ios-arrow-forward'></ion-icon> <b>{{student.username}}</b>
 			<p>{{student.name}}</p>
 		</button>
 	</ion-list>

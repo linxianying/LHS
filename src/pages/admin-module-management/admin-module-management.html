@@ -10,7 +10,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button> 
-    <ion-title>adminModuleManagement</ion-title>
+    <ion-title>Module Management</ion-title>
   </ion-navbar>
 
 
@@ -24,12 +24,13 @@
 	</div>
 
 	<button ion-item (click)="create()">
-		Create New Module
+				<ion-icon name='md-add'></ion-icon>
+				Create New Module
 	</button>
 
 	<ion-list>
 		<button ion-item *ngFor="let module of modules" (click)="viewModuleDetails(module)">
-			<ion-icon name='arrow-forward'></ion-icon> <b>{{module.id}}: {{module.moduleCode}}</b>
+			<ion-icon name='ios-arrow-forward'></ion-icon> <b>{{module.moduleCode}}</b>
 			<p>{{module.moduleName}}</p>
 		</button>
 	</ion-list>
