@@ -5,14 +5,40 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>  	
     <ion-title>Admin Login</ion-title>
   </ion-navbar>
+</ion-header>
 
+<ion-header  *ngIf="isLogin">
+    <ion-toolbar>
+
+        <table width="100%">
+            <tr>
+                <td width="2%">
+                    <ion-buttons start>
+                        <button ion-button menuToggle>
+                            <ion-icon name="menu"></ion-icon>
+                        </button>
+                    </ion-buttons>
+                </td>
+                <td>
+                    <ion-title>Home Page</ion-title>
+                </td>
+                <td>
+                    <ion-buttons end>
+                        <button ion-button icon-only color="royal" 
+                        (click)="viewUserDetails()">
+                            <ion-icon name="person-add"></ion-icon>
+                        </button>
+                    </ion-buttons>
+                </td>
+            </tr>
+        </table>
+    </ion-toolbar>
 </ion-header>
 
 
@@ -84,7 +110,19 @@
 			</ion-list>
 			
 		</form>
-		
+	</div>
+
+	<div *ngIf="isLogin">
+		<h3 style="color:black;">Welcome To Learning Hub System: {{username}}</h3>
+    	<br/>
+
+	    <ion-slides pager>
+	      <ion-slide *ngFor="let slide of slides">
+	        <img [src]="slide.image" class="slide-image"/>
+	        <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+	        <p [innerHTML]="slide.description"></p>
+	      </ion-slide>
+	    </ion-slides>
 	</div>
 </ion-content>
 
