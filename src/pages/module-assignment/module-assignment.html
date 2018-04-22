@@ -15,61 +15,64 @@
 
 <ion-content padding>
 
-	<button ion-item (click)="registerModuleLecturer()">
-		<ion-icon name='arrow-forward'></ion-icon>
-		Register Module: Lecturer
-	</button>
-
     <ion-list>
-			<ion-list-header>
-	      		Lecturers
+			<ion-list-header style="color: black">
+	      		<h2>Lecturer List</h2>
 	    	</ion-list-header>
+	    	
+	    	<button ion-item (click)="registerModuleLecturer()">
+				<ion-icon name='md-add'></ion-icon>
+				Assign New Lecturer
+			</button>
 				<ion-item *ngFor="let lecturer of lecturers">
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{lecturer.name}}.jpg">
 			        </ion-thumbnail>
 			        <h2>{{lecturer.name}}</h2>
 			        <p>{{lecturer.faculty}}:{{lecturer.department}}</p>
-			        <button ion-button clear item-end (click)="removeLecturer(lecturer)">Remove</button>
+			        <button ion-button clear item-end (click)="removeLecturer(lecturer)" style="color: white">Remove</button>
 			    </ion-item>
 			   
 		</ion-list>
 		<br/>
 
-		<button ion-item (click)="registerModuleTA()">
-			<ion-icon name='arrow-forward'></ion-icon>
-			Register Module: Teaching Assistant
-		</button>
 		<ion-list>
-			<ion-list-header>
-	      		Teaching Assistants
+			<ion-list-header style="color: black">
+	      		<h2>Teaching Assistant List</h2>
 	    	</ion-list-header>
+
+	    	<button ion-item (click)="registerModuleTA()">
+				<ion-icon name='md-add'></ion-icon>
+				Assign New Teaching Assistant
+			</button>
 				<ion-item *ngFor="let ta of tas">
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{ta.name}}.jpg">
 			        </ion-thumbnail>
 			        <h2>{{ta.name}}</h2>
 			        <p>{{ta.faculty}}:{{ta.department}}</p>
-			        <button ion-button clear item-end (click)="removeTA(ta)">Remove</button>
+			        <button ion-button clear item-end (click)="removeTA(ta)" style="color: white">Remove</button>
 			    </ion-item>
 		</ion-list>
 		<br/>
 
-		<button ion-item (click)="registerModuleStudent()">
-			<ion-icon name='arrow-forward'></ion-icon>
-			Register Module: Student
-		</button>
+	
 		<ion-list>
-			<ion-list-header>
-	      		Students
+			<ion-list-header style="color: black">
+	      		<h2>Student List</h2>
 	    	</ion-list-header>
+
+	    	<button ion-item (click)="registerModuleStudent()">
+				<ion-icon name='md-add'></ion-icon>
+				Assign New Student
+			</button>
 				<ion-item *ngFor="let student of students">
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{student.name}}.jpg">
 			        </ion-thumbnail>
 			        <h2>{{student.name}}</h2>
 			        <p>{{student.faculty}}:{{student.department}}</p>
-			        <button ion-button clear item-end (click)="removeStudent(student)">Remove</button>
+			        <button ion-button clear item-end (click)="removeStudent(student)" style="color: white">Remove</button>
 			    </ion-item>
 		</ion-list>
 

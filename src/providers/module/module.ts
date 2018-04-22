@@ -279,8 +279,10 @@ export class ModuleProvider {
 
 	}
 
-	updateModule(moduleId: number): Observable<any>
+	updateModule(module: Module): Observable<any>
 	{	
+		let updateModuleReq = {"module": module};
+
 		let path: string = '';
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
@@ -290,10 +292,6 @@ export class ModuleProvider {
 		else
 		{
 			path = this.fullBaseUrl;
-		}
-
-		let updateModuleReq = {
-			"moduleId": moduleId
 		}
 		
 		return this.httpClient.post<any>(path, updateModuleReq, httpOptions).pipe

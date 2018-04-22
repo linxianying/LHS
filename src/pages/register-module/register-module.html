@@ -28,6 +28,15 @@
 			<button ion-button block (click)="registerModuleLecturer()">
 				Register 
 			</button>
+
+
+	<ion-searchbar (ionInput)="searchLec($event)"></ion-searchbar>
+		<ion-list>
+  			<ion-item *ngFor="let lecturer of lecturers">
+    			<b>{{lecturer.id}} {{lecturer.name}}</b>
+				<p>{{lecturer.faculty}}</p>
+  			</ion-item>
+		</ion-list>
 		
 	
 
