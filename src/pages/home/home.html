@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Learning Hub System</ion-title>
+    <ion-title>Home Page</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,16 +20,16 @@
 
 
   <div *ngIf="isLogin" >
-    <h2>Welcome To Learning Hub System</h2>
-    <h2>You are login as {{username}}</h2>
+    <h3 style="color:black;">Welcome To Learning Hub System: {{username}}</h3>
+    <br/>
 
     <ion-slides pager>
-    <ion-slide *ngFor="let slide of slides">
-      <img [src]="slide.image" class="slide-image"/>
-      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
-    </ion-slide>
-  </ion-slides>
+      <ion-slide *ngFor="let slide of slides">
+        <img [src]="slide.image" class="slide-image"/>
+        <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+        <p [innerHTML]="slide.description"></p>
+      </ion-slide>
+    </ion-slides>
 
   </div>
 
