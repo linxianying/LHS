@@ -18,7 +18,7 @@ export class HomePage {
 
   slides = [
     {
-      title: "National University",
+      title: "National University of Singapore",
       description: "NUS is an autonomous research university in Singapore. Founded in 1905 as a medical college, it is the oldest institute of higher learning in Singapore, as well as the largest university in the country in terms of student enrollment and curriculum offered. ",
       image: "assets/imgs/nus.png",
     },
@@ -48,7 +48,7 @@ export class HomePage {
 				public navParams: NavParams) 
   {
 		this.pages = [];
-    this.username = navParams.get('username');
+    this.username = sessionStorage.getItem("username");
 		if(sessionStorage.getItem("isLogin") === "true")
 	    {
 	      this.isLogin = true;
@@ -56,8 +56,6 @@ export class HomePage {
 	      this.isLogin = false;
 	    }
 		
-		this.pages.push({title: 'LoginPage', name: 'LoginPage'});
-		this.pages.push({title: 'RegisterPage', name: 'RegisterPage'});
 		
   }
   ionViewDidLoad() 
