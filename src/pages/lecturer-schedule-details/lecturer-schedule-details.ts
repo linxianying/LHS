@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TimeEntryProvider } from '../../providers/time-entry/time-entry';
 
 import { TimeEntry } from '../../entities/timeEntry';
+import { ActionSheetController, AlertController, ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -16,7 +17,8 @@ export class LecturerScheduleDetailsPage {
   timeEntry: TimeEntry;
   timeEntryId: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public timeEntryProvider: TimeEntryProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public timeEntryProvider: TimeEntryProvider, public alertCtrl: AlertController,
+        public toastCtrl: ToastController) {
   	this.timeEntryId = JSON.parse(sessionStorage.getItem('timeEntryId'));
 
     
@@ -58,8 +60,16 @@ export class LecturerScheduleDetailsPage {
     this.timeEntryProvider.updateTimeEntry(this.timeEntry).subscribe(
       response => {
         console.error("inside update timeEntry");
-        window.alert('TimeEntry updated successfully!');
+        let toast = this.toastCtrl.create(
+          {
+            message: 'TimeEntry updated successfully!' ,
+            duration: 3000
+          });
+        
+          toast.present();
+      
       },
+
       error => {        
         this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
          window.alert('an error happened when update timeEntry!');

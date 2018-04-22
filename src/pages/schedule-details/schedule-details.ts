@@ -58,7 +58,13 @@ export class ScheduleDetailsPage {
     this.timeEntryProvider.updateTimeEntry(this.timeEntry).subscribe(
       response => {
         console.error("inside update timeEntry");
-        window.alert('TimeEntry updated successfully!');
+        let toast = this.toastCtrl.create(
+          {
+            message: 'TimeEntry updated successfully!' ,
+            duration: 3000
+          });
+        
+          toast.present();
       },
       error => {        
         this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
