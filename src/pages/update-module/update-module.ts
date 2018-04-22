@@ -39,12 +39,30 @@ export class UpdateModulePage {
 	{		
 		this.submitted = true;
 			
-			this.moduleProvider.updateModule(this.moduleToUpdate.id).subscribe(
+			this.moduleProvider.updateModule(this.moduleToUpdate).subscribe(
 				response => {					
 					this.infoMessage = "Module updated successfully";
+          let toast = this.toastCtrl.create(
+                    {
+                      message: 'Module updated successfully',
+                      cssClass: 'toast',
+                      duration: 3000
+                    });
+                    
+                    toast.present();
+                    
+                    this.navCtrl.pop();
 				},
 				error => {
 					this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+          let toast = this.toastCtrl.create(
+                    {
+                      message: 'Error updating module',
+                      cssClass: 'toast',
+                      duration: 3000
+                    });
+                    
+                    toast.present();
 				}
 			);
 		}
