@@ -22,6 +22,8 @@ export class LecturerProvider {
 	
 	baseUrl = "/api/lecturer";
 
+	filteredLecturers : Lecturer[];
+
 
   	constructor(public platform: Platform, private httpClient: HttpClient) {
     	console.log('Hello LecturerProvider Provider');
@@ -279,6 +281,22 @@ export class LecturerProvider {
 		(
 			catchError(this.handleError)
 		);
+	}
+
+	filterLecturers(searchTerm)
+	{	
+		this.getAllLecturers().subscribe(
+      		response => {
+        this.filteredLecturers = response.lecturer; 
+      		},
+      error => {       
+      }
+    );
+		return this.filteredLecturers.filter((lecturer: Lecturer) => {
+        return lecturer.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+      });
+
+
 	}
 
 
