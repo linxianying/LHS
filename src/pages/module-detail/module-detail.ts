@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { ModuleProvider } from '../../providers/module/module';
 
 import { Module } from '../../entities/module';
+
 import { ActionSheetController, AlertController, ToastController } from 'ionic-angular';
 
 import { UpdateModulePage } from '../update-module/update-module';

@@ -149,7 +149,7 @@ export class TimeEntryProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.delete<any>(path + "?id=" + id).pipe
+		return this.httpClient.delete<any>(path + "/" + id).pipe
 		(			
 			catchError(this.handleError)
 		);
