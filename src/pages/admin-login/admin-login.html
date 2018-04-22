@@ -98,15 +98,14 @@
 					<ion-input style="color:black;" type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
 				</ion-item>
 				
-				<ion-item>
-					<button ion-button block (click)="clear()">
-						Clear
-					</button>					
+				<ion-item>		
 					<button type="submit" ion-button block>
 						Login
 					</button>
+					<button ion-button block (click)="clear()">
+						Clear
+					</button>	
 				</ion-item>
-
 			</ion-list>
 			
 		</form>
