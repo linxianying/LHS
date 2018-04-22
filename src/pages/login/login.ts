@@ -12,6 +12,9 @@ import { StudentProvider } from '../../providers/student/student';
 
 import { StudentProfilePage } from '../student-profile/student-profile';
 
+import { HomePage } from '../home/home';
+import { LogoutPage } from '../logout/logout';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -85,6 +88,10 @@ export class LoginPage {
 
   viewUserDetails(){
     this.navCtrl.push(StudentProfilePage);
+  }
+
+  logout(){
+    this.navCtrl.push(LogoutPage, {fromPage: 'home'});
   }
 
   clear()
