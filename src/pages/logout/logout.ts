@@ -25,7 +25,7 @@ export class LogoutPage {
 
    slides = [
     {
-      title: "National University",
+      title: "National University of Singapore",
       description: "NUS is an autonomous research university in Singapore. Founded in 1905 as a medical college, it is the oldest institute of higher learning in Singapore, as well as the largest university in the country in terms of student enrollment and curriculum offered. ",
       image: "assets/imgs/nus.png",
     },
