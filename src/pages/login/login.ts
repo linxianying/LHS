@@ -53,6 +53,11 @@ export class LoginPage {
     this.username = sessionStorage.getItem("username");
   }
 
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter StudentloginPage');
+  }
+
   viewUserDetails(){
     this.navCtrl.push(StudentProfilePage);
   }

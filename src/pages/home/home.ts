@@ -65,4 +65,10 @@ export class HomePage {
 	  console.log('ionViewDidLoad home page');
 	
   }
+
+  ionViewWillEnter() 
+  {
+    console.log('ionViewWillEnter home page');
+  
+  }
 }
