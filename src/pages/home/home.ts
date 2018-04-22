@@ -3,6 +3,10 @@ import { NavController, NavParams} from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 import { RegisterPage } from '../register/register';
+import { AdminProfilePage } from '../admin-profile/admin-profile';
+import { StudentProfilePage } from '../student-profile/student-profile';
+import { TaProfilePage } from '../ta-profile/ta-profile';
+import { LecturerProfilePage } from '../lecturer-profile/lecturer-profile';
 
 
 @Component({
@@ -18,7 +22,7 @@ export class HomePage {
 
   slides = [
     {
-      title: "National University",
+      title: "National University of Singapore",
       description: "NUS is an autonomous research university in Singapore. Founded in 1905 as a medical college, it is the oldest institute of higher learning in Singapore, as well as the largest university in the country in terms of student enrollment and curriculum offered. ",
       image: "assets/imgs/nus.png",
     },
@@ -48,7 +52,7 @@ export class HomePage {
 				public navParams: NavParams) 
   {
 		this.pages = [];
-    this.username = navParams.get('username');
+    this.username = sessionStorage.getItem("username");
 		if(sessionStorage.getItem("isLogin") === "true")
 	    {
 	      this.isLogin = true;
@@ -56,8 +60,6 @@ export class HomePage {
 	      this.isLogin = false;
 	    }
 		
-		this.pages.push({title: 'LoginPage', name: 'LoginPage'});
-		this.pages.push({title: 'RegisterPage', name: 'RegisterPage'});
 		
   }
   ionViewDidLoad() 
@@ -70,5 +72,23 @@ export class HomePage {
   {
     console.log('ionViewWillEnter home page');
   
+  }
+
+  viewUserDetails(){
+    
+    var role=sessionStorage.getItem("role");
+
+    if(role==="student"){
+      this.navCtrl.push(StudentProfilePage);
+      }
+    else if (role==="lecturer"){
+      this.navCtrl.push(LecturerProfilePage);
+    }
+    else if (role==="ta"){
+      this.navCtrl.push(TaProfilePage);
+    }
+    else if (role==="admin"){
+      this.navCtrl.push(AdminProfilePage);
+    }
   }
 }
