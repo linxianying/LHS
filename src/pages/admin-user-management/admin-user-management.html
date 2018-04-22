@@ -43,7 +43,7 @@
 		</div>
 		<button ion-item *ngFor="let lecturer of lecturers" (click)="viewLecturer(lecturer)">
 			<ion-icon name='ios-arrow-forward'></ion-icon> <b>{{lecturer.username}}</b>
-			<p>{{lecturer.name}}</p>
+			<p>id:{{lecturer.id}} {{lecturer.name}}</p>
 		</button>
 	</ion-list>
 
@@ -54,7 +54,7 @@
 		</div>
 		<button ion-item *ngFor="let ta of TAs" (click)="viewTA(ta)">
 			<ion-icon name='ios-arrow-forward'></ion-icon> <b>{{ta.username}}</b>
-			<p>{{ta.name}}</p>
+			<p>id:{{ta.id}} {{ta.name}}</p>
 		</button>
 	</ion-list>
 
@@ -65,7 +65,7 @@
 		</div>
 		<button ion-item *ngFor="let student of students" (click)="viewStudent(student)">
 			<ion-icon name='ios-arrow-forward'></ion-icon> <b>{{student.username}}</b>
-			<p>{{student.name}}</p>
+			<p>id:{{student.id}} {{student.name}}</p>
 		</button>
 	</ion-list>
 	
