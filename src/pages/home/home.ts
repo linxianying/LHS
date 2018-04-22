@@ -3,6 +3,10 @@ import { NavController, NavParams} from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 import { RegisterPage } from '../register/register';
+import { AdminProfilePage } from '../admin-profile/admin-profile';
+import { StudentProfilePage } from '../student-profile/student-profile';
+import { TaProfilePage } from '../ta-profile/ta-profile';
+import { LecturerProfilePage } from '../lecturer-profile/lecturer-profile';
 
 
 @Component({
@@ -68,5 +72,23 @@ export class HomePage {
   {
     console.log('ionViewWillEnter home page');
   
+  }
+
+  viewUserDetails(){
+    
+    var role=sessionStorage.getItem("role");
+
+    if(role==="student"){
+      this.navCtrl.push(StudentProfilePage);
+      }
+    else if (role==="lecturer"){
+      this.navCtrl.push(LecturerProfilePage);
+    }
+    else if (role==="ta"){
+      this.navCtrl.push(TaProfilePage);
+    }
+    else if (role==="admin"){
+      this.navCtrl.push(AdminProfilePage);
+    }
   }
 }
