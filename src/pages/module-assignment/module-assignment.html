@@ -26,7 +26,7 @@
 			</button>
 				<ion-item *ngFor="let lecturer of lecturers">
 			        <ion-thumbnail item-start>
-			          <img src="assets/imgs/{{lecturer.name}}.jpg">
+			          <img src="assets/imgs/{{lecturer.photoName}}.jpg">
 			        </ion-thumbnail>
 			        <h2>{{lecturer.name}}</h2>
 			        <p>{{lecturer.faculty}}:{{lecturer.department}}</p>
@@ -47,7 +47,7 @@
 			</button>
 				<ion-item *ngFor="let ta of tas">
 			        <ion-thumbnail item-start>
-			          <img src="assets/imgs/{{ta.name}}.jpg">
+			          <img src="assets/imgs/{{ta.photoName}}.jpg">
 			        </ion-thumbnail>
 			        <h2>{{ta.name}}</h2>
 			        <p>{{ta.faculty}}:{{ta.department}}</p>
@@ -68,7 +68,7 @@
 			</button>
 				<ion-item *ngFor="let student of students">
 			        <ion-thumbnail item-start>
-			          <img src="assets/imgs/{{student.name}}.jpg">
+			          <img src="assets/imgs/{{student.photoName}}.jpg">
 			        </ion-thumbnail>
 			        <h2>{{student.name}}</h2>
 			        <p>{{student.faculty}}:{{student.department}}</p>
