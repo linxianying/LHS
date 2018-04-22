@@ -15,15 +15,15 @@
 
 <ion-content padding>
 
-	<button ion-item (click)="registerModuleLecturer()">
-		<ion-icon name='arrow-forward'></ion-icon>
-		Register Module: Lecturer
-	</button>
-
     <ion-list>
-			<ion-list-header>
-	      		Lecturers
+			<ion-list-header style="color: white">
+	      		List: Lecturers
 	    	</ion-list-header>
+	    	
+	    	<button ion-item (click)="registerModuleLecturer()">
+				<ion-icon name='arrow-forward'></ion-icon>
+				Register Module: Lecturer
+			</button>
 				<ion-item *ngFor="let lecturer of lecturers">
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{lecturer.name}}.jpg">
@@ -36,14 +36,15 @@
 		</ion-list>
 		<br/>
 
-		<button ion-item (click)="registerModuleTA()">
-			<ion-icon name='arrow-forward'></ion-icon>
-			Register Module: Teaching Assistant
-		</button>
 		<ion-list>
-			<ion-list-header>
-	      		Teaching Assistants
+			<ion-list-header style="color: white">
+	      		List: Teaching Assistants
 	    	</ion-list-header>
+
+	    	<button ion-item (click)="registerModuleTA()">
+				<ion-icon name='arrow-forward'></ion-icon>
+				Register Module: Teaching Assistant
+			</button>
 				<ion-item *ngFor="let ta of tas">
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{ta.name}}.jpg">
@@ -55,14 +56,16 @@
 		</ion-list>
 		<br/>
 
-		<button ion-item (click)="registerModuleStudent()">
-			<ion-icon name='arrow-forward'></ion-icon>
-			Register Module: Student
-		</button>
+	
 		<ion-list>
-			<ion-list-header>
-	      		Students
+			<ion-list-header style="color: white">
+	      		List: Students
 	    	</ion-list-header>
+
+	    	<button ion-item (click)="registerModuleStudent()">
+				<ion-icon name='arrow-forward'></ion-icon>
+				Register Module: Student
+			</button>
 				<ion-item *ngFor="let student of students">
 			        <ion-thumbnail item-start>
 			          <img src="assets/imgs/{{student.name}}.jpg">

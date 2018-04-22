@@ -24,6 +24,8 @@ export class RegisterModulePage {
   studentToAssignId: number;
   taToAssignId: number;
 
+  lecturers: Lecturer[];
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public lecturerProvider: LecturerProvider,public toastCtrl: ToastController) {
@@ -32,6 +34,33 @@ export class RegisterModulePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterModulePage');
+
+    this.getLecturers();
+  }
+
+  getLecturers(){
+    this.lecturerProvider.getAllLecturers().subscribe(
+      response => {
+        this.lecturers = response.lecturers;
+      },
+      error => {        
+        this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+      }
+    );
+  }
+
+  searchLec(ev: any)
+  {
+
+    this.getLecturers();
+
+    let val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.lecturers = this.lecturers.filter((lecturer) => {
+        return (lecturer.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 
   registerModuleLecturer()
