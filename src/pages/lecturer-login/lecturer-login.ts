@@ -114,7 +114,7 @@ export class LecturerLoginPage {
           this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
           let alert = this.alertCtrl.create(
           {
-            title: 'Login',
+            title: 'Login Failed',
             subTitle: 'Invalid login credential',
             buttons: ['OK']
           });

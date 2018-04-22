@@ -127,13 +127,13 @@ export class LoginPage {
           this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
           let alert = this.alertCtrl.create(
           {
-            title: 'Login',
-            subTitle: 'Invalid login credential' + error.status,
+            title: 'Login Failed',
+            subTitle: 'Invalid login credential or expired member identity.',
             buttons: ['OK']
           });
           
           alert.present(); 
-          });
+        });
       
       
     }
